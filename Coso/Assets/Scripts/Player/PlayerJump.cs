@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerJump : MonoBehaviour, IInterfaceJump
 {
-    private bool EnSuelo = false;
+    public bool EnSuelo { get; private set; } = false;
     public Rigidbody2D Rigidbody { get; private set; }
     private Transform DetectorSuelo;
 

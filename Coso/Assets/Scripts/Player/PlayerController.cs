@@ -9,8 +9,12 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerJump))]
 public class PlayerController : MonoBehaviour
 {
-    // Ligado a controles
+    // Hardcodeo animaciones
+    private static readonly int EnSueloHash = Animator.StringToHash("enSuelo");
+    private static readonly int VelocidadYHash = Animator.StringToHash("velocidadY");
     private static readonly int IsWalkingHash = Animator.StringToHash("isMoving");
+
+    // Relacionado con controles de movimiento
     [SerializeField]
     private InputActionAsset inputAction;
     private InputActionMap gameplayActionMap;
@@ -25,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private Animator animacion;
     private new Rigidbody2D rigidbody;
     private PlayerJump playerJump;
+    private BoxCollider2D boxCollider;
 
     // Variables de movimiento que estan en el editor
     [SerializeField]
@@ -33,6 +38,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Tooltip("Fuerza de salto del jugador")]
     private float jumpForce = 5f;
+    [SerializeField]
+    [Tooltip("Material del collider cuando el jugador no está en el suelo")]
+    private PhysicsMaterial2D materialNoSuelo;
+
+    // Valores originales de los materiales del collider
+    private PhysicsMaterial2D originalMaterial;
 
     private void Awake()
     {
@@ -47,6 +58,10 @@ public class PlayerController : MonoBehaviour
         animacion = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         playerJump = GetComponent<PlayerJump>();
+        boxCollider = GetComponent<BoxCollider2D>();
+
+        // Guardar el material original del collider
+        originalMaterial = boxCollider.sharedMaterial;
     }
 
     void OnEnable()
@@ -73,6 +88,8 @@ public class PlayerController : MonoBehaviour
         {
             animacion.SetBool(IsWalkingHash, false);
         }
+        animacion.SetFloat(VelocidadYHash, rigidbody.linearVelocityY);
+        animacion.SetBool(EnSueloHash, playerJump.EnSuelo);
 
         if (rigidbody.linearVelocityX > 0.01f)
         {
@@ -98,6 +115,14 @@ public class PlayerController : MonoBehaviour
         if (jump.IsPressed())
         {
             playerJump.Jump(jumpForce);
+        }
+        if (playerJump.EnSuelo)
+        {
+            boxCollider.sharedMaterial = materialNoSuelo;
+        }
+        else
+        {
+            boxCollider.sharedMaterial = originalMaterial;
         }
     }
 
