@@ -23,6 +23,7 @@ public class PlayerJump : MonoBehaviour, IInterfaceJump
     }
     public void Jump(float jumpForce)
     {
+        Debug.Log(EnSuelo);
         if (EnSuelo && tiempoTranscurrido >= CooldownJump)
         {
             Rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -33,7 +34,6 @@ public class PlayerJump : MonoBehaviour, IInterfaceJump
 
     void FixedUpdate()
     {
-        Debug.Log(EnSuelo);
         EnSuelo = Physics2D.OverlapCircle(DetectorSuelo.position, 0.1f, GroundLayer);
         tiempoTranscurrido += Time.fixedDeltaTime;
     }
