@@ -5,7 +5,7 @@ public class PlayerJump : MonoBehaviour, IInterfaceJump
 {
     public bool EnSuelo { get; private set; } = false;
     public Rigidbody2D Rigidbody { get; private set; }
-    private Transform DetectorSuelo;
+    private BoxCollider2D posicionDetectorSuelo;
 
     // Gestionan el intervalo de tiempo entre saltos
     private float CooldownJump = 0.5f;
@@ -14,11 +14,13 @@ public class PlayerJump : MonoBehaviour, IInterfaceJump
 
     [SerializeField]
     private LayerMask GroundLayer;
+    [SerializeField]
+    private GameObject detectorSuelo;
 
     void Awake()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
-        DetectorSuelo = transform.Find("DetectorSuelo");
+        posicionDetectorSuelo = detectorSuelo.GetComponent<BoxCollider2D>();
 
     }
     public void Jump(float jumpForce)
@@ -30,11 +32,12 @@ public class PlayerJump : MonoBehaviour, IInterfaceJump
             tiempoTranscurrido = 0f;
         }
     }
-    public 
+
 
     void FixedUpdate()
     {
-        EnSuelo = Physics2D.OverlapCircle(DetectorSuelo.position, 0.1f, GroundLayer);
+        EnSuelo = Physics2D.OverlapBox(posicionDetectorSuelo.bounds.center, posicionDetectorSuelo.bounds.size, 0f, GroundLayer);
+        Debug.Log("PlayerJump: EnSuelo = " + EnSuelo);
         tiempoTranscurrido += Time.fixedDeltaTime;
     }
 

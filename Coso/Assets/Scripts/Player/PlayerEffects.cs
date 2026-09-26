@@ -26,7 +26,7 @@ public class PlayerEffects : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isPlaying);
+        Debug.Log("PlayerEffects: isPlaying = " + isPlaying);
         if (Mathf.Abs(rigidbody.linearVelocityX) > 0.1f && playerJump.EnSuelo)
         {
             if (!isPlaying)
