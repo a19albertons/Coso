@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 
 [RequireComponent(typeof(PlayerJump))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class PlayerController : MonoBehaviour
 {
     // Hardcodeo animaciones
@@ -118,11 +119,11 @@ public class PlayerController : MonoBehaviour
         }
         if (playerJump.EnSuelo)
         {
-            boxCollider.sharedMaterial = materialNoSuelo;
+            boxCollider.sharedMaterial = originalMaterial;
         }
         else
         {
-            boxCollider.sharedMaterial = originalMaterial;
+            boxCollider.sharedMaterial = materialNoSuelo;
         }
     }
 
