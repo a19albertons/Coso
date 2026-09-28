@@ -34,11 +34,16 @@ public class PlayerJump : MonoBehaviour, IInterfaceJump
             
         }
     }
+    void Update()
+    {
+        Debug.DrawRay(posicionDetectorSuelo.bounds.center, Vector2.right * posicionDetectorSuelo.bounds.extents, Color.black);
+        Debug.DrawRay(posicionDetectorSuelo.bounds.center, Vector2.left * posicionDetectorSuelo.bounds.extents, Color.black);
+    }
 
 
     void FixedUpdate()
     {
-        EnSuelo = Physics2D.OverlapBox(posicionDetectorSuelo.bounds.center, posicionDetectorSuelo.bounds.size, 0f, GroundLayer);
+        EnSuelo = Physics2D.OverlapBox(posicionDetectorSuelo.bounds.center, posicionDetectorSuelo.bounds.extents, 0f, GroundLayer);
         // Debug.Log("PlayerJump: EnSuelo = " + EnSuelo);
         tiempoTranscurrido += Time.fixedDeltaTime;
     }
