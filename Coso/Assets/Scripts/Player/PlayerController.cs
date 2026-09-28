@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerJump))]
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(PlayerRump))]
 public class PlayerController : MonoBehaviour
 {
     // Hardcodeo animaciones
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private new Rigidbody2D rigidbody;
     private PlayerJump playerJump;
     private BoxCollider2D boxCollider;
+    private PlayerRump playerRump;
 
     // Variables de movimiento que estan en el editor
     [SerializeField]
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     // Valores originales de los materiales del collider
     private PhysicsMaterial2D originalMaterial;
+    private bool botonJumpPressed = false;
 
     private void Awake()
     {
@@ -60,6 +63,7 @@ public class PlayerController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         playerJump = GetComponent<PlayerJump>();
         boxCollider = GetComponent<BoxCollider2D>();
+        playerRump = GetComponent<PlayerRump>();
 
         // Guardar el material original del collider
         originalMaterial = boxCollider.sharedMaterial;
@@ -104,18 +108,36 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        if (moveRight.IsPressed())
+        if (playerRump.EnPendiente)
         {
-            playerMovement.Move(Vector2.Lerp(Vector2.zero, Vector2.right, 1f) * moveSpeedWalking);
+            if (moveRight.IsPressed())
+            {
+                playerRump.Move((1 / 0.71f) * moveSpeedWalking * Vector2.Lerp(Vector2.zero, new Vector2(0.5f, 0.5f), 1f));
+            }
+            else if (moveLeft.IsPressed())
+            {
+                playerRump.Move((1 / 0.71f) * moveSpeedWalking * Vector2.Lerp(Vector2.zero, new Vector2(-0.5f, 0.5f), 1f));
+            }
         }
-        else if (moveLeft.IsPressed())
+        else
         {
-            playerMovement.Move(Vector2.Lerp(Vector2.zero, Vector2.left, 1f) * moveSpeedWalking);
+            if (moveRight.IsPressed())
+            {
+                playerMovement.Move(Vector2.Lerp(Vector2.zero, Vector2.right, 1f) * moveSpeedWalking);
+            }
+            else if (moveLeft.IsPressed())
+            {
+                playerMovement.Move(Vector2.Lerp(Vector2.zero, Vector2.left, 1f) * moveSpeedWalking);
+            }
         }
-        if (jump.IsPressed())
+        if (jump.IsPressed() && !botonJumpPressed)
         {
             playerJump.Jump(jumpForce);
+            botonJumpPressed = true;
+        }
+        if (!jump.IsPressed())
+        {
+            botonJumpPressed = false;
         }
         if (playerJump.EnSuelo)
         {

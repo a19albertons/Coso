@@ -3,7 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement:  MonoBehaviour, IInterfaceMovement
 {
-    public Rigidbody2D Rigidbody { get; private set; }
+    private Rigidbody2D Rigidbody;
+    
     [SerializeField]
     private Vector2 maxVelocity = new(2.5f, 0f);
 

@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour, IInterfaceJump
 {
     public bool EnSuelo { get; private set; } = false;
-    public Rigidbody2D Rigidbody { get; private set; }
+    private Rigidbody2D Rigidbody;
     private BoxCollider2D posicionDetectorSuelo;
 
     // Gestionan el intervalo de tiempo entre saltos
@@ -25,11 +25,13 @@ public class PlayerJump : MonoBehaviour, IInterfaceJump
     }
     public void Jump(float jumpForce)
     {
-        Debug.Log(EnSuelo);
+        // Debug.Log(EnSuelo);
         if (EnSuelo && tiempoTranscurrido >= CooldownJump)
         {
+            Rigidbody.linearVelocityY = 0f;
             Rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             tiempoTranscurrido = 0f;
+            
         }
     }
 
@@ -37,7 +39,7 @@ public class PlayerJump : MonoBehaviour, IInterfaceJump
     void FixedUpdate()
     {
         EnSuelo = Physics2D.OverlapBox(posicionDetectorSuelo.bounds.center, posicionDetectorSuelo.bounds.size, 0f, GroundLayer);
-        Debug.Log("PlayerJump: EnSuelo = " + EnSuelo);
+        // Debug.Log("PlayerJump: EnSuelo = " + EnSuelo);
         tiempoTranscurrido += Time.fixedDeltaTime;
     }
 
