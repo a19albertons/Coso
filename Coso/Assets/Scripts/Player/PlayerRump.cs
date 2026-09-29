@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 
@@ -12,6 +13,7 @@ public class PlayerRump : MonoBehaviour, IInterfaceMovement
     private RaycastHit2D hit;
     private RaycastHit2D hitIzquierda;
     private RaycastHit2D hitDerecha;
+    private LayerMask floorLayer;
     public bool EnPendiente { get; private set; } = false;
 
     [SerializeField]
@@ -22,20 +24,21 @@ public class PlayerRump : MonoBehaviour, IInterfaceMovement
         boxCollider = GetComponent<BoxCollider2D>();
         circleCollider = GetComponent<CircleCollider2D>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        floorLayer = LayerMask.GetMask("Floor");
     }
 
     void Update()
     {
-        Debug.DrawRay(transform.position, Vector2.down * 0.52f, Color.red);
+        Debug.DrawRay(transform.position, Vector2.down * 0.8f, Color.red);
         Debug.DrawRay(transform.position + new Vector3(-0.5f, 0f, 0f), Vector2.down * 0.52f, Color.blue);
         Debug.DrawRay(transform.position + new Vector3(0.5f, 0f, 0f), Vector2.down * 0.52f, Color.green);
     }
 
     void FixedUpdate()
     {
-        hit = Physics2D.Raycast(transform.position, Vector2.down, 0.52f, LayerMask.GetMask("Floor"));
-        hitIzquierda = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0f, 0f), Vector2.down, 0.52f, LayerMask.GetMask("Floor"));
-        hitDerecha = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0f, 0f), Vector2.down, 0.52f, LayerMask.GetMask("Floor"));
+        hit = Physics2D.Raycast(transform.position, Vector2.down, 0.8f, floorLayer);
+        hitIzquierda = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0f, 0f), Vector2.down, 0.52f, floorLayer);
+        hitDerecha = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0f, 0f), Vector2.down, 0.52f, floorLayer);
 
         // Detecta si estamos en una pendiente a partir de los raycasters
         if ((hit.normal.y != 1.00 && hit.normal.y != 0)
@@ -49,16 +52,18 @@ public class PlayerRump : MonoBehaviour, IInterfaceMovement
         }
 
         // Controla el ascenso al llegar a la cima de la pendiente
-        if (hit.normal == new Vector2(0f, 1.00f) // El raycaster central detecta plano
-        && (hitIzquierda.normal == Vector2.zero || (hitDerecha.normal == Vector2.zero)) // Una de los raycaster laterales esta en el aire
-        && (hitIzquierda.normal == new Vector2(0f, 1.00f) || (hitDerecha.normal == new Vector2(0f, 1.00f))) // El otro raycaster tambien toca en plano
+        if (hit.normal.y == 1f // El raycaster central detecta plano
+        && (hitIzquierda.normal.y == 0f || (hitDerecha.normal.y == 0f)) // Una de los raycaster laterales esta en el aire
+        && (hitIzquierda.normal.y >= 1 || (hitDerecha.normal.y == 1)) // El otro raycaster tambien toca en plano
         )
         {
             RestablecerColisionadores();
         }
 
-        // Determina si hemos saltado de la pendiente y estamos en el aire
-        if (hitIzquierda.normal == Vector2.zero && hitDerecha.normal == Vector2.zero)
+        // Determina si hemos saltado de la pendiente y estamos en el aire o volvemos a superficie plana bajando de cima al suelo
+        if ((hitIzquierda.normal.y == 0f && hitDerecha.normal.y == 0f)
+        || (hitIzquierda.normal.y >= 1f && hitDerecha.normal.y == 1f)
+        )
         {
             RestablecerColisionadores();
         }
@@ -96,7 +101,7 @@ public class PlayerRump : MonoBehaviour, IInterfaceMovement
         {
             rigidbody2D.AddForce(new Vector2(direction.x, 0f), ForceMode2D.Impulse);
         }
-        
+
 
         // Eje Y
         if (rigidbody2D.linearVelocity.y + direction.y > maxVelocity.y)
@@ -111,5 +116,49 @@ public class PlayerRump : MonoBehaviour, IInterfaceMovement
         {
             rigidbody2D.AddForce(new Vector2(0f, direction.y), ForceMode2D.Impulse);
         }
+    }
+
+    public Vector2 NormalMedia()
+    {
+        Vector2 normalMedia = Vector2.zero;
+        int count = 0;
+        if (hit.collider != null)
+        {
+            normalMedia += hit.normal;
+            count++;
+        }
+        if (hitIzquierda.collider != null)
+        {
+            normalMedia += hitIzquierda.normal;
+            count++;
+        }
+        if (hitDerecha.collider != null)
+        {
+            normalMedia += hitDerecha.normal;
+            count++;
+        }
+        if (count > 0)
+        {
+            normalMedia /= count;
+            return normalMedia.normalized;
+        }
+        return Vector2.zero;
+    }
+
+    public Vector2 NormalCentral()
+    {
+        Vector2 centroPendiente = Vector2.zero;
+        int count = 0;
+        if (hit.collider != null)
+        {
+            centroPendiente += hit.normal;
+            count++;
+        }
+        if (count > 0)
+        {
+            centroPendiente /= count;
+            return centroPendiente;
+        }
+        return Vector2.zero;
     }
 }

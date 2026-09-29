@@ -108,12 +108,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Debug.Log(Mathf.Tan(Mathf.Atan2(rigidbody.linearVelocityY, rigidbody.linearVelocityX)));
-
         if (playerRump.EnPendiente)
         {
-            float pendienteRatio = Mathf.Tan(Mathf.Atan2(rigidbody.linearVelocityY, rigidbody.linearVelocityX));
-            if (0.99f < pendienteRatio && pendienteRatio < 1.01f)
+            Vector2 normalMedia = playerRump.NormalMedia();
+            if (normalMedia.x < 0f)
             {
                 if (moveRight.IsPressed())
                 {
@@ -121,32 +119,36 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (moveLeft.IsPressed())
                 {
-                    playerRump.Move(1 / 0.71f * moveSpeedWalking * Vector2.Lerp(Vector2.zero, new Vector2(-0.5f, -0.5f), 1f));
+                    Vector2 normalCentral = playerRump.NormalCentral();
+                    if (normalCentral.x < 0f)
+                    {
+                        playerRump.Move(1 / 0.71f * moveSpeedWalking * Vector2.Lerp(Vector2.zero, new Vector2(-0.5f, -0.5f), 1f));
+                    }
+                    else
+                    {
+                        playerMovement.Move(Vector2.Lerp(Vector2.zero, Vector2.left, 1f) * moveSpeedWalking);
+                    }
                 }
             }
-            else if (-1.01f < pendienteRatio && pendienteRatio < -0.99f)
+            else if (normalMedia.x > 0f)
             {
                 if (moveRight.IsPressed())
                 {
-                    playerRump.Move(1 / 0.71f * moveSpeedWalking * Vector2.Lerp(Vector2.zero, new Vector2(0.5f, -0.5f), 1f));
+                    Vector2 normalCentral = playerRump.NormalCentral();
+                    if (normalCentral.x < 0f)
+                    {
+                        playerRump.Move(1 / 0.71f * moveSpeedWalking * Vector2.Lerp(Vector2.zero, new Vector2(0.5f, -0.5f), 1f));
+                    }
+                    else
+                    {
+                        playerMovement.Move(Vector2.Lerp(Vector2.zero, Vector2.right, 1f) * moveSpeedWalking);
+                    }
                 }
                 else if (moveLeft.IsPressed())
                 {
                     playerRump.Move(1 / 0.71f * moveSpeedWalking * Vector2.Lerp(Vector2.zero, new Vector2(-0.5f, 0.5f), 1f));
                 }
             }
-            else
-            {
-                if (moveRight.IsPressed())
-                {
-                    playerMovement.Move(Vector2.Lerp(Vector2.zero, Vector2.right, 1f) * moveSpeedWalking);
-                }
-                else if (moveLeft.IsPressed())
-                {
-                    playerMovement.Move(Vector2.Lerp(Vector2.zero, Vector2.left, 1f) * moveSpeedWalking);
-                }
-            }
-
         }
         else
         {
