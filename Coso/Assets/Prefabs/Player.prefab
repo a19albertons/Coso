@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 1409476134325576802}
   - component: {fileID: 4308715371515932223}
   - component: {fileID: 3253637890779328862}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bafbad8bda14bb087498610a9bf441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRump
+  maxVelocity: {x: 2.5, y: 2.5}
 --- !u!1 &3856267852567756471
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +412,7 @@ GameObject:
   - component: {fileID: 2580477255306730114}
   - component: {fileID: 6710690938514394703}
   - component: {fileID: 5591098866314288561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectorSuelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
