@@ -2092,6 +2092,11 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 2033127474}
+--- !u!50 &2049249027 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2161908606095873692, guid: 2d8d80d81332adeb6a682d46cba2bd8f, type: 3}
+  m_PrefabInstance: {fileID: 682058211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1305430109699750707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2295,6 +2300,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2053173709315762958, guid: 65fbdb6ec7a24694589f4000d6019cfc, type: 3}
+      propertyPath: RigidbodyInfo
+      value: 
+      objectReference: {fileID: 2049249027}
     - target: {fileID: 2704013402523106349, guid: 65fbdb6ec7a24694589f4000d6019cfc, type: 3}
       propertyPath: m_Name
       value: GuiDebug
@@ -2378,6 +2387,10 @@ PrefabInstance:
     - target: {fileID: 8074258485647767053, guid: 65fbdb6ec7a24694589f4000d6019cfc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881082647962596120, guid: 65fbdb6ec7a24694589f4000d6019cfc, type: 3}
+      propertyPath: m_Name
+      value: FPS
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
