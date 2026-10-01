@@ -1,8 +1,8 @@
 using UnityEngine;
-
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerJump))]
+
+[RequireComponent(typeof(PlayerController))]
 public class PlayerEffects : MonoBehaviour
 {
     // Efectos de sonido
@@ -12,7 +12,7 @@ public class PlayerEffects : MonoBehaviour
 
     private AudioSource audioSource;
     private new Rigidbody2D rigidbody;
-    private PlayerJump playerJump;
+    private PlayerController playerController;
 
     private bool isPlaying = false;
 
@@ -20,14 +20,13 @@ public class PlayerEffects : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         rigidbody = GetComponent<Rigidbody2D>();
-        playerJump = GetComponent<PlayerJump>();
+        playerController = GetComponent<PlayerController>();
         audioSource.clip = walkGrass;
     }
 
     void Update()
     {
-        // Debug.Log("PlayerEffects: isPlaying = " + isPlaying);
-        if (Mathf.Abs(rigidbody.linearVelocityX) > 0.1f && playerJump.EnSuelo)
+        if (Mathf.Abs(rigidbody.linearVelocityX) > 0.1f && playerController.playerState.estadoActual == PlayerState.PlayerStates.Ground)
         {
             if (!isPlaying)
             {
