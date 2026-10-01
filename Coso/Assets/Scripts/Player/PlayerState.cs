@@ -5,8 +5,7 @@ public class PlayerState
     {
         Ground,
         Jump,
-        Ramp,
-        Death
+        Ramp
     }
 
     public PlayerStates estadoActual = PlayerStates.Ground;
