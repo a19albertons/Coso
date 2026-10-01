@@ -139,7 +139,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.1
-  m_GravityScale: 0.75
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -357,8 +357,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   inputAction: {fileID: -944628639613478452, guid: 2593534c0c208db088fb489c6569df45, type: 3}
   moveSpeedWalking: 0.25
-  jumpForce: 6
+  jumpForce: 6.5
   materialNoSuelo: {fileID: 6200000, guid: 09f0308247cf36aeb8b143eee5896984, type: 2}
+  posicionDetectorSuelo: {fileID: 5591098866314288561}
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &1409476134325576802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,10 +375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e327d4dd33f230a80a6eba25057ed506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  GroundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  detectorSuelo: {fileID: 3856267852567756471}
 --- !u!114 &4308715371515932223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bafbad8bda14bb087498610a9bf441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRump
-  maxVelocity: {x: 2.5, y: 2.5}
+  maxVelocity: {x: 2, y: 2}
 --- !u!1 &3856267852567756471
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +428,7 @@ Transform:
   m_GameObject: {fileID: 3856267852567756471}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4976, z: 0}
+  m_LocalPosition: {x: 0, y: -0.55, z: 0}
   m_LocalScale: {x: 0.96, y: 0.009350313, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
