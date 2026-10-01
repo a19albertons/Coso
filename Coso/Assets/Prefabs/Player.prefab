@@ -15,11 +15,8 @@ GameObject:
   - component: {fileID: 3753009146411060117}
   - component: {fileID: 3001484700779960688}
   - component: {fileID: 5955622528250246592}
-  - component: {fileID: 1030629566405298497}
   - component: {fileID: 3937153226727613854}
-  - component: {fileID: 1409476134325576802}
   - component: {fileID: 4308715371515932223}
-  - component: {fileID: 3253637890779328862}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -330,19 +327,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.48
---- !u!114 &1030629566405298497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3643715236972883106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d537a12f2a615076fa2d205982dd3bac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  maxVelocity: {x: 3, y: 0}
 --- !u!114 &3937153226727613854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,21 +344,11 @@ MonoBehaviour:
   jumpForce: 6.5
   materialNoSuelo: {fileID: 6200000, guid: 09f0308247cf36aeb8b143eee5896984, type: 2}
   posicionDetectorSuelo: {fileID: 5591098866314288561}
+  maxVelocity: {x: 2.5, y: 0}
+  maxVelocityRump: {x: 2.5, y: 2.5}
   floorLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &1409476134325576802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3643715236972883106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e327d4dd33f230a80a6eba25057ed506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
 --- !u!114 &4308715371515932223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,19 +362,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEffects
   walkGrass: {fileID: 8300000, guid: ece4d59ec1b695256a8f9c9d672490ac, type: 3}
---- !u!114 &3253637890779328862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3643715236972883106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76bafbad8bda14bb087498610a9bf441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerRump
-  maxVelocity: {x: 2, y: 2}
 --- !u!1 &3856267852567756471
 GameObject:
   m_ObjectHideFlags: 0
