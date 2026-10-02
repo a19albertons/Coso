@@ -13,13 +13,18 @@ public class GuiLevel : MonoBehaviour
     [Tooltip("Imagen de la vida extra")]
     private GameObject vidaExtra;
 
+    [SerializeField]
+    [Tooltip("Texto monedas")]
+    private TMPro.TextMeshProUGUI textoMonedas;
+
     private LevelManager levelManager;
+
+    
 
 
     void Awake()
     {
         levelManager = FindAnyObjectByType<LevelManager>();
-        ActualizarGui();
     }
 
     void Update()
@@ -53,5 +58,6 @@ public class GuiLevel : MonoBehaviour
         {
             vidaExtra.SetActive(false);
         }
+        textoMonedas.SetText(GeneralManager.GetInstance().GetMonedasAcumuladas().ToString());
     }
 }

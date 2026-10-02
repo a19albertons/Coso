@@ -1,7 +1,8 @@
 using UnityEngine;
 
 /// <summary>
-/// Clase GeneralManager que gestiona el estado general del juego, incluyendo la vida extra del jugador.
+/// Clase GeneralManager que gestiona el estado general del juego, incluyendo la vida extra del jugador,
+/// y las monedas acumuladas.
 /// </summary>
 public class GeneralManager : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class GeneralManager : MonoBehaviour
     /// Variable que controla el estado de la vida extra del jugador.
     /// </summary>
     private bool recibir1Hit = false;
+
+    /// <summary>
+    /// Monedas acumuladas por el jugador.
+    /// </summary>
+    private int monedasAcumuladas = 0;
 
     /// <summary>
     /// Devuelve la instancia única de GeneralManager. Si no existe, devuelve null.
@@ -71,5 +77,27 @@ public class GeneralManager : MonoBehaviour
     public bool EstadoVidaExtra()
     {
         return recibir1Hit;
+    }
+
+    /// <summary>
+    /// Suma una moneda al contador de monedas acumuladas. Si el jugador alcanza 100 monedas, se reinicia el contador y se puede proporcionar algún beneficio al jugador (por determinar).
+    /// </summary>
+    public void SumarMoneda()
+    {
+        monedasAcumuladas++;
+        if (monedasAcumuladas >= 100)
+        {
+            monedasAcumuladas = 0;
+            // Por determinar que se proporciona al jugador
+        }
+    }
+
+    /// <summary>
+    /// Devuelve el número de monedas acumuladas por el jugador. Función pensada para dar información en la UI
+    /// </summary>
+    /// <returns> El número de monedas acumuladas por el jugador. </returns>
+    public int GetMonedasAcumuladas()
+    {
+        return monedasAcumuladas;
     }
 }
