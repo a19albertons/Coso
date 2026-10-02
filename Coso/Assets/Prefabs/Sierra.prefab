@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6833711777502617892}
   - component: {fileID: 6394244388798249187}
   - component: {fileID: 6243885120319491294}
+  - component: {fileID: 6091794600425066892}
   m_Layer: 0
   m_Name: Sierra
   m_TagString: Untagged
@@ -153,7 +154,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -299,3 +300,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SawAnimation
   velocidadRotacion: 360
+--- !u!114 &6091794600425066892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4855798625937258730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60025ba368987a6618cf9e34af1a5dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SawDeathController
+  deathEffect: {fileID: 7204924386632334049, guid: 0ac750bb0b0445e6b953cb22eb9bb24a, type: 3}
