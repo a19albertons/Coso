@@ -19,6 +19,12 @@ public class SawDeathController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (GeneralManager.GetInstance().EstadoVidaExtra())
+            {
+                GeneralManager.GetInstance().PlayerRecibeGolpe();
+                FindFirstObjectByType<PlayerInvencible>().ActivarInvencibilidad();
+                return;
+            }
             GameObject deathEffectInstance = Instantiate(deathEffect, other.transform.position, Quaternion.identity);
             other.gameObject.SetActive(false);
             collider.isTrigger = false;

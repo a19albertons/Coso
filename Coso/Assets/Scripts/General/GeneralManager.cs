@@ -47,10 +47,9 @@ public class GeneralManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Comprueba si el jugador tiene una vida extra disponible. Si la tiene, se consume y no se destruye el jugador. Si no la tiene, se destruye el jugador.
+    /// Elimina la vida del jugador si no tiene genera un mensaje de Debug indicando que el jugador ya no tenía vida extra disponible.
     /// </summary>
-    /// <param name="player">El jugador que recibe el golpe.</param>
-    public void PlayerRecibeGolpe(GameObject player)
+    public void PlayerRecibeGolpe()
     {
         if (recibir1Hit)
         {
@@ -58,7 +57,7 @@ public class GeneralManager : MonoBehaviour
         }
         else
         {
-            Destroy(player);
+            Debug.Log("Error: El jugador ya no tiene vida extra disponible. Fallo en el flujo de juego.");
         }
     }
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6394244388798249187}
   - component: {fileID: 6243885120319491294}
   - component: {fileID: 6091794600425066892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sierra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
