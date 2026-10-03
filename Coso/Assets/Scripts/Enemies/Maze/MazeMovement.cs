@@ -74,7 +74,7 @@ public class MazeMovement : MonoBehaviour
         // Detección del jugador
         deteccionPlayer = Physics2D.BoxCast(posicionOriginal + new Vector2(0f, -distanciaAlSueloInspeccion / 2f), new Vector2(DistanciaDeteccion, distanciaAlSueloInspeccion), 0f, Vector2.right, 0f, layerMaskPlayer);
         // Gestiona las condiciones para la caida del personaje
-        if (deteccionPlayer.collider != null && ascendiendo == false && (primeraCaida || delayDescenso > tiempoEsperaCaida))
+        if ((deteccionPlayer.collider != null || descendiendo == true) && ascendiendo == false && (primeraCaida || delayDescenso > tiempoEsperaCaida))
         {
 
             rigidbody.MovePosition(Vector2.MoveTowards(transform.position, posicionFinal, descendentsSpeed * Time.fixedDeltaTime));
