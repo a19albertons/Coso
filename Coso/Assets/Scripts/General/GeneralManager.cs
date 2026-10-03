@@ -47,17 +47,13 @@ public class GeneralManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Elimina la vida del jugador si no tiene genera un mensaje de Debug indicando que el jugador ya no tenía vida extra disponible.
+    /// Elimina la vida del jugador.
     /// </summary>
     public void PlayerRecibeGolpe()
     {
         if (recibir1Hit)
         {
             recibir1Hit = false;
-        }
-        else
-        {
-            Debug.Log("Error: El jugador ya no tiene vida extra disponible. Fallo en el flujo de juego.");
         }
     }
 

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4308715371515932223}
   - component: {fileID: 7095431382048901931}
   - component: {fileID: 2985643222791270489}
+  - component: {fileID: 5669676101113807502}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -392,6 +393,19 @@ MonoBehaviour:
   playerLayerInvencible: 8
   invencibleDuration: 2
   blinkInterval: 0.2
+--- !u!114 &5669676101113807502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643715236972883106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cc08c939d5244a883a38efcecfe90f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAutomaticDeath
+  alturaMuerteEjeY: -6
 --- !u!1 &3856267852567756471
 GameObject:
   m_ObjectHideFlags: 0
