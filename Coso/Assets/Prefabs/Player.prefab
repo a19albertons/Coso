@@ -15,11 +15,16 @@ GameObject:
   - component: {fileID: 3753009146411060117}
   - component: {fileID: 3001484700779960688}
   - component: {fileID: 5955622528250246592}
+  - component: {fileID: 7222402071296992044}
+  - component: {fileID: 5669676101113807502}
+  - component: {fileID: 6869529669982748866}
   - component: {fileID: 3937153226727613854}
   - component: {fileID: 4308715371515932223}
-  - component: {fileID: 7095431382048901931}
+  - component: {fileID: 1704394544793712624}
   - component: {fileID: 2985643222791270489}
-  - component: {fileID: 5669676101113807502}
+  - component: {fileID: 6121081392822156052}
+  - component: {fileID: 7095431382048901931}
+  - component: {fileID: 4981281639696410099}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -161,7 +166,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 09f0308247cf36aeb8b143eee5896984, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -330,6 +335,52 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.48
+--- !u!114 &7222402071296992044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643715236972883106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9461a64d8b07d2e0383e0208c4eedb76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GroundDetector
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  posicionDetectorSuelo: {fileID: 5591098866314288561}
+  rayoCentral: 0.8
+  rayoIzquierdo: 0.52
+  rayoDerecho: 0.52
+  anguloPendienteMinimo: 1
+--- !u!114 &5669676101113807502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643715236972883106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cc08c939d5244a883a38efcecfe90f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAutomaticDeath
+  alturaMuerteEjeY: -6
+--- !u!114 &6869529669982748866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643715236972883106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8ab68c437f19daf8d29065ed5b0a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionAdapter
+  materialNoSuelo: {fileID: 6200000, guid: 09f0308247cf36aeb8b143eee5896984, type: 2}
 --- !u!114 &3937153226727613854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,16 +393,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcbb981623599a0c996eaacf64e6bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  inputAction: {fileID: -944628639613478452, guid: 2593534c0c208db088fb489c6569df45, type: 3}
-  moveSpeedWalking: 0.25
-  jumpForce: 6.5
-  materialNoSuelo: {fileID: 6200000, guid: 09f0308247cf36aeb8b143eee5896984, type: 2}
-  posicionDetectorSuelo: {fileID: 5591098866314288561}
-  maxVelocity: {x: 2.5, y: 0}
-  maxVelocityRump: {x: 2.5, y: 2.5}
-  floorLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  rigidbody: {fileID: 0}
+  groundDetector: {fileID: 0}
+  inputHandler: {fileID: 0}
+  playerVisuals: {fileID: 0}
+  playerMotor: {fileID: 0}
 --- !u!114 &4308715371515932223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEffects
   walkGrass: {fileID: 8300000, guid: ece4d59ec1b695256a8f9c9d672490ac, type: 3}
---- !u!114 &7095431382048901931
+--- !u!114 &1704394544793712624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,9 +420,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3643715236972883106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71854f8d6be9d215daeed3f345a53280, type: 3}
+  m_Script: {fileID: 11500000, guid: fb5adc86ec431044db462630f6b12682, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerPositionSpawn
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
+  jumpBufferTime: 0.1
+  inputAction: {fileID: -944628639613478452, guid: 2593534c0c208db088fb489c6569df45, type: 3}
 --- !u!114 &2985643222791270489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +441,7 @@ MonoBehaviour:
   playerLayerInvencible: 8
   invencibleDuration: 2
   blinkInterval: 0.2
---- !u!114 &5669676101113807502
+--- !u!114 &6121081392822156052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -402,10 +450,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 3643715236972883106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96cc08c939d5244a883a38efcecfe90f, type: 3}
+  m_Script: {fileID: 11500000, guid: 156fed367cc699e5e92cd02434588cf8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAutomaticDeath
-  alturaMuerteEjeY: -6
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMotor
+  moveSpeedWalking: 3
+  acceleration: 80
+  desacceleration: 100
+  airControlFactor: 0.5
+  jumpForce: 6.5
+  secondJumpForceMultiplier: 0.5
+  gravity: 9.81
+  fallMultiplier: 1
+  lowJumpMultiplier: 1.4
+  maxFallSpeed: 20
+--- !u!114 &7095431382048901931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643715236972883106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71854f8d6be9d215daeed3f345a53280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPositionSpawn
+--- !u!114 &4981281639696410099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643715236972883106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ff5ec820c4ea34ab9270c6cbd6d20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisuals
 --- !u!1 &3856267852567756471
 GameObject:
   m_ObjectHideFlags: 0

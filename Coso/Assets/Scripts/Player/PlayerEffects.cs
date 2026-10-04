@@ -1,8 +1,8 @@
 using UnityEngine;
+
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Rigidbody2D))]
-
-[RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(GroundDetector))]
 public class PlayerEffects : MonoBehaviour
 {
     // Efectos de sonido
@@ -12,7 +12,7 @@ public class PlayerEffects : MonoBehaviour
 
     private AudioSource audioSource;
     private new Rigidbody2D rigidbody;
-    private PlayerController playerController;
+    private GroundDetector groundDetector;
 
     private bool isPlaying = false;
 
@@ -20,13 +20,13 @@ public class PlayerEffects : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         rigidbody = GetComponent<Rigidbody2D>();
-        playerController = GetComponent<PlayerController>();
+        groundDetector = GetComponent<GroundDetector>();
         audioSource.clip = walkGrass;
     }
 
     void Update()
     {
-        if (Mathf.Abs(rigidbody.linearVelocityX) > 0.1f && playerController.playerState.estadoActual == PlayerState.PlayerStates.Ground)
+        if (Mathf.Abs(rigidbody.linearVelocityX) > 0.1f && groundDetector.EnTierra)
         {
             if (!isPlaying)
             {
