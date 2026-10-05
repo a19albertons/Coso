@@ -30,4 +30,11 @@ public class PlayerVisuals : MonoBehaviour
         animacion.SetBool(IsWalkingHash, velocity.x >= 0.01f || velocity.x <= -0.01f);
         animacion.SetBool(EnSueloHash, isGrounded);
     }
+
+    public void StopAnimacion()
+    {
+        animacion.SetFloat(VelocidadYHash, 0);
+        animacion.SetBool(IsWalkingHash, false);
+        animacion.SetBool(EnSueloHash, true);
+    }
 }
