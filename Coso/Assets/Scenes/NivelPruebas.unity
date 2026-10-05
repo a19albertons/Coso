@@ -557,6 +557,7 @@ GameObject:
   - component: {fileID: 644628785}
   - component: {fileID: 644628784}
   - component: {fileID: 644628787}
+  - component: {fileID: 644628788}
   m_Layer: 0
   m_Name: Girlfriend
   m_TagString: Untagged
@@ -747,6 +748,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndLevel
   movePoint: {fileID: 1418613595}
+--- !u!114 &644628788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644628780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f0d233c4d81a09aa42da5302df59d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GirlfriendAnimation
 --- !u!1 &669931144
 GameObject:
   m_ObjectHideFlags: 0
