@@ -1,49 +1,14 @@
-using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-public class MazeDeathController : MonoBehaviour
+public class MazeDeathController : BaseDeathController
 {
-    [SerializeField]
-    private GameObject deathEffect;
 
-    private new Collider2D collider;
-
-
-    void Awake()
+    override protected void HandlePlayerDeath(GameObject player)
     {
-        collider = GetComponent<Collider2D>();
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (GeneralManager.GetInstance().EstadoVidaExtra())
-            {
-                GeneralManager.GetInstance().PlayerRecibeGolpe();
-                FindFirstObjectByType<PlayerInvencible>().ActivarInvencibilidad();
-                return;
-            }
-            Vector3 calculoPosicionInstancia = new Vector3(transform.position.x, transform.position.y - collider.bounds.extents.y, transform.position.z);
-            GameObject deathEffectInstance = Instantiate(deathEffect, calculoPosicionInstancia, Quaternion.identity);
-            other.gameObject.SetActive(false);
-            collider.isTrigger = false;
-            StartCoroutine(ReiniciarNivel(other.gameObject, deathEffectInstance));
-        }
-    }
-
-    IEnumerator ReiniciarNivel(GameObject player, GameObject deathEffectInstance)
-    {
-        yield return new WaitForSeconds(2f);
-        // Posición spwawn del jugador
-        player.GetComponent<PlayerPositionSpawn>().SpawnPlayer();
-        // Llamar al método MuerteJugador() de SiguimientoCamera para restablecer la posición de la cámara
-        FindFirstObjectByType<SiguimientoCamera>().MuerteJugador();
-        // Restablecemos el collider para que pueda volver a detectar colisiones
-        collider.isTrigger = true;
-        // Destruir el efecto de muerte después de un tiempo
-        Destroy(deathEffectInstance);
-
+        Vector3 calculoPosicionInstancia = new Vector3(transform.position.x, transform.position.y - collider.bounds.extents.y, transform.position.z);
+        GameObject deathEffectInstance = Instantiate(deathEffect, calculoPosicionInstancia, Quaternion.identity);
+        player.gameObject.SetActive(false);
+        collider.isTrigger = false;
+        StartCoroutine(ReiniciarNivel(player.gameObject, deathEffectInstance));
     }
 }
