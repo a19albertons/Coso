@@ -3495,18 +3495,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2107828142895073376, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
-      propertyPath: m_Name
-      value: Cantidad Monedas
-      objectReference: {fileID: 0}
-    - target: {fileID: 3062361530813401753, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -840
-      objectReference: {fileID: 0}
-    - target: {fileID: 3062361530813401753, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 328
-      objectReference: {fileID: 0}
     - target: {fileID: 3271243714293036089, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3587,37 +3575,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3530828002839497339, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 854
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530828002839497339, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 320
-      objectReference: {fileID: 0}
     - target: {fileID: 5901593258478792680, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
       propertyPath: m_Name
       value: GuiLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5901593258478792680, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6906890019438599020, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
-      propertyPath: m_Name
-      value: Icono monedas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7527228820201782514, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8228209918446747513, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 710
-      objectReference: {fileID: 0}
-    - target: {fileID: 8228209918446747513, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 320
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3808,7 +3768,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1459981702742944052, guid: 19072e3ef00c4c294bae2ee98e7f1671, type: 3}
       propertyPath: m_Name
-      value: Live
+      value: PowerUpJump
       objectReference: {fileID: 0}
     - target: {fileID: 3152412405636781150, guid: 19072e3ef00c4c294bae2ee98e7f1671, type: 3}
       propertyPath: m_LocalPosition.x
