@@ -10,10 +10,11 @@ public class GestionPowerUP : MonoBehaviour
     /// Instancia única de GestionPowerUP. Se asegura que solo haya una instancia en la escena y que no se destruya al cambiar de escena.
     /// </summary>
     static GestionPowerUP instance;
+    
     /// <summary>
     /// Variable que controla el estado de la vida extra del jugador.
     /// </summary>
-    private bool hayPowerUP = false;
+    private PowerUPStateMachine estadoPowerUP = new PowerUPStateMachine();
 
 
 
@@ -35,6 +36,7 @@ public class GestionPowerUP : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            estadoPowerUP.Initialize(new NoneState(FindFirstObjectByType<PlayerController>()));
             DontDestroyOnLoad(gameObject);
         }
         else if (instance != this)
@@ -48,27 +50,27 @@ public class GestionPowerUP : MonoBehaviour
     /// </summary>
     public void PlayerPierdePowerUP()
     {
-        if (hayPowerUP)
+        if (estadoPowerUP != null)
         {
-            hayPowerUP = false;
+            estadoPowerUP.ChangeState(new NoneState(FindFirstObjectByType<PlayerController>()));
         }
     }
 
     /// <summary>
     /// Habilita el power up del jugador.
     /// </summary>
-    public void PlayerObtienePowerUP()
+    public void PlayerObtienePowerUP(PowerUPStates powerUP)
     {
-        hayPowerUP = true;
+        estadoPowerUP.ChangeState(powerUP);
     }
 
     /// <summary>
     /// Indica si el jugador tiene el power up o no.
     /// </summary>
     /// <returns>Devuelve si el jugador tiene power up o no</returns>
-    public bool EstadoPowerUP()
+    public PowerUPStates EstadoPowerUP()
     {
-        return hayPowerUP;
+        return estadoPowerUP.CurrentState;
     }
 
 

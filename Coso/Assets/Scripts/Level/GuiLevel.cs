@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Clase GuiLevel que gestiona la interfaz gráfica del nivel, incluyendo la visualización de las estrellas obtenidas.
@@ -10,7 +11,7 @@ public class GuiLevel : MonoBehaviour
     private GameObject[] estrellas = new GameObject[3];
 
     [SerializeField]
-    [Tooltip("Imagen del powerUP")]
+    [Tooltip("Imagen del powerUP habilitado")]
     private GameObject powerUP;
 
     [SerializeField]
@@ -25,14 +26,20 @@ public class GuiLevel : MonoBehaviour
     [Tooltip("Texto vidas")]
     private TMPro.TextMeshProUGUI textoVidas;
 
+    [Header("Imagenes de los distintos powerups")]
+    [SerializeField]
+    [Tooltip("Imagenes de los distintos powerups. La orden debe ser coherente con el código fuente")]
+    private Sprite[] powerups;
+
     private GestionEstrellas levelManager;
     private GestionTiempo tiempoManager;
 
-    
+
     void Awake()
     {
         levelManager = FindAnyObjectByType<GestionEstrellas>();
         tiempoManager = FindAnyObjectByType<GestionTiempo>();
+
     }
 
     void Update()
@@ -58,14 +65,13 @@ public class GuiLevel : MonoBehaviour
                 }
             }
         }
-        if (GestionPowerUP.GetInstance().EstadoPowerUP())
+        powerUP.GetComponent<Image>().sprite = GestionPowerUP.GetInstance().EstadoPowerUP() switch
         {
-            powerUP.SetActive(true);
-        }
-        else
-        {
-            powerUP.SetActive(false);
-        }
+            NoneState => powerups[0],
+            DoubleJumpState => powerups[1],
+            _ => powerups[0],
+        };
+
         textoMonedas.SetText(GestionMonedas.GetInstance().GetMonedasAcumuladas());
         textoTiempo.SetText(tiempoManager.TiempoRestante());
         textoVidas.SetText(GestionVidas.GetInstance().GetVidasActuales());

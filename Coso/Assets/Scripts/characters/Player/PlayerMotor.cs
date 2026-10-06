@@ -22,10 +22,16 @@ public class PlayerMotor : MonoBehaviour
     [Header("Salto")]
     [SerializeField]
     [Tooltip("Fuerza de salto del jugador")]
-    private float jumpForce = 5f;
+    public float JumpForce = 5f;
+
     [SerializeField]
     [Tooltip("Multiplicador de fuerza segundo salto")]
-    private float secondJumpForceMultiplier = 0.5f;
+    public float SecondJumpForceMultiplier = 0.5f;
+
+    [SerializeField]
+    [Tooltip("Multiplicador de fuerza para cortar el salto")]
+    public float CutJumpForceMultiplier = 0.5f;
+
     [SerializeField]
     [Tooltip("gravedad del jugador")]
     private float gravity = 9.81f;
@@ -42,6 +48,8 @@ public class PlayerMotor : MonoBehaviour
     // Componentes
     private Rigidbody2D rb;
 
+    public int contadorSaltos = 0;
+
 
 
     private void Awake()
@@ -49,10 +57,15 @@ public class PlayerMotor : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;       // gravedad manual
         rb.freezeRotation = true;
-
     }
 
+    
 
+    /// <summary>
+    /// Mueve al jugador sobre el suelo aplicando la velocidad deseada en la dirección del suelo
+    /// </summary>
+    /// <param name="direction">dirrecion del personaje</param>
+    /// <param name="groundNormal">Normal de la superficie sobre la que se mueve</param>
     public void MoveOnGround(float direction, Vector2 groundNormal)
     {
         if (groundNormal.sqrMagnitude < 0.000001f)
@@ -71,6 +84,10 @@ public class PlayerMotor : MonoBehaviour
         rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, targetVelocity, accel * Time.fixedDeltaTime);
     }
 
+    /// <summary>
+    /// Mueve al jugador en el aire aplicando un control limitado sobre su velocidad horizontal
+    /// </summary>
+    /// <param name="direction">Dirección de movimiento horizontal</param>
     public void MoveInAir(float direction)
     {
         float targetVelocityX = direction * moveSpeedWalking;
@@ -78,11 +95,18 @@ public class PlayerMotor : MonoBehaviour
         rb.linearVelocity = new Vector2(newVx, rb.linearVelocity.y);
     }
 
+    /// <summary>
+    /// Aplica un salto al jugador estableciendo su velocidad vertical a jumpForce
+    /// </summary>
     public void Jump()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        GestionPowerUP.GetInstance().EstadoPowerUP().Jump();
     }
 
+    /// <summary>
+    /// Aplica la gravedad al jugador de forma manual
+    /// </summary>
+    /// <param name="JumpHeld"></param>
     public void ApplyGravity(bool JumpHeld)
     {
         float g = gravity;
@@ -103,11 +127,14 @@ public class PlayerMotor : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, newVy);
     }
 
+    /// <summary>
+    /// Corta el salto del jugador si este se encuentra en el aire y su velocidad vertical es positiva, aplicando un multiplicador a la velocidad vertical
+    /// </summary>
     public void CutJump()
     {
         if (rb.linearVelocityY > 0f)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocityY * secondJumpForceMultiplier);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocityY * CutJumpForceMultiplier);
         }
     }
 

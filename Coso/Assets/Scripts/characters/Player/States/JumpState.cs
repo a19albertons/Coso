@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class JumpState : PlayerState
 {
-    private bool _cutApplied;
+    public bool _cutApplied;
     public JumpState(PlayerController p) : base(p) { }
 
     public override void Enter()
@@ -27,11 +27,7 @@ public class JumpState : PlayerState
         base.FixedUpdate();
         Player.playerMotor.MoveInAir(Player.inputHandler.MoveX);
         Player.playerMotor.ApplyGravity(Player.inputHandler.JumpHeld);
-        if (!_cutApplied && !Player.inputHandler.JumpHeld && Player.rigidbody.linearVelocity.y > 0.01f)
-        {
-            Player.playerMotor.CutJump();
-            _cutApplied = true;
-        }
+        GestionPowerUP.GetInstance().EstadoPowerUP().AplicarCutJump();
     }
 
 }

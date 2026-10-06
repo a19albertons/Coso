@@ -1,9 +1,9 @@
 using UnityEngine;
 
 /// <summary>
-/// Clase LivesController que gestiona la obtención de vidas extra por parte del jugador.
+/// Clase DoubleJumpController que gestiona la obtención de doble salto por parte del jugador.
 /// </summary>
-public class LivesController : MonoBehaviour
+public class DoubleJumpController : MonoBehaviour
 {
     /// <summary>
     /// Detecta la colisión con el jugador y otorga una vida extra si el jugador la obtiene.
@@ -12,7 +12,7 @@ public class LivesController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player"))
         {
-            GestionPowerUP.GetInstance().PlayerObtienePowerUP();
+            GestionPowerUP.GetInstance().PlayerObtienePowerUP(new DoubleJumpState(other.GetComponent<PlayerController>()));
             gameObject.SetActive(false); // Desactivar el objeto de vida extra al ser obtenida
         }
     }

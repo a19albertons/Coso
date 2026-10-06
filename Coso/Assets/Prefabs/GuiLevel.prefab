@@ -564,7 +564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1160753365423254963, guid: 04711352e09187ce8b3a5082ddd7ee06, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -706,6 +706,7 @@ MonoBehaviour:
   textoMonedas: {fileID: 1593512674039961624}
   textoTiempo: {fileID: 955201622034211314}
   textoVidas: {fileID: 4966800876543458288}
+  powerups: []
 --- !u!1 &6142979723128370374
 GameObject:
   m_ObjectHideFlags: 0

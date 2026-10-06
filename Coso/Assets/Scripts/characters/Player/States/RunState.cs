@@ -31,4 +31,10 @@ public class RunState : PlayerState
         base.FixedUpdate();
         Player.playerMotor.MoveOnGround(Player.inputHandler.MoveX, Player.groundDetector.NormalTerreno);
     }
+
+    public override void Enter()
+    {
+        base.Enter();
+        Player.playerMotor.contadorSaltos = 0;
+    }
 }

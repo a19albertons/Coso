@@ -457,12 +457,14 @@ MonoBehaviour:
   acceleration: 80
   desacceleration: 100
   airControlFactor: 0.5
-  jumpForce: 6.5
-  secondJumpForceMultiplier: 0.5
+  JumpForce: 6.5
+  SecondJumpForceMultiplier: 0.5
+  CutJumpForceMultiplier: 0.5
   gravity: 9.81
   fallMultiplier: 1
   lowJumpMultiplier: 1.4
   maxFallSpeed: 20
+  contadorSaltos: 0
 --- !u!114 &7095431382048901931
 MonoBehaviour:
   m_ObjectHideFlags: 0

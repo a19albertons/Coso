@@ -23,7 +23,7 @@ public class BaseDeathController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (GestionPowerUP.GetInstance().EstadoPowerUP())
+            if (GestionPowerUP.GetInstance().EstadoPowerUP() is not NoneState)
             {
                 GestionPowerUP.GetInstance().PlayerPierdePowerUP();
                 FindFirstObjectByType<PlayerInvencible>().ActivarInvencibilidad();
