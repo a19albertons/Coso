@@ -679,6 +679,10 @@ PrefabInstance:
       propertyPath: groundDetectorCollider
       value: 
       objectReference: {fileID: 1163870928}
+    - target: {fileID: 6121081392822156052, guid: 2d8d80d81332adeb6a682d46cba2bd8f, type: 3}
+      propertyPath: SecondJumpForceMultiplier
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7439169149664761612, guid: 2d8d80d81332adeb6a682d46cba2bd8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.020423412
@@ -3720,6 +3724,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1335040557823833115, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3271243714293036089, guid: a6e95e037acfd7eacb6d96f5b417ccc5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
