@@ -891,6 +891,7 @@ GameObject:
   - component: {fileID: 813218852}
   - component: {fileID: 813218851}
   - component: {fileID: 813218853}
+  - component: {fileID: 813218854}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -910,7 +911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1120015718d536c27b1a2d32bb959b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
-  player: {fileID: 1981720237}
 --- !u!4 &813218852
 Transform:
   m_ObjectHideFlags: 0
@@ -945,6 +945,19 @@ MonoBehaviour:
   buttonGame: {fileID: 1187582005}
   playerInput: {fileID: -944628639613478452, guid: 2593534c0c208db088fb489c6569df45, type: 3}
   playerControllerScript: {fileID: 2049249031}
+--- !u!114 &813218854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813218850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3942d41e9cd84f31b623524b3526959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GestionTiempo
+  tiempoAsignado: 120
 --- !u!4 &844910989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4152537160908065675, guid: 1f02c5f4cc50d3b7f81a4f4e6b605a99, type: 3}
@@ -1022,6 +1035,8 @@ GameObject:
   m_Component:
   - component: {fileID: 947786263}
   - component: {fileID: 947786262}
+  - component: {fileID: 947786265}
+  - component: {fileID: 947786264}
   m_Layer: 0
   m_Name: GeneralManager
   m_TagString: Untagged
@@ -1056,6 +1071,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &947786264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947786261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e159ae453414eb507ba838764e3c6c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GestionVidas
+  vidas: 5
+--- !u!114 &947786265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947786261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a108c2ea15cb09aa33948f5103e36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GestionMonedas
 --- !u!1 &963802922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,11 +1517,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f02c5f4cc50d3b7f81a4f4e6b605a99, type: 3}
---- !u!1 &1981720237 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 484213889529134429, guid: 65fbdb6ec7a24694589f4000d6019cfc, type: 3}
-  m_PrefabInstance: {fileID: 8660331860745074756}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2033127474
 GameObject:
   m_ObjectHideFlags: 0

@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAutomaticDeath
   alturaMuerteEjeY: -6
+  sonidoMuerte: {fileID: 8300000, guid: 069bd344a57ad8c8e967acb591fbab44, type: 3}
 --- !u!114 &6869529669982748866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8ab68c437f19daf8d29065ed5b0a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionAdapter
-  materialNoSuelo: {fileID: 6200000, guid: 09f0308247cf36aeb8b143eee5896984, type: 2}
 --- !u!114 &3937153226727613854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3643715236972883106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71854f8d6be9d215daeed3f345a53280, type: 3}
   m_Name: 
