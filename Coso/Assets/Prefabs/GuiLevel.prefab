@@ -706,7 +706,9 @@ MonoBehaviour:
   textoMonedas: {fileID: 1593512674039961624}
   textoTiempo: {fileID: 955201622034211314}
   textoVidas: {fileID: 4966800876543458288}
-  powerups: []
+  powerups:
+  - {fileID: 6987201202780805564, guid: feb7b21a86435f387a8ef6d69f913fbc, type: 3}
+  - {fileID: -1160753365423254963, guid: 04711352e09187ce8b3a5082ddd7ee06, type: 3}
 --- !u!1 &6142979723128370374
 GameObject:
   m_ObjectHideFlags: 0
