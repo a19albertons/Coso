@@ -702,8 +702,10 @@ MonoBehaviour:
   - {fileID: 2835649925130486020}
   - {fileID: 3770453221310505973}
   - {fileID: 7206516626939575286}
-  vidaExtra: {fileID: 4653937718636397222}
+  powerUP: {fileID: 4653937718636397222}
   textoMonedas: {fileID: 1593512674039961624}
+  textoTiempo: {fileID: 955201622034211314}
+  textoVidas: {fileID: 4966800876543458288}
 --- !u!1 &6142979723128370374
 GameObject:
   m_ObjectHideFlags: 0
