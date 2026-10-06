@@ -10,21 +10,29 @@ public class GuiLevel : MonoBehaviour
     private GameObject[] estrellas = new GameObject[3];
 
     [SerializeField]
-    [Tooltip("Imagen de la vida extra")]
-    private GameObject vidaExtra;
+    [Tooltip("Imagen del powerUP")]
+    private GameObject powerUP;
 
     [SerializeField]
     [Tooltip("Texto monedas")]
     private TMPro.TextMeshProUGUI textoMonedas;
 
-    private LevelManager levelManager;
+    [SerializeField]
+    [Tooltip("Texto tiempo")]
+    private TMPro.TextMeshProUGUI textoTiempo;
+
+    [SerializeField]
+    [Tooltip("Texto vidas")]
+    private TMPro.TextMeshProUGUI textoVidas;
+
+    private GestionEstrellas levelManager;
+    private GestionTiempo tiempoManager;
 
     
-
-
     void Awake()
     {
-        levelManager = FindAnyObjectByType<LevelManager>();
+        levelManager = FindAnyObjectByType<GestionEstrellas>();
+        tiempoManager = FindAnyObjectByType<GestionTiempo>();
     }
 
     void Update()
@@ -50,14 +58,16 @@ public class GuiLevel : MonoBehaviour
                 }
             }
         }
-        if (GeneralManager.GetInstance().EstadoVidaExtra())
+        if (GestionPowerUP.GetInstance().EstadoPowerUP())
         {
-            vidaExtra.SetActive(true);
+            powerUP.SetActive(true);
         }
         else
         {
-            vidaExtra.SetActive(false);
+            powerUP.SetActive(false);
         }
-        textoMonedas.SetText(GeneralManager.GetInstance().GetMonedasAcumuladas().ToString());
+        textoMonedas.SetText(GestionMonedas.GetInstance().GetMonedasAcumuladas());
+        textoTiempo.SetText(tiempoManager.TiempoRestante());
+        textoVidas.SetText(GestionVidas.GetInstance().GetVidasActuales());
     }
 }

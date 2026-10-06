@@ -2,15 +2,10 @@ using System;
 using UnityEngine;
 
 /// <summary>
-/// Clase LevelManager que gestiona el estado del nivel
-public class LevelManager : MonoBehaviour
+/// Clase GestionEstrellas que gestiona el estado de las estrellas en el nivel.
+/// </summary>
+public class GestionEstrellas : MonoBehaviour
 {
-
-
-    [SerializeField]
-    [Tooltip("Personaje que gestiona el usuario")]
-    private GameObject player;
-
 
     private EnumStars.Stars stars1;
     private EnumStars.Stars stars2;

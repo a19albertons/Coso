@@ -12,7 +12,7 @@ public class LivesController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player"))
         {
-            GeneralManager.GetInstance().SeObtieneVidaExtra();
+            GestionPowerUP.GetInstance().PlayerObtienePowerUP();
             gameObject.SetActive(false); // Desactivar el objeto de vida extra al ser obtenida
         }
     }

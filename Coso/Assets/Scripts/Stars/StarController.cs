@@ -9,11 +9,11 @@ public class StarController: MonoBehaviour
     [Tooltip("Número de estrella del 1 al 3. Evitar usar el mismo número para varias estrellas.")]
     [Range(1, 3)]
     private int starNumber;
-    private LevelManager levelManager;
+    private GestionEstrellas levelManager;
 
     void Awake()
     {
-        levelManager = FindAnyObjectByType<LevelManager>();
+        levelManager = FindAnyObjectByType<GestionEstrellas>();
     }
 
     void OnTriggerEnter2D(Collider2D other)

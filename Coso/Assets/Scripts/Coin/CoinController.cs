@@ -10,11 +10,9 @@ public class CoinController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isCollected = true;
-            // Incrementa el contador de monedas en GeneralManager
-            GeneralManager generalManager = GeneralManager.GetInstance();
-            if (generalManager != null)
+            if (GestionMonedas.GetInstance() != null)
             {
-                GeneralManager.GetInstance().SumarMoneda();
+                GestionMonedas.GetInstance().SumarMoneda();
             }
 
             // Destruye la moneda
