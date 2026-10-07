@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenuLevel : MonoBehaviour
-{  
+{
     [Header("Pause Menu UI")]
     [SerializeField]
     private GameObject pauseMenuUI;
-    
+
     [SerializeField]
     private Button buttonResume;
 
@@ -80,6 +80,8 @@ public class PauseMenuLevel : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         playerControllerScript.enabled = true;
+        GestionPowerUP.GetInstance().PlayerPierdePowerUP();
+        GestionVidas.GetInstance().PlayerPierdeVida();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Resume();
     }
@@ -89,7 +91,9 @@ public class PauseMenuLevel : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         playerControllerScript.enabled = true;
-        // SceneManager.LoadScene("LevelSelection");
+        GestionPowerUP.GetInstance().PlayerPierdePowerUP();
+        GestionVidas.GetInstance().PlayerPierdeVida();
+        SceneManager.LoadScene("MundoBase");
         Resume();
     }
 

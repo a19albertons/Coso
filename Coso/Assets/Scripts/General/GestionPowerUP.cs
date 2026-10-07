@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Clase GestionPowerUP que gestiona el estado general del juego, incluyendo la vida extra del jugador,
@@ -37,11 +38,44 @@ public class GestionPowerUP : MonoBehaviour
         {
             instance = this;
             estadoPowerUP.Initialize(new NoneState(FindFirstObjectByType<PlayerController>()));
+            SceneManager.sceneLoaded += OnSceneLoaded;
             DontDestroyOnLoad(gameObject);
         }
         else if (instance != this)
         {
             Destroy(gameObject);
+        }
+    }
+
+    /// <summary>
+    /// Cuando el singleton es destruido se desuscribe del evento de cambio de escena para evitar errores
+    /// </summary>
+    void OnDestroy ()
+    {
+        if (instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+    }
+
+    /// <summary>
+    /// Cuando se carga una nueva escena evalua el tipo de power up del jugador y restaura la referencia al player controller.
+    /// </summary>
+    /// <param name="scene"></param>
+    /// <param name="mode"></param>
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        switch (estadoPowerUP.CurrentState)
+        {
+            case NoneState:
+                estadoPowerUP.ChangeState(new NoneState(FindFirstObjectByType<PlayerController>()));
+                break;
+            case DoubleJumpState:
+                estadoPowerUP.ChangeState(new DoubleJumpState(FindFirstObjectByType<PlayerController>()));
+                break;
+            default:
+                estadoPowerUP.ChangeState(new NoneState(FindFirstObjectByType<PlayerController>()));
+                break;
         }
     }
 

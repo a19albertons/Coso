@@ -3937,14 +3937,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2687369277192600380, guid: c0c80103b9d7ecf3fa0bbf80a06e58c6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 813218853}
-    - target: {fileID: 2850876777270879175, guid: c0c80103b9d7ecf3fa0bbf80a06e58c6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 813218853}
     - target: {fileID: 2905048107032582380, guid: c0c80103b9d7ecf3fa0bbf80a06e58c6, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4025,14 +4017,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5990880609361742341, guid: c0c80103b9d7ecf3fa0bbf80a06e58c6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 813218853}
-    - target: {fileID: 6135531909532070140, guid: c0c80103b9d7ecf3fa0bbf80a06e58c6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 813218853}
     - target: {fileID: 7504233007861015890, guid: c0c80103b9d7ecf3fa0bbf80a06e58c6, type: 3}
       propertyPath: m_Name
       value: MenuPausaNivel
