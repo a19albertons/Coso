@@ -7,16 +7,16 @@ using UnityEngine;
 public class GestionEstrellas : MonoBehaviour
 {
 
-    private EnumStars.Stars stars1;
-    private EnumStars.Stars stars2;
-    private EnumStars.Stars stars3;
+    private EnumStateLevelYStars.LevelYStars stars1;
+    private EnumStateLevelYStars.LevelYStars stars2;
+    private EnumStateLevelYStars.LevelYStars stars3;
 
     void Awake()
     {
         // Inicializar las estrellas como nunca obtenidas (provisional)
-        stars1 = EnumStars.Stars.NuncaObtenida;
-        stars2 = EnumStars.Stars.NuncaObtenida;
-        stars3 = EnumStars.Stars.NuncaObtenida;
+        stars1 = EnumStateLevelYStars.LevelYStars.NoObtenida;
+        stars2 = EnumStateLevelYStars.LevelYStars.NoObtenida;
+        stars3 = EnumStateLevelYStars.LevelYStars.NoObtenida;
     }
 
     /// <summary>
@@ -27,15 +27,15 @@ public class GestionEstrellas : MonoBehaviour
     {
         if (estrellaNumero == 1)
         {
-            stars1 = EnumStars.Stars.Obtenida;
+            stars1 = EnumStateLevelYStars.LevelYStars.Obtenida;
         }
         else if (estrellaNumero == 2)
         {
-            stars2 = EnumStars.Stars.Obtenida;
+            stars2 = EnumStateLevelYStars.LevelYStars.Obtenida;
         }
         else if (estrellaNumero == 3)
         {
-            stars3 = EnumStars.Stars.Obtenida;
+            stars3 = EnumStateLevelYStars.LevelYStars.Obtenida;
         }
     }
 
@@ -43,10 +43,10 @@ public class GestionEstrellas : MonoBehaviour
     /// Obtiene la información de todas las estrellas del nivel.
     /// </summary>
     /// <returns>Devuelve un enum con el estado de las estrellas del nivel.</returns>
-    public EnumStars.Stars[] InformaciónTodasLasEstrellas()
+    public EnumStateLevelYStars.LevelYStars[] InformaciónTodasLasEstrellas()
     {
 
-        return new EnumStars.Stars[] { stars1, stars2, stars3 };
+        return new EnumStateLevelYStars.LevelYStars[] { stars1, stars2, stars3 };
     }
 
 
