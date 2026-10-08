@@ -34,7 +34,7 @@ public class StartGame : MonoBehaviour
     /// <returns>Retorna si el save existe o no</returns>
     private bool ValidarBotonContinue()
     {
-        return File.Exists(Path.Combine(Application.persistentDataPath, "slot1"));
+        return File.Exists(Path.Combine(Application.persistentDataPath, "slotGuardado1"));
     }
 
     /// <summary>
