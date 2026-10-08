@@ -8,7 +8,7 @@ public class SegundoPlano : MonoBehaviour
     private bool isSaved = false; // Variable para controlar si los datos del jugador ya han sido guardados
     private bool isCinematicFinished = false; // Variable para controlar si la cinemática ha finalizado
 
-    void Awake()
+    public void LanzarOperacionesSegundoPlano()
     {
         StartCoroutine(PrimerGuardado());
         StartCoroutine(PrepararMundoBase());
