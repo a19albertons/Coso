@@ -1,19 +1,28 @@
 using System.IO;
 using UnityEngine;
 
-public class SaveManager
+public class SaveManager : MonoBehaviour
 {
     private static SaveManager instance;
-
     public CurrentSave currentSave;
-    private string rutaBase = Path.Combine(Application.persistentDataPath,"slotGuardado");
+    private string rutaBase;
 
-    public static SaveManager GetIntance()
+    void Awake()
     {
         if (instance == null)
         {
-            instance = new SaveManager();
+            instance = this;
+            rutaBase = Path.Combine(Application.persistentDataPath, "slotGuardado");
+            DontDestroyOnLoad(gameObject);
         }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public static SaveManager GetIntance()
+    {
         return instance;
     }
 
@@ -24,7 +33,7 @@ public class SaveManager
     public void SaveGame(int slot)
     {
         string guardado = JsonUtility.ToJson(currentSave);
-        File.WriteAllText(rutaBase+slot, guardado);
+        File.WriteAllText(rutaBase + slot, guardado);
     }
 
     /// <summary>
@@ -35,13 +44,16 @@ public class SaveManager
     {
         if (File.Exists(rutaBase + slot))
         {
-            string guardado = File.ReadAllText(rutaBase);
+            string guardado = File.ReadAllText(rutaBase + slot);
             currentSave = JsonUtility.FromJson<CurrentSave>(guardado);
             return;
         }
-        currentSave=null;
+        currentSave = null;
     }
 
+    /// <summary>
+    /// Metodo que crea un nuevo juego, inicializando el CurrentSave
+    /// </summary>
     public void NewGame()
     {
         currentSave = new CurrentSave();

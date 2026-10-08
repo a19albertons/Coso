@@ -43,7 +43,7 @@ public class StartGame : MonoBehaviour
     private void NewGame()
     {
         SaveManager.GetIntance().NewGame();
-        SceneManager.LoadScene("MundoBase");
+        SceneManager.LoadScene("Intro");
     }
 
     /// <summary>
