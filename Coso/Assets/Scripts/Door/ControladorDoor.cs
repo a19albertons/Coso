@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Clase ControladorDoor que gestiona la interacción del jugador con la puerta para entrar a un nivel.
+/// </summary>
 public class ControladorDoor : MonoBehaviour
 {
     [SerializeField]
@@ -21,33 +24,81 @@ public class ControladorDoor : MonoBehaviour
 
     private AsyncOperation op;
     private bool isCalled = false;
-
     private bool enterLevel = false;
+    private GameObject vallaPuerta;
+    private int cantidadEstrellas = 0;
+    private bool cumpleRequisitos;
+    private bool isEnter = false;
 
+    /// <summary>
+    /// Se llama cuando el objeto se instancia. Inicializa las variables necesarias para el funcionamiento del controlador de la puerta.
+    /// </summary>
     void Awake()
     {
         playerActionMap = inputActions.FindActionMap("Gameplay");
         EntrarAlNivel = playerActionMap.FindAction("Puerta");
+        vallaPuerta = GameObject.Find("Bloqueada");
+
+        if (SaveManager.GetIntance().currentSave == null)
+        {
+            Debug.LogError("No se ha cargado ningún archivo de guardado. Asegúrate de que el SaveManager esté inicializado correctamente.");
+            return;
+        }
+        SaveManager.GetIntance().currentSave.levels.ForEach(level =>
+        {
+            for (int i = 0; i < level.starsObtained.Length; i++)
+            {
+                if (level.starsObtained[i] == EnumStateLevelYStars.LevelYStars.Obtenida || level.starsObtained[i] == EnumStateLevelYStars.LevelYStars.Provisional)
+                {
+                    cantidadEstrellas++;
+                }
+            }
+        }
+        );
+
+        if (cantidadEstrellas >= requiredStars)
+        {
+            vallaPuerta.SetActive(false);
+            cumpleRequisitos = true;
+        }
+        else
+        {
+            vallaPuerta.SetActive(true);
+            cumpleRequisitos = false;
+        }
     }
 
+    /// <summary>
+    /// Se llama cuando el objeto se activa. Habilita la acción de entrar al nivel para que pueda ser detectada mientras el objeto está activo.
+    /// </summary>
     void OnEnable()
     {
         EntrarAlNivel.Enable();
     }
 
+    /// <summary>
+    /// Se llama cuando el objeto se desactiva. Deshabilita la acción de entrar al nivel para evitar que se siga ejecutando mientras el objeto está desactivado.
+    /// </summary>
     void OnDisable()
     {
         EntrarAlNivel.Disable();
     }
 
+    /// <summary>
+    /// Comprueba en cada fram si el jugador ha presionado el boton de entrar al nivel y si cumple los requisitos para entrar al nivel
+    /// </summary>
     void Update()
     {
-        if (EntrarAlNivel.IsPressed() && isCalled)
+        if (EntrarAlNivel.IsPressed() && isEnter && cumpleRequisitos)
         {
             enterLevel = true;
         }
     }
 
+    /// <summary>
+    /// Se llama cuando el jugador entra en el trigger de la puerta. Inicia la carga asíncrona de la escena si no se ha llamado previamente.
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -58,9 +109,14 @@ public class ControladorDoor : MonoBehaviour
                 op.allowSceneActivation = false; // Evita que la escena se active automáticamente al terminar de cargar
                 isCalled = true;
             }
+            isEnter = true;
         }
     }
 
+    /// <summary>
+    /// Se llama cuando el jugador permanece dentro del trigger de la puerta y el boton de abrir la puesta ha sido presionado
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -89,7 +145,7 @@ public class ControladorDoor : MonoBehaviour
                 SceneManager.UnloadSceneAsync(sceneName);
                 isCalled = false;
             }
-
+            isEnter = false;
         }
     }
 }
