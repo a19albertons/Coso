@@ -48,9 +48,9 @@ public class EndLevel : MonoBehaviour
 
     private IEnumerator GuardarDatosJugador()
     {
-        // Simulación de guardado de datos del jugador
-        yield return _waitForSeconds0_5; // Espera 500 milisegundos simulación de tiempo de guardado
+        FindAnyObjectByType<ManagerGuardarNivel>().GuardarNivel();
         isSaved = true; // Marca que los datos del jugador han sido guardados
+        yield return null;
     }
 
     private IEnumerator CargarEscenaAsync()
