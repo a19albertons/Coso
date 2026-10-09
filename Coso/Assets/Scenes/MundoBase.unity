@@ -351,7 +351,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -649314570, guid: f87b1d42a16dc3e4691317c697a89892, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControladorDoor
   sceneName: NivelPruebas
-  requiredStars: 0
+  requiredStars: 10
   inputActions: {fileID: -944628639613478452, guid: 2593534c0c208db088fb489c6569df45, type: 3}
 --- !u!1 &922113525
 GameObject:
