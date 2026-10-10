@@ -47,12 +47,9 @@ public class ControladorInfo : MonoBehaviour
     {
         SaveManager.GetIntance().currentSave.levels.ForEach(level =>
         {
-            for (int i = 0; i < level.starsObtained.Length; i++)
+
+            if (level.identificadorNivel.Equals(controladorDoor.sceneName))
             {
-                if (!level.identificadorNivel.Equals(controladorDoor.sceneName))
-                {
-                    continue;
-                }
                 for (int j = 0; j < level.starsObtained.Length; j++)
                 {
                     if (level.starsObtained[j] == EnumStateLevelYStars.LevelYStars.Obtenida || level.starsObtained[j] == EnumStateLevelYStars.LevelYStars.Provisional)
@@ -65,6 +62,8 @@ public class ControladorInfo : MonoBehaviour
                     }
                 }
             }
+
+
         });
 
         tituloNivel.text = controladorDoor.sceneName;
