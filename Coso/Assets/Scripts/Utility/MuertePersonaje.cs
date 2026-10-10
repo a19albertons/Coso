@@ -8,10 +8,6 @@ using UnityEngine.SceneManagement;
 public static class MuertePersonaje
 {
     /// <summary>
-    /// Variable de espera de 0.5 segundos para simular el tiempo de guardado de datos del jugador
-    /// </summary>
-    private static WaitForSeconds _waitForSeconds0_5 = new(0.5f);
-    /// <summary>
     /// Variable de espera de 0.1 segundos para simular el tiempo de espera antes de comprobar si el guardado ha finalizado
     /// </summary>
     private static WaitForSeconds _waitForSeconds0_1 = new(0.1f);
@@ -27,9 +23,13 @@ public static class MuertePersonaje
     /// <returns></returns>
     public static IEnumerator GuardarDatosJugador()
     {
-        // Simulación de guardado de datos del jugador
-        yield return _waitForSeconds0_5; // Espera 500 milisegundos simulación de tiempo de guardado
+        // Actualizar metricas del jugador
+        SaveManager.GetIntance().currentSave.playerInfo.powerUpActual = GestionPowerUP.GetInstance().TipoPowerUP();
+        SaveManager.GetIntance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt();
+        SaveManager.GetIntance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
+        SaveManager.GetIntance().SaveGame(1);
         isSaved = true; // Marca que los datos del jugador han sido guardados
+        yield return null; ;
     }
 
     /// <summary>
