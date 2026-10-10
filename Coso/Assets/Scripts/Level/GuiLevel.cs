@@ -61,7 +61,7 @@ public class GuiLevel : MonoBehaviour
             {
                 if (i < levelManager.InformaciónTodasLasEstrellas().Length)
                 {
-                    estrellas[i].SetActive(levelManager.InformaciónTodasLasEstrellas()[i] == EnumStateLevelYStars.LevelYStars.Obtenida);
+                    estrellas[i].SetActive(levelManager.InformaciónTodasLasEstrellas()[i] == EnumStateLevelYStars.LevelYStars.Obtenida || levelManager.InformaciónTodasLasEstrellas()[i] == EnumStateLevelYStars.LevelYStars.Provisional);
                 }
             }
         }
