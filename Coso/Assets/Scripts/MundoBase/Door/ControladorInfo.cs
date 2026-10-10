@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,8 +35,16 @@ public class ControladorInfo : MonoBehaviour
         if (SaveManager.GetIntance().currentSave == null)
         {
             Debug.LogError("No se ha cargado ningún archivo de guardado. Asegúrate de que el SaveManager esté inicializado correctamente.");
-            return;
         }
+    }
+
+    void Update()
+    {
+        ActualizarInfo();
+    }
+
+    private void ActualizarInfo()
+    {
         SaveManager.GetIntance().currentSave.levels.ForEach(level =>
         {
             for (int i = 0; i < level.starsObtained.Length; i++)
