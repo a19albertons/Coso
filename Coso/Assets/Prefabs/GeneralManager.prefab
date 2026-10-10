@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8751546869811437337}
   - component: {fileID: 4060584201241906859}
   - component: {fileID: 5435133876091737365}
-  - component: {fileID: 6858903891246925543}
   m_Layer: 0
   m_Name: GeneralManager
   m_TagString: Untagged
@@ -72,23 +71,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GestionVidas
   vidas: 5
---- !u!114 &6858903891246925543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3926917799868827554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8151b72d628b25ee38894aa88a79828a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SaveManager
-  currentSave:
-    playerInfo:
-      vidasActuales: 0
-      monedasActuales: 0
-      powerUpActual: 0
-    levels: []
-    checkpoint:
-      IsTutorialDone: 0
