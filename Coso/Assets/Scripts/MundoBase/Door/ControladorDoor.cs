@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -111,8 +112,7 @@ public class ControladorDoor : MonoBehaviour
         {
             if (!isCalled)
             {
-                op = SceneManager.LoadSceneAsync(sceneName);
-                op.allowSceneActivation = false; // Evita que la escena se active automáticamente al terminar de cargar
+                StartCoroutine(CargarEscenaAsync());
                 isCalled = true;
             }
             isEnter = true;
@@ -154,6 +154,20 @@ public class ControladorDoor : MonoBehaviour
             }
             isEnter = false;
             panelInfo.SetActive(false);
+        }
+    }
+
+    /// <summary>
+    /// Carga la escena en un hilo secundario evitando secuestrar el hilo principal
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator CargarEscenaAsync()
+    {
+        op = SceneManager.LoadSceneAsync(sceneName);
+        op.allowSceneActivation = false; // Evita que la escena se active automáticamente al terminar de cargar
+        while (!op.isDone)
+        {
+            yield return null;
         }
     }
 }
