@@ -4,6 +4,8 @@ public class DoubleJumpState : PowerUPStates
 {
     public DoubleJumpState(PlayerController player) : base(player) { }
 
+    public override PowerUPType PowerUPType => PowerUPType.DoubleJump;
+
     public override void Jump()
     {
         base.Jump();

@@ -33,7 +33,14 @@ public class GestionVidas : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            ResetVidas(); // Inicializa las vidas actuales de forma temporal hasta que haya logica de guardado y de iniciar el juego
+            if (SaveManager.GetIntance().currentSave == null)
+            {
+                Debug.LogError("No se ha cargado un archivo de guardado. Se recomienda iniciar el juego desde la escena de inicio para cargar correctamente los datos del jugador.");
+            }
+            else
+            {
+                vidasActuales = SaveManager.GetIntance().currentSave.playerInfo.vidasActuales;
+            }
             DontDestroyOnLoad(gameObject);
         }
         else if (instance != this)
@@ -76,5 +83,14 @@ public class GestionVidas : MonoBehaviour
     public string GetVidasActuales()
     {
         return vidasActuales.ToString();
+    }
+
+    /// <summary>
+    /// Devuelve la cantidad de vidas actuales del jugador como un entero. Pensado para ser utilizado en la logica del juego
+    /// </summary>
+    /// <returns></returns>
+    public int GetVidasActualesInt()
+    {
+        return vidasActuales;
     }
 }

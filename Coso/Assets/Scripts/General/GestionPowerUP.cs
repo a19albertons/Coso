@@ -11,7 +11,7 @@ public class GestionPowerUP : MonoBehaviour
     /// Instancia única de GestionPowerUP. Se asegura que solo haya una instancia en la escena y que no se destruya al cambiar de escena.
     /// </summary>
     static GestionPowerUP instance;
-    
+
     /// <summary>
     /// Variable que controla el estado de la vida extra del jugador.
     /// </summary>
@@ -37,7 +37,25 @@ public class GestionPowerUP : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            estadoPowerUP.Initialize(new NoneState(FindFirstObjectByType<PlayerController>()));
+            if (SaveManager.GetIntance().currentSave == null)
+            {
+                Debug.LogError("No se ha cargado un archivo de guardado. Se recomienda iniciar el juego desde la escena de inicio para cargar correctamente los datos del jugador.");
+            }
+            else
+            {
+                switch (SaveManager.GetIntance().currentSave.playerInfo.powerUpActual)
+                {
+                    case PowerUPType.None:
+                        estadoPowerUP.Initialize(new NoneState(FindFirstObjectByType<PlayerController>()));
+                        break;
+                    case PowerUPType.DoubleJump:
+                        estadoPowerUP.Initialize(new DoubleJumpState(FindFirstObjectByType<PlayerController>()));
+                        break;
+                    default:
+                        estadoPowerUP.Initialize(new NoneState(FindFirstObjectByType<PlayerController>()));
+                        break;
+                }
+            }
             SceneManager.sceneLoaded += OnSceneLoaded;
             DontDestroyOnLoad(gameObject);
         }
@@ -50,7 +68,7 @@ public class GestionPowerUP : MonoBehaviour
     /// <summary>
     /// Cuando el singleton es destruido se desuscribe del evento de cambio de escena para evitar errores
     /// </summary>
-    void OnDestroy ()
+    void OnDestroy()
     {
         if (instance == this)
         {
@@ -107,5 +125,12 @@ public class GestionPowerUP : MonoBehaviour
         return estadoPowerUP.CurrentState;
     }
 
-
+    /// <summary>
+    /// Devuelve el tipo de power up que tiene el jugador actualmente. En formato Enum
+    /// </summary>
+    /// <returns></returns>
+    public PowerUPType TipoPowerUP()
+    {
+        return estadoPowerUP.PowerUP();
+    }
 }

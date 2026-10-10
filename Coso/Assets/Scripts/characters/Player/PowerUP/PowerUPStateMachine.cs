@@ -30,4 +30,9 @@ public class PowerUPStateMachine
     {
         CurrentState?.AplicarCutJump();
     }
+
+    public PowerUPType PowerUP()
+    {
+        return CurrentState.PowerUPType;
+    }
 }

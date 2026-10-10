@@ -20,7 +20,7 @@ public class GestionMonedas : MonoBehaviour
     {
         return instance;
     }
-    
+
     /// <summary>
     /// Asegura que solo haya una instancia de GestionMonedas en la escena y que no se destruya al cambiar de escena.
     /// </summary>
@@ -29,6 +29,14 @@ public class GestionMonedas : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            if (SaveManager.GetIntance().currentSave == null)
+            {
+                Debug.LogError("No se ha cargado un archivo de guardado. Se recomienda iniciar el juego desde la escena de inicio para cargar correctamente los datos del jugador.");
+            }
+            else
+            {
+                monedasAcumuladas = SaveManager.GetIntance().currentSave.playerInfo.monedasActuales;
+            }
             DontDestroyOnLoad(gameObject);
         }
         else if (instance != this)
@@ -46,7 +54,7 @@ public class GestionMonedas : MonoBehaviour
         if (monedasAcumuladas >= 100)
         {
             monedasAcumuladas = 0;
-            
+
         }
     }
 
@@ -57,5 +65,14 @@ public class GestionMonedas : MonoBehaviour
     public string GetMonedasAcumuladas()
     {
         return monedasAcumuladas.ToString();
+    }
+
+    /// <summary>
+    /// Devuelve la cantidad de monedas acumuladas del jugador como un entero. Pensado para ser utilizado en la logica del juego
+    /// </summary>
+    /// <returns></returns>
+    public int GetMonedasAcumuladasInt()
+    {
+        return monedasAcumuladas;
     }
 }

@@ -19,6 +19,11 @@ public class ManagerGuardarNivel : MonoBehaviour
 
     public void GuardarNivel()
     {
+        // Actualizar metricas del jugador
+        SaveManager.GetIntance().currentSave.playerInfo.powerUpActual = GestionPowerUP.GetInstance().TipoPowerUP();
+        SaveManager.GetIntance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt();
+        SaveManager.GetIntance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
+
         // Crear el nivel
         Level nivelActual = new Level();
         nivelActual.identificadorNivel = idNivel;

@@ -7,6 +7,8 @@ public abstract class PowerUPStates
 {
     protected readonly PlayerController Player;
 
+    public abstract PowerUPType PowerUPType { get; }
+
     protected PowerUPStates(PlayerController player)
     {
         Player = player;

@@ -4,6 +4,8 @@ public class NoneState : PowerUPStates
 {
     public NoneState(PlayerController player) : base(player) { }
 
+    public override PowerUPType PowerUPType => PowerUPType.None;
+
 
     public override void Jump()
     {
