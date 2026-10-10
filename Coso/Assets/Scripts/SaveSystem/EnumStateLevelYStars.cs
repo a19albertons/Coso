@@ -7,8 +7,8 @@ public class EnumStateLevelYStars
 {
     public enum LevelYStars
     {
-        Obtenida,
+        NoObtenida,
         Provisional,
-        NoObtenida
+        Obtenida
     }
 }
