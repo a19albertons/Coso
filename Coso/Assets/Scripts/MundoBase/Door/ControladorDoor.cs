@@ -103,18 +103,13 @@ public class ControladorDoor : MonoBehaviour
     }
 
     /// <summary>
-    /// Se llama cuando el jugador entra en el trigger de la puerta. Inicia la carga asíncrona de la escena si no se ha llamado previamente.
+    /// Se llama cuando el jugador entra en el trigger de la puerta.
     /// </summary>
     /// <param name="other"></param>
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if (!isCalled)
-            {
-                StartCoroutine(CargarEscenaAsync());
-                isCalled = true;
-            }
             isEnter = true;
             panelInfo.SetActive(true);
         }
@@ -130,8 +125,13 @@ public class ControladorDoor : MonoBehaviour
         {
             if (enterLevel)
             {
-                other.gameObject.GetComponent<PlayerController>().enabled = false;
-                op.allowSceneActivation = true; // Permite que la escena se active automáticamente al terminar de cargar
+                if (!isCalled)
+                {
+                    isCalled = true;
+                    StartCoroutine(CargarEscenaAsync());
+                    other.gameObject.GetComponent<PlayerController>().enabled = false;
+                    op.allowSceneActivation = true; // Permite que la escena se active automáticamente al terminar de cargar
+                }
             }
 
         }
@@ -139,19 +139,13 @@ public class ControladorDoor : MonoBehaviour
 
 
     /// <summary>
-    /// Se llama cuando el jugador sale del trigger de la puerta. Si la escena está cargada, se descarga de forma asíncrona..
-    /// Problema conocido : la escena nunca se descarga se queda siempre en isloading una vez has entrado
+    /// Se llama cuando el jugador sale del trigger de la puerta.
     /// </summary>
     /// <param name="other"></param>
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if (SceneManager.GetSceneByName(sceneName).isLoaded)
-            {
-                SceneManager.UnloadSceneAsync(sceneName);
-                isCalled = false;
-            }
             isEnter = false;
             panelInfo.SetActive(false);
         }
