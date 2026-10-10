@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class ManagerGuardarNivel : MonoBehaviour
 {
-    [Header("Identificación nivel")]
-    [SerializeField]
-    [Tooltip("Identificador del nivel")]
     private string idNivel;
     private GestionEstrellas gestionEstrellas;
 
     void Awake()
     {
+        // El identificado de nivel es el nombre de su escena asignada
+        idNivel = gameObject.scene.name;
         gestionEstrellas = FindAnyObjectByType<GestionEstrellas>();
         if (gestionEstrellas == null)
         {
