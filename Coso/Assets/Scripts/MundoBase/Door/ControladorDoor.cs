@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class ControladorDoor : MonoBehaviour
 {
-    [SerializeField]
+    [Header("Configuración de la puerta")]
     [Tooltip("Nombre de la escena a cargar al entrar en la puerta")]
-    private string sceneName;
+    public string sceneName;
 
-    [SerializeField]
     [Tooltip("Estrellas requeridas para poder entrar al nivel")]
-    private int requiredStars;
+    public int requiredStars;
 
+    [Header("Configuración de Input")]
     [SerializeField]
     [Tooltip("Set de movimientos del jugador")]
     private InputActionAsset inputActions;
@@ -25,10 +25,13 @@ public class ControladorDoor : MonoBehaviour
     private AsyncOperation op;
     private bool isCalled = false;
     private bool enterLevel = false;
-    private GameObject vallaPuerta;
     private int cantidadEstrellas = 0;
     private bool cumpleRequisitos;
     private bool isEnter = false;
+
+    // Objetos hijos de la puerta
+    private GameObject vallaPuerta;
+    private GameObject panelInfo;
 
     /// <summary>
     /// Se llama cuando el objeto se instancia. Inicializa las variables necesarias para el funcionamiento del controlador de la puerta.
@@ -38,6 +41,7 @@ public class ControladorDoor : MonoBehaviour
         playerActionMap = inputActions.FindActionMap("Gameplay");
         EntrarAlNivel = playerActionMap.FindAction("Puerta");
         vallaPuerta = GameObject.Find("Bloqueada");
+        panelInfo = GameObject.Find("Info");
 
         if (SaveManager.GetIntance().currentSave == null)
         {
@@ -66,6 +70,8 @@ public class ControladorDoor : MonoBehaviour
             vallaPuerta.SetActive(true);
             cumpleRequisitos = false;
         }
+
+        panelInfo.SetActive(false);
     }
 
     /// <summary>
@@ -110,6 +116,7 @@ public class ControladorDoor : MonoBehaviour
                 isCalled = true;
             }
             isEnter = true;
+            panelInfo.SetActive(true);
         }
     }
 
@@ -146,6 +153,7 @@ public class ControladorDoor : MonoBehaviour
                 isCalled = false;
             }
             isEnter = false;
+            panelInfo.SetActive(false);
         }
     }
 }
