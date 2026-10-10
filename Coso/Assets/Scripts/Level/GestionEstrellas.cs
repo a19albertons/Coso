@@ -6,6 +6,9 @@ using UnityEngine;
 /// </summary>
 public class GestionEstrellas : MonoBehaviour
 {
+    [SerializeField]
+    [Tooltip("Estrellas del nivel. En orden correcta")]
+    private GameObject[] estrellas;
 
     private EnumStateLevelYStars.LevelYStars stars1;
     private EnumStateLevelYStars.LevelYStars stars2;
@@ -13,10 +16,25 @@ public class GestionEstrellas : MonoBehaviour
 
     void Awake()
     {
-        // Inicializar las estrellas como nunca obtenidas (provisional)
-        stars1 = EnumStateLevelYStars.LevelYStars.NoObtenida;
-        stars2 = EnumStateLevelYStars.LevelYStars.NoObtenida;
-        stars3 = EnumStateLevelYStars.LevelYStars.NoObtenida;
+        if (SaveManager.GetIntance().currentSave == null)
+        {
+            Debug.LogError("No se ha cargado ningún archivo de guardado. Asegúrate de que el SaveManager esté inicializado correctamente.");
+            return;
+        }
+        SaveManager.GetIntance().currentSave.levels.ForEach(level =>
+        {
+    
+            if (level.identificadorNivel.Equals(gameObject.scene.name))
+            {
+                stars1 = level.starsObtained[0];
+                stars2 = level.starsObtained[1];
+                stars3 = level.starsObtained[2];
+            }
+        });
+
+        estrellas[0].SetActive(stars1 == EnumStateLevelYStars.LevelYStars.NoObtenida);
+        estrellas[1].SetActive(stars2 == EnumStateLevelYStars.LevelYStars.NoObtenida);
+        estrellas[2].SetActive(stars3 == EnumStateLevelYStars.LevelYStars.NoObtenida);
     }
 
     /// <summary>
