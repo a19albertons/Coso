@@ -27,15 +27,15 @@ public class GestionEstrellas : MonoBehaviour
     {
         if (estrellaNumero == 1)
         {
-            stars1 = EnumStateLevelYStars.LevelYStars.Obtenida;
+            stars1 = EnumStateLevelYStars.LevelYStars.Provisional;
         }
         else if (estrellaNumero == 2)
         {
-            stars2 = EnumStateLevelYStars.LevelYStars.Obtenida;
+            stars2 = EnumStateLevelYStars.LevelYStars.Provisional;
         }
         else if (estrellaNumero == 3)
         {
-            stars3 = EnumStateLevelYStars.LevelYStars.Obtenida;
+            stars3 = EnumStateLevelYStars.LevelYStars.Provisional;
         }
     }
 
