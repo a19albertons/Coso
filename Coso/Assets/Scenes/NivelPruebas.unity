@@ -239,6 +239,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f02c5f4cc50d3b7f81a4f4e6b605a99, type: 3}
+--- !u!1 &516490470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3567073187262754197, guid: 8fe85da1fc6fd490297c55c291938493, type: 3}
+  m_PrefabInstance: {fileID: 1672920301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +890,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &739038355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3567073187262754197, guid: 8fe85da1fc6fd490297c55c291938493, type: 3}
+  m_PrefabInstance: {fileID: 4875647626430809083}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &844910989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4152537160908065675, guid: 1f02c5f4cc50d3b7f81a4f4e6b605a99, type: 3}
@@ -1674,6 +1684,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f02c5f4cc50d3b7f81a4f4e6b605a99, type: 3}
+--- !u!1 &1986100544 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3567073187262754197, guid: 8fe85da1fc6fd490297c55c291938493, type: 3}
+  m_PrefabInstance: {fileID: 1091398772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2033127474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3772,6 +3787,22 @@ PrefabInstance:
       propertyPath: playerControllerScript
       value: 
       objectReference: {fileID: 2049249031}
+    - target: {fileID: 7865108833556051968, guid: 76780fdc2a2fea7dd9ab2878249fc9cd, type: 3}
+      propertyPath: estrellas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865108833556051968, guid: 76780fdc2a2fea7dd9ab2878249fc9cd, type: 3}
+      propertyPath: 'estrellas.Array.data[0]'
+      value: 
+      objectReference: {fileID: 739038355}
+    - target: {fileID: 7865108833556051968, guid: 76780fdc2a2fea7dd9ab2878249fc9cd, type: 3}
+      propertyPath: 'estrellas.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1986100544}
+    - target: {fileID: 7865108833556051968, guid: 76780fdc2a2fea7dd9ab2878249fc9cd, type: 3}
+      propertyPath: 'estrellas.Array.data[2]'
+      value: 
+      objectReference: {fileID: 516490470}
     - target: {fileID: 8130127875674304973, guid: 76780fdc2a2fea7dd9ab2878249fc9cd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 38.54705
