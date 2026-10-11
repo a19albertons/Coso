@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -27,8 +28,9 @@ public class ControladorDoor : MonoBehaviour
     private bool isCalled = false;
     private bool enterLevel = false;
     private int cantidadEstrellas = 0;
-    private bool cumpleRequisitos;
+    private bool requisitoEstrellas;
     private bool isEnter = false;
+    private bool nivelPrevio = false;
 
     // Objetos hijos de la puerta
     [Header("Objetos hijos de la puerta")]
@@ -61,31 +63,56 @@ public class ControladorDoor : MonoBehaviour
                     cantidadEstrellas++;
                 }
             }
+            ValidarNivelPrevio(level);
         }
         );
 
+        // Valida la cantidad de estrellas obtenidas por el jugador
         if (cantidadEstrellas >= requiredStars)
         {
+            requisitoEstrellas = true;
+        }
+        else
+        {
+            requisitoEstrellas = false;
+        }
+
+        // Valida si muestra la puerta bloqueada o desbloqueada según los requisitos de estrellas y el nivel previo
+        if (requisitoEstrellas && nivelPrevio)
+        {
             vallaPuerta.SetActive(false);
-            cumpleRequisitos = true;
         }
         else
         {
             vallaPuerta.SetActive(true);
-            cumpleRequisitos = false;
         }
 
         panelInfo.SetActive(false);
     }
 
     /// <summary>
-    /// Se llama en una fase posterior cuando la escena ya esta activa.
+    /// Valida si el nivel previo esta completo (se ha alcanzado el final)
     /// </summary>
-    void Start()
+    private void ValidarNivelPrevio(Level level)
     {
+        if (sceneName == "1-1" || sceneName == "NivelPruebas")
+        {
+            nivelPrevio = true;
+            return;
+        }
 
+        // De lo indicado en la puerta actual
+        String parte2 = sceneName.Split('-')[1];
+        int parte2ConvertidaYCalculada = int.Parse(parte2)-1;
+        
+        // Proveniente del bucle de niveles guardados
+        String parte2NivelGuardado = level.identificadorNivel.Split('-')[1];
+        int parte2NivelGuardadoConvertida = int.Parse(parte2NivelGuardado);
 
-
+        if (parte2ConvertidaYCalculada.Equals(parte2NivelGuardadoConvertida) && level.isLevelCompleted != EnumStateLevelYStars.LevelYStars.NoObtenida)
+        {
+            nivelPrevio = true;
+        }
     }
 
     /// <summary>
@@ -109,7 +136,7 @@ public class ControladorDoor : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (EntrarAlNivel.IsPressed() && isEnter && cumpleRequisitos)
+        if (EntrarAlNivel.IsPressed() && isEnter && requisitoEstrellas && nivelPrevio)
         {
             enterLevel = true;
         }
