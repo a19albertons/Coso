@@ -71,8 +71,30 @@
                 },
                 {
                     "name": "",
+                    "id": "70e3590a-f53a-4b45-9dec-8cfddb50d270",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b6798d73-b572-468f-b510-9adbfcc36696",
                     "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bee8eea7-9701-43bf-984d-684af077f53a",
+                    "path": "<DualShockGamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -93,6 +115,17 @@
                 },
                 {
                     "name": "",
+                    "id": "ea10ef29-0e4b-47b0-848b-e59947c4e321",
+                    "path": "<DualShockGamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ef41a2d0-17cb-4656-811d-9fa5d388ec55",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -104,8 +137,30 @@
                 },
                 {
                     "name": "",
+                    "id": "657fc2b7-820f-4f9a-928f-c4ba080cb63f",
+                    "path": "<DualShockGamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "0cbf151c-e370-474e-b781-1c8df86ef50f",
                     "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Puerta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4edb57f-9f9e-42cc-b987-e20ff81cb228",
+                    "path": "<DualShockGamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
