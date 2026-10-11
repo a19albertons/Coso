@@ -31,7 +31,12 @@ public class ControladorDoor : MonoBehaviour
     private bool isEnter = false;
 
     // Objetos hijos de la puerta
+    [Header("Objetos hijos de la puerta")]
+    [SerializeField]
+    [Tooltip("Referencia a la valla que bloquea la puerta")]
     private GameObject vallaPuerta;
+    [SerializeField]
+    [Tooltip("Referencia al panel de información de la puerta")]
     private GameObject panelInfo;
 
     /// <summary>
@@ -41,8 +46,6 @@ public class ControladorDoor : MonoBehaviour
     {
         playerActionMap = inputActions.FindActionMap("Gameplay");
         EntrarAlNivel = playerActionMap.FindAction("Puerta");
-        vallaPuerta = GameObject.Find("Bloqueada");
-        panelInfo = GameObject.Find("Info");
 
         if (SaveManager.GetIntance().currentSave == null)
         {
@@ -73,6 +76,16 @@ public class ControladorDoor : MonoBehaviour
         }
 
         panelInfo.SetActive(false);
+    }
+
+    /// <summary>
+    /// Se llama en una fase posterior cuando la escena ya esta activa.
+    /// </summary>
+    void Start()
+    {
+
+
+
     }
 
     /// <summary>

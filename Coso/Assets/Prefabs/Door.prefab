@@ -532,6 +532,8 @@ MonoBehaviour:
   sceneName: NivelPruebas
   requiredStars: 0
   inputActions: {fileID: -944628639613478452, guid: 2593534c0c208db088fb489c6569df45, type: 3}
+  vallaPuerta: {fileID: 1530364057786142213}
+  panelInfo: {fileID: 5750899182886651022}
 --- !u!114 &20789466588309745
 MonoBehaviour:
   m_ObjectHideFlags: 0
