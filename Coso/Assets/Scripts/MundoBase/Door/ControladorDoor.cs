@@ -54,6 +54,10 @@ public class ControladorDoor : MonoBehaviour
             Debug.LogError("No se ha cargado ningún archivo de guardado. Asegúrate de que el SaveManager esté inicializado correctamente.");
             return;
         }
+        if (sceneName.Equals("1-1") || sceneName.Equals("NivelPruebas"))
+        {
+            nivelPrevio = true;
+        }
         SaveManager.GetIntance().currentSave.levels.ForEach(level =>
         {
             for (int i = 0; i < level.starsObtained.Length; i++)
@@ -95,16 +99,10 @@ public class ControladorDoor : MonoBehaviour
     /// </summary>
     private void ValidarNivelPrevio(Level level)
     {
-        if (sceneName == "1-1" || sceneName == "NivelPruebas")
-        {
-            nivelPrevio = true;
-            return;
-        }
-
         // De lo indicado en la puerta actual
         String parte2 = sceneName.Split('-')[1];
-        int parte2ConvertidaYCalculada = int.Parse(parte2)-1;
-        
+        int parte2ConvertidaYCalculada = int.Parse(parte2) - 1;
+
         // Proveniente del bucle de niveles guardados
         String parte2NivelGuardado = level.identificadorNivel.Split('-')[1];
         int parte2NivelGuardadoConvertida = int.Parse(parte2NivelGuardado);
