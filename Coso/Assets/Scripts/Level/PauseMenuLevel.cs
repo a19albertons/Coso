@@ -28,7 +28,7 @@ public class PauseMenuLevel : MonoBehaviour
 
     [Header("Player Controller Script")]
     [SerializeField]
-    private MonoBehaviour playerControllerScript;
+    private PlayerController playerControllerScript;
 
     private InputAction pauseAction;
     private bool isPaused;
