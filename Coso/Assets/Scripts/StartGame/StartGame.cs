@@ -1,6 +1,7 @@
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -26,6 +27,8 @@ public class StartGame : MonoBehaviour
             text.color = Color.gray;
         }
 
+        // Soporte para mando / teclado al empezar el juego, seleccionando el botón de nuevo juego por defecto
+        EventSystem.current.SetSelectedGameObject(newGameButton.gameObject);
     }
 
     /// <summary>
