@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -108,6 +109,7 @@ public class PauseMenuLevel : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
         playerControllerScript.enabled = false;
+        EventSystem.current.SetSelectedGameObject(buttonResume.gameObject);
     }
 
     void Resume()
