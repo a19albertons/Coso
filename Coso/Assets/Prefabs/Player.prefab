@@ -458,7 +458,7 @@ MonoBehaviour:
   desacceleration: 100
   airControlFactor: 0.5
   JumpForce: 6.5
-  SecondJumpForceMultiplier: 0.5
+  SecondJumpForceMultiplier: 0.8
   CutJumpForceMultiplier: 0.5
   gravity: 9.81
   fallMultiplier: 1
