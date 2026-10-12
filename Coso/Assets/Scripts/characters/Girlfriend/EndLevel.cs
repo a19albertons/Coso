@@ -35,6 +35,11 @@ public class EndLevel : MonoBehaviour
             other.gameObject.GetComponent<PlayerController>().enabled = false;
             other.gameObject.GetComponent<PlayerVisuals>().StopAnimacion();
             other.gameObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // Detiene cualquier movimiento del jugador
+
+            // Avisar a GestionTiempo que el nivel ha terminado para que pare de reducir el tiempo restante
+            GestionTiempo gestionTiempo = FindFirstObjectByType<GestionTiempo>();
+            gestionTiempo.finNivel = true;
+
             // Cargar escena de forma asincrona para evitar congelar el juego mientras se carga
             StartCoroutine(CargarEscenaAsync());
             // Realizar guardado de datos del jugador

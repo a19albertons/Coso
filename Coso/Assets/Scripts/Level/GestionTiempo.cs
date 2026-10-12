@@ -11,6 +11,8 @@ public class GestionTiempo : MonoBehaviour
 
     private float tiempoRestante;
 
+    public bool finNivel = false;
+
     // Variable para controlar si la ejecución de la muerte del personaje ya se ha realizado
     private bool isExecuted = false;
 
@@ -29,17 +31,20 @@ public class GestionTiempo : MonoBehaviour
     /// </summary>
     private void ActualizarTiempoRestante()
     {
-        tiempoRestante -= Time.deltaTime;
-        if (tiempoRestante <= 0)
+        if (!finNivel)
         {
-            tiempoRestante = 0;
-            if (!isExecuted)
+            tiempoRestante -= Time.deltaTime;
+            if (tiempoRestante <= 0)
             {
-                GestionPowerUP.GetInstance().PlayerPierdePowerUP();
-                GestionVidas.GetInstance().PlayerPierdeVida();
-                StartCoroutine(MuertePersonaje.GuardarDatosJugador());
-                StartCoroutine(MuertePersonaje.CargarEscenaAsync());
-                isExecuted = true;
+                tiempoRestante = 0;
+                if (!isExecuted)
+                {
+                    GestionPowerUP.GetInstance().PlayerPierdePowerUP();
+                    GestionVidas.GetInstance().PlayerPierdeVida();
+                    StartCoroutine(MuertePersonaje.GuardarDatosJugador());
+                    StartCoroutine(MuertePersonaje.CargarEscenaAsync());
+                    isExecuted = true;
+                }
             }
         }
     }
