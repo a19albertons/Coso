@@ -4614,6 +4614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EvaluarNivel1_4
   canvasCompletarNivel: {fileID: 1584460130}
+  nombreEscena: 1-4
 --- !u!4 &1494392702
 Transform:
   m_ObjectHideFlags: 0
