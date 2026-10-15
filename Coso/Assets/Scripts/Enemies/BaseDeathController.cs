@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class BaseDeathController : MonoBehaviour
+public abstract class BaseDeathController : MonoBehaviour
 {
     private static WaitForSeconds _waitForSeconds2 = new(2f);
     [SerializeField]
@@ -19,7 +19,7 @@ public class BaseDeathController : MonoBehaviour
     /// Detecta la colisión con el jugador e invoca al metodo encargado de gestionar la muerte del jugador.
     /// </summary>
     /// <param name="other"></param>
-    void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -29,17 +29,17 @@ public class BaseDeathController : MonoBehaviour
                 FindFirstObjectByType<PlayerInvencible>().ActivarInvencibilidad();
                 return;
             }
+            GestionPowerUP.GetInstance().PlayerPierdePowerUP();
             HandlePlayerDeath(other.gameObject);
         }
     }
 
     /// <summary>
-    /// Maneja la muerte del jugador. Debe ser implementado por las clases derivadas para definir el comportamiento específico de la muerte del jugador en cada tipo de enemigo.
+    /// Obliga a implementar la gestión a toda clase que lo herede de como se hace la muerte. 
     /// </summary>
     /// <param name="player"></param>
-    protected virtual void HandlePlayerDeath(GameObject player)
-    {
-    }
+    protected abstract void HandlePlayerDeath(GameObject player);
+
 
     /// <summary>
     /// Corutina que encapsula el patron comun de reinicio del nivel tras la muerte del jugador. Se encarga de esperar un tiempo, reubicar al jugador, restablecer la cámara y destruir el efecto de muerte.
