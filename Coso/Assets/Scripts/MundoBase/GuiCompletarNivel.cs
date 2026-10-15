@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -23,58 +22,24 @@ public class GuiCompletarNivel : MonoBehaviour
         botonNo.onClick.AddListener(ClickarNo);
     }
 
+    /// <summary>
+    /// Gestiona el evento de click del boton No, guarda el evento donde esta ventana ha sucedido y cierra la ventana.
+    /// </summary>
     private void ClickarNo()
     {
-        GuardarProgreso();
+        GuardadoCentralizadoMundoBase.GuardarProgreso();
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Gestiona el evento de click del boton Si, guarda el progreso de forma permanente y cierra la ventana.
+    /// </summary>
     private void ClickarSi()
     {
-        ConsolidarProgreso();
-        GuardarProgreso();
+        GuardadoCentralizadoMundoBase.ConsolidarProgreso();
+        GuardadoCentralizadoMundoBase.GuardarProgreso();
         gameObject.SetActive(false);
     }
 
-    /// <summary>
-    /// Realiza los cambios de estado provisional a obtenido de forma permanente
-    /// </summary>
-    private void ConsolidarProgreso()
-    {
-        if (SaveManager.GetIntance().currentSave == null)
-        {
-            Debug.LogError("No hay un guardado activo para aplicar el progreso del nivel");
-            return;
-        }
-        // Se recorre la lista de niveles del guardado actual y se actualiza el estado de los niveles y estrellas obtenidas
-        SaveManager.GetIntance().currentSave.levels.ForEach(level =>
-        {
-            // Guardar de forma permanente el progreso obtenido
-            if (level.isLevelCompleted == EnumStateLevelYStars.LevelYStars.Provisional)
-            {
-                level.isLevelCompleted = EnumStateLevelYStars.LevelYStars.Obtenida;
-            }
-            // Actualizar el estado de las estrellas
-            for (int i = 0; i < level.starsObtained.Length; i++)
-            {
-                if (level.starsObtained[i] == EnumStateLevelYStars.LevelYStars.Provisional)
-                {
-                    level.starsObtained[i] = EnumStateLevelYStars.LevelYStars.Obtenida;
-                }
-            }
-        });
-    }
 
-    /// <summary>
-    /// Se guarda el progreso en el fichero asociado en el sistema de ficheros.
-    /// </summary>
-    private void GuardarProgreso()
-    {
-        if (SaveManager.GetIntance().currentSave == null)
-        {
-            Debug.LogError("No hay un guardado activo para aplicar el progreso del nivel");
-            return;
-        }
-        SaveManager.GetIntance().SaveGame(1);
-    }
 }
