@@ -42,7 +42,7 @@ public class SawMovement : MonoBehaviour
         }
 
         Transform puntoDestino = puntosMovimiento[puntoActual];
-        transform.position = Vector2.MoveTowards(transform.position, puntoDestino.position, velocidad * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, puntoDestino.position, velocidad * Time.fixedDeltaTime);
 
         if (Vector2.Distance(transform.position, puntoDestino.position) < 0.1f)
         {
