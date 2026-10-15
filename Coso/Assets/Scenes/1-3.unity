@@ -560,6 +560,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sierra3
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 929809283}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 835674289}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[2]'
+      value: 
+      objectReference: {fileID: 855176574}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1724664995}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1897850765}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 5
@@ -705,6 +729,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: SierraEstrella2 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 240657140}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 265080137}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1726978868}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1583457872}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1082667962}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 5
@@ -1550,6 +1598,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sierra8
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 713584262}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 46289374}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1542761426}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1389655193}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1766335822}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 5
@@ -1786,6 +1858,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sierra1
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 988037818}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1522620758}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 2
@@ -2638,6 +2722,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sierra7
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 101623827}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1249141459}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1553232072}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[3]'
+      value: 
+      objectReference: {fileID: 897698997}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[4]'
+      value: 
+      objectReference: {fileID: 626863484}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 5
@@ -2781,6 +2889,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SierraEstrella2 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2039354624}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1631273864}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[2]'
+      value: 
+      objectReference: {fileID: 775664394}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1207210035}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 4
@@ -8828,6 +8956,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sierra9
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 426182373}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1446580416}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 2
@@ -9180,6 +9320,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sierra2
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 423233849}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1544932087}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1785077499}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[3]'
+      value: 
+      objectReference: {fileID: 481327402}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[4]'
+      value: 
+      objectReference: {fileID: 259609199}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 5
@@ -9370,6 +9534,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SierraEstrella2 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 607355057}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 652677662}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1084654133}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1695464653}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 4
@@ -10708,6 +10892,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sierra4
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 477902197}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1913749521}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1538813414}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1417877707}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1355274383}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 5
@@ -11107,6 +11315,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sierra6
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 33935017}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1982653482}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[2]'
+      value: 
+      objectReference: {fileID: 905565707}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1007681659}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1414791470}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 5
@@ -12698,6 +12930,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sierra5
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 899037911}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 329946040}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[2]'
+      value: 
+      objectReference: {fileID: 976957446}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1493370736}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[4]'
+      value: 
+      objectReference: {fileID: 509020598}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 5

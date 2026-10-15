@@ -1211,6 +1211,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sierra
       objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: puntosMovimiento.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1002232607}
+    - target: {fileID: 6233287989323603786, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
+      propertyPath: 'puntosMovimiento.Array.data[1]'
+      value: 
+      objectReference: {fileID: 214734173}
     - target: {fileID: 6394244388798249187, guid: 5efc949a5fbea6ef68a0cdcfd7f5bc35, type: 3}
       propertyPath: puntosMovimiento.Array.size
       value: 2

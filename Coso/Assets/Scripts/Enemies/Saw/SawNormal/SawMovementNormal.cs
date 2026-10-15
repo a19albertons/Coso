@@ -1,19 +1,13 @@
 using UnityEngine;
 
-[RequireComponent(typeof(LineRenderer))]
-public class SawMovement : MonoBehaviour
+public class SawMovementNormal : SawMovementBase
 {
-    [SerializeField]
-    [Tooltip("Velocidad de movimiento de la sierra")]
-    private float velocidad = 3f;
-
     [SerializeField]
     [Tooltip("Puntos por los que se mueve la sierra")]
     private Transform[] puntosMovimiento;
 
-    private int puntoActual = 0;
-
     private LineRenderer linea;
+    private int puntoActual = 0;
 
     void Awake()
     {
@@ -27,13 +21,8 @@ public class SawMovement : MonoBehaviour
         linea.loop = true;
     }
 
-    void FixedUpdate()
-    {
-        MoverSierra();
-    }
 
-
-    void MoverSierra()
+    protected override void MoverSierra()
     {
         if (puntosMovimiento.Length == 0)
         {

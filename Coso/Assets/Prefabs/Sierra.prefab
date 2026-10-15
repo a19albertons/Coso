@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5198213746540088130}
   - component: {fileID: 553240267306383199}
   - component: {fileID: 6833711777502617892}
-  - component: {fileID: 6394244388798249187}
   - component: {fileID: 6243885120319491294}
   - component: {fileID: 6091794600425066892}
+  - component: {fileID: 6233287989323603786}
   m_Layer: 9
   m_Name: Sierra
   m_TagString: Untagged
@@ -270,23 +270,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &6394244388798249187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4855798625937258730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2007b5cb5ec133c9aea3da056d59fbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SawMovement
-  velocidad: 1.5
-  puntosMovimiento:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &6243885120319491294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,3 +296,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SawDeathController
   deathEffect: {fileID: 7204924386632334049, guid: 0ac750bb0b0445e6b953cb22eb9bb24a, type: 3}
+--- !u!114 &6233287989323603786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4855798625937258730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 570edd0d58cda5b9aae3ca9f31c53ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SawMovementNormal
+  velocidad: 1.5
+  puntosMovimiento: []
