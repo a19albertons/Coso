@@ -29,7 +29,7 @@ public abstract class BaseDeathController : MonoBehaviour
                 FindFirstObjectByType<PlayerInvencible>().ActivarInvencibilidad();
                 return;
             }
-            GestionPowerUP.GetInstance().PlayerPierdePowerUP();
+            GestionVidas.GetInstance().PlayerPierdeVida();
             HandlePlayerDeath(other.gameObject);
         }
     }
