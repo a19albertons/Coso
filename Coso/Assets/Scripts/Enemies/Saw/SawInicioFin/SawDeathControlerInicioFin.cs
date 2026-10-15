@@ -11,7 +11,10 @@ public class SawDeathControlerInicioFin : BaseDeathController
     /// <param name="other"></param>
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        HandlePlayerDeath(other.gameObject);
+        if (other.CompareTag("Player"))
+        {
+            HandlePlayerDeath(other.gameObject);
+        }
     }
 
     /// <summary>
