@@ -9,10 +9,16 @@ public abstract class BaseDeathController : MonoBehaviour
     protected GameObject deathEffect;
 
     protected new Collider2D collider;
+    protected PlayerIsDeath playerIsDeath;
 
     void Awake()
     {
         collider = GetComponent<Collider2D>();
+        playerIsDeath = FindFirstObjectByType<PlayerIsDeath>();
+        if (playerIsDeath == null)
+        {
+            Debug.LogError("No se encontró el componente PlayerIsDeath en la escena.");
+        }
     }
 
     /// <summary>
@@ -21,7 +27,7 @@ public abstract class BaseDeathController : MonoBehaviour
     /// <param name="other"></param>
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !playerIsDeath.isDead)
         {
             if (GestionPowerUP.GetInstance().EstadoPowerUP() is not NoneState)
             {
@@ -29,6 +35,7 @@ public abstract class BaseDeathController : MonoBehaviour
                 FindFirstObjectByType<PlayerInvencible>().ActivarInvencibilidad();
                 return;
             }
+            playerIsDeath.isDead = true;
             GestionVidas.GetInstance().PlayerPierdeVida();
             HandlePlayerDeath(other.gameObject);
         }
