@@ -12,7 +12,15 @@ public class SawMovementNormal : SawMovementBase
 
     void Awake()
     {
-        transform.position = puntosMovimiento[0].position;
+        // Evalua si existen puntos en caso negativo se queda estatica donde se ha declarado en la escena.
+        if (puntosMovimiento.Length >=1)
+        {
+            transform.position = puntosMovimiento[0].position;
+        }
+        else
+        {
+            Debug.LogWarning("No hay puntos asignados en la sierra " + gameObject.name + " revise si son necesarios. Se queda estatica en la posición declarada en la escena como callback.");
+        }
         linea = GetComponent<LineRenderer>();
         linea.positionCount = puntosMovimiento.Length;
         for (int i = 0; i < puntosMovimiento.Length; i++)
@@ -27,7 +35,7 @@ public class SawMovementNormal : SawMovementBase
     {
         if (puntosMovimiento.Length == 0)
         {
-            Debug.Log("No se han asignado puntos de movimiento para la sierra.");
+            Debug.Log("No se han asignado puntos de movimiento para la sierra. Se mantiene estatica en la posición declarada.");
             return;
         }
 
