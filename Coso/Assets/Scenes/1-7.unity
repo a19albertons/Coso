@@ -41725,6 +41725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuiDebug
       objectReference: {fileID: 0}
+    - target: {fileID: 2704013402523106349, guid: 65fbdb6ec7a24694589f4000d6019cfc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8074258485647767053, guid: 65fbdb6ec7a24694589f4000d6019cfc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -49604,6 +49608,7 @@ MonoBehaviour:
       IsTutorialDone: 0
       level1_4IsDone: 0
       level1_8IsDone: 0
+      haMuerto: 0
 --- !u!4 &1964183290
 Transform:
   m_ObjectHideFlags: 0
