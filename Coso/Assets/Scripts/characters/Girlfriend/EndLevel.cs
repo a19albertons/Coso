@@ -19,6 +19,7 @@ public class EndLevel : MonoBehaviour
     private bool isSaved = false; // Variable para controlar si los datos del jugador ya han sido guardados
     private bool moverPersonaje = false; // Variable para controlar si el personaje debe moverse fuera de la cámara
     private bool isMoved = false; // Variable para controlar si el personaje ya ha sido movido fuera de la cámara
+    private bool isExecuted = false; // Controla una condición de carrera cuando el jugador (que tiene 2 colliders) entra en el mismo frame en contacto con ambos
 
     void Awake()
     {
@@ -29,8 +30,11 @@ public class EndLevel : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isExecuted)
         {
+            // Cuando entra aqui el jugador, se marca como true el isExecuted para prevenir ejecuciones multiples de este código.
+            isExecuted = true;
+
             // Le quitamos la posibilidad al jugador de moverse y saltar
             other.gameObject.GetComponent<PlayerController>().enabled = false;
             other.gameObject.GetComponent<PlayerVisuals>().StopAnimacion();
