@@ -387,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3744923752638038258, guid: 53e678a2f71f079a58b7df81391a1ec4, type: 3}
       propertyPath: requiredStars
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -780,7 +780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3744923752638038258, guid: 53e678a2f71f079a58b7df81391a1ec4, type: 3}
       propertyPath: requiredStars
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -856,7 +856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3744923752638038258, guid: 53e678a2f71f079a58b7df81391a1ec4, type: 3}
       propertyPath: requiredStars
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -954,7 +954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3744923752638038258, guid: 53e678a2f71f079a58b7df81391a1ec4, type: 3}
       propertyPath: requiredStars
-      value: 21
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5190,7 +5190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3744923752638038258, guid: 53e678a2f71f079a58b7df81391a1ec4, type: 3}
       propertyPath: requiredStars
-      value: 16
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5301,7 +5301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3744923752638038258, guid: 53e678a2f71f079a58b7df81391a1ec4, type: 3}
       propertyPath: requiredStars
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5377,7 +5377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3744923752638038258, guid: 53e678a2f71f079a58b7df81391a1ec4, type: 3}
       propertyPath: requiredStars
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
