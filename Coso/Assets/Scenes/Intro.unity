@@ -508,6 +508,8 @@ MonoBehaviour:
     checkpoint:
       IsTutorialDone: 0
       level1_4IsDone: 0
+      level1_8IsDone: 0
+      haMuerto: 0
 --- !u!4 &987332358
 Transform:
   m_ObjectHideFlags: 0
@@ -2823,7 +2825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e2f8238612473b4b8b386763b3ab6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControllerCinematicPlayer
-  posicionFinal: {x: 3.5, y: -2.5}
+  posicionFinalAsignada: {x: 3.5, y: -2.5}
 --- !u!114 &7486842466121321615
 MonoBehaviour:
   m_ObjectHideFlags: 0
