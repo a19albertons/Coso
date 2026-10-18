@@ -706,6 +706,7 @@ MonoBehaviour:
       IsTutorialDone: 0
       level1_4IsDone: 0
       level1_8IsDone: 0
+      haMuerto: 0
 --- !u!4 &266961946
 Transform:
   m_ObjectHideFlags: 0
@@ -4629,6 +4630,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6485664fc9122569c816f3193ca9efcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeleccionarAlPasarElRaton
+--- !u!1 &1278329326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1278329328}
+  - component: {fileID: 1278329327}
+  m_Layer: 0
+  m_Name: EvaluarNivel1_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1278329327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278329326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b36890c9104425892b030ccf9dead8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EvaluarNivel1_8
+  canvasCompletarNivel: {fileID: 0}
+  nombreEscena: 1-8
+--- !u!4 &1278329328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278329326}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.75233, y: -2.27269, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1468520866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6268,3 +6315,4 @@ SceneRoots:
   - {fileID: 1494392702}
   - {fileID: 679801530}
   - {fileID: 1025902989}
+  - {fileID: 1278329328}
