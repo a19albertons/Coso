@@ -1,29 +1,20 @@
 using TMPro;
 using UnityEngine;
 
-public class ControllerDialoge : MonoBehaviour
+public class ControllerDialogeIntro : ControllerDialogeBase
 {
-    private float time;
-    private bool tiempoIniciado = false;
     private bool[] dialogoMostrado = new bool[5];
 
-    private TextMeshProUGUI dialogo;
-
-    void Awake()
+    protected override void InicializarDialogoMostrado()
     {
-        dialogo = GetComponentInChildren<TextMeshProUGUI>();
         for (int i = 0; i < dialogoMostrado.Length; i++)
         {
             dialogoMostrado[i] = false;
         }
     }
-    public void IniciarTiempo()
-    {
-        time = 0f;
-        tiempoIniciado = true;
-    }
 
-    void Update()
+
+    protected override void Dialogo()
     {
         if (tiempoIniciado)
         {

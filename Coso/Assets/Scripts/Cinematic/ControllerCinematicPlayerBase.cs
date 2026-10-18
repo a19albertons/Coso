@@ -3,13 +3,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerVisuals))]
 [RequireComponent(typeof(GroundDetector))]
-public class ControllerCinematicPlayerInitial : MonoBehaviour
+public abstract class ControllerCinematicPlayerBase : MonoBehaviour
 {
-    [SerializeField]
     [Tooltip("Ubicacion final del jugador")]
-    private Vector2 posicionFinal;
+    protected abstract Vector2 posicionFinal { get; }
 
-    private Vector2 posicionInicial;
+
     private Rigidbody2D rb;
     private PlayerVisuals animacion;
     private GroundDetector ground;
@@ -17,7 +16,6 @@ public class ControllerCinematicPlayerInitial : MonoBehaviour
 
     void Awake()
     {
-        posicionInicial = new Vector2(transform.position.x, transform.position.y);
         rb = GetComponent<Rigidbody2D>();
         animacion = GetComponent<PlayerVisuals>();
         ground = GetComponent<GroundDetector>();
@@ -34,10 +32,6 @@ public class ControllerCinematicPlayerInitial : MonoBehaviour
         {
             animacion.UpdateAnimations(Vector2.right, ground.EnTierra);
         }
-        else
-        {
-            animacion.UpdateAnimations(Vector2.zero, ground.EnTierra);
-        }
     }
 
 
@@ -53,6 +47,7 @@ public class ControllerCinematicPlayerInitial : MonoBehaviour
         if (Vector2.Distance(transform.position, posicionFinal) < 0.1f)
         {
             movimientoIniciado = false;
+            animacion.UpdateAnimations(Vector2.zero, ground.EnTierra);
         }
     }
 
