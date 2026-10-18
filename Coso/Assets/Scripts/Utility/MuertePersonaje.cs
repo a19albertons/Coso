@@ -38,7 +38,15 @@ public static class MuertePersonaje
     /// <returns></returns>
     public static IEnumerator CargarEscenaAsync()
     {
-        AsyncOperation op = SceneManager.LoadSceneAsync("MundoBase");
+        AsyncOperation op;
+        if (GestionVidas.GetInstance().GetVidasActualesInt() > 0)
+        {
+            op = SceneManager.LoadSceneAsync("MundoBase");
+        }
+        else
+        {
+            op = SceneManager.LoadSceneAsync("HasPerdido");
+        }
         op.allowSceneActivation = false; // Evita que la escena se active automáticamente al terminar de cargar
         while (!isSaved)
         {

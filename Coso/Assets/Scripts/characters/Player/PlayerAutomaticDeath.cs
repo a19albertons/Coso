@@ -27,14 +27,18 @@ public class PlayerAutomaticDeath : MonoBehaviour
         if (transform.position.y < alturaMuerteEjeY && !isDead)
         {
             isDead = true; // Marca que el jugador ha muerto para evitar múltiples llamadas a la muerte
-            // Empieza la carga de la escena de forma asincrona para evitar congelar el juego mientras se carga
-            StartCoroutine(MuertePersonaje.CargarEscenaAsync());
 
             // Se hacen los cambios necesario en el jugador para simular la muerte
             gameObject.GetComponent<PlayerController>().enabled = false;
             GestionPowerUP.GetInstance().PlayerPierdePowerUP();
             GestionVidas.GetInstance().PlayerPierdeVida();
             AudioSource.PlayClipAtPoint(sonidoMuerte, transform.position);
+
+
+            // Empieza la carga de la escena de forma asincrona para evitar congelar el juego mientras se carga
+            StartCoroutine(MuertePersonaje.CargarEscenaAsync());
+
+
 
             // Se actualizan los datos del jugador como numero de vidas, perdida de powerup, monedas...
             StartCoroutine(MuertePersonaje.GuardarDatosJugador());
