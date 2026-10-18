@@ -83,28 +83,38 @@ public class PauseMundoBase : MonoBehaviour
     {
         if (SaveManager.GetIntance().currentSave != null)
         {
-            if (!SaveManager.GetIntance().currentSave.checkpoint.level1_8IsDone)
+
+            if (SaveManager.GetIntance().currentSave.checkpoint.JuegoCompletado)
             {
-                if (SaveManager.GetIntance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)) != null)
-                {
-                    if (SaveManager.GetIntance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)).isLevelCompleted == EnumStateLevelYStars.LevelYStars.Provisional
-                        || SaveManager.GetIntance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)).isLevelCompleted == EnumStateLevelYStars.LevelYStars.Obtenida)
-                    {
-                        // Si se cumplen los requisitos, habilita el botón de guardar
-                        buttonSave.interactable = true;
-                    }
-                }
+                // Si se cumplen los requisitos, habilita el botón de guardar
+                buttonSave.interactable = true;
+                buttonSave.GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
+            }
+            else
+            {
+                // Actua como un valor por defecto deshabilita el boton de guardar si no se cumplen los requisitos
+                buttonSave.interactable = false;
+                buttonSave.GetComponentInChildren<TextMeshProUGUI>().color = Color.gray;
             }
         }
-        // Actua como un valor por defecto deshabilita el boton de guardar si no se cumplen los requisitos
-        buttonSave.interactable = false;
-        buttonSave.GetComponentInChildren<TextMeshProUGUI>().color = Color.gray;
+        else
+        {
+            // Actua como un valor por defecto deshabilita el boton de guardar si no se cumplen los requisitos
+            buttonSave.interactable = false;
+            buttonSave.GetComponentInChildren<TextMeshProUGUI>().color = Color.gray;
+        }
+
     }
 
     public void SaveGame()
     {
         GuardadoCentralizadoMundoBase.ConsolidarProgreso();
         GuardadoCentralizadoMundoBase.GuardarProgreso();
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+        playerControllerScript.enabled = true;
+        Resume();
     }
 
     public void ExitGame()
