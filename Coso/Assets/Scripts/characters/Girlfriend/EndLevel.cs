@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-[RequireComponent(typeof(Rigidbody2D))]
 
+/// <summary>
+/// Clase que gestiona el final del nivel donde mundo base queda cargando, la novia sale de camara, se guarda el progreso y se carga la escena.
+/// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class EndLevel : MonoBehaviour
 {
@@ -55,6 +58,10 @@ public class EndLevel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Guarda los datos del jugador en los casos de final de nivel
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator GuardarDatosJugador()
     {
         FindAnyObjectByType<ManagerGuardarNivel>().GuardarNivel();
@@ -62,6 +69,10 @@ public class EndLevel : MonoBehaviour
         yield return null;
     }
 
+    /// <summary>
+    /// Gestiona la carga de la escena de forma asincrona para evitar congelar el juego mientras se carga
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator CargarEscenaAsync()
     {
         AsyncOperation op = SceneManager.LoadSceneAsync("MundoBase");
@@ -76,11 +87,15 @@ public class EndLevel : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Mueve al personaje fuera de la cámara mientras se carga la escena
+    /// </summary>
     private void MoverPersonajeFueraCamara()
     {
         Vector2 posicionFinal = Vector2.MoveTowards(rb.position, posicionMovePoint, 5f * Time.fixedDeltaTime);
         rb.MovePosition(posicionFinal);
     }
+    
     void FixedUpdate()
     {
         if (moverPersonaje)

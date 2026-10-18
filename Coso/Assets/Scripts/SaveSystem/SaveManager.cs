@@ -1,6 +1,9 @@
 using System.IO;
 using UnityEngine;
 
+/// <summary>
+/// clase que gestiona el guardado y carga del juego, permitiendo guardar y cargar la partida actual en diferentes slots de guardado.
+/// </summary>
 public class SaveManager : MonoBehaviour
 {
     private static SaveManager instance;

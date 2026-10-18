@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Clase que gestiona la pantalla de inicio del juego, permitiendo al jugador iniciar un nuevo juego o continuar desde un guardado previo.
+/// </summary>
 public class StartGame : MonoBehaviour
 {
     [SerializeField]

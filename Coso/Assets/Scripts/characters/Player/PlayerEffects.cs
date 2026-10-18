@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona los efectos del jugador como caminar sobre el suelo.
+/// </summary>
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(GroundDetector))]

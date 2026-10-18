@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Clase base que gestiona la muerte de un enemigo y la interacción con el jugador.
+/// </summary>
 [RequireComponent(typeof(Collider2D))]
 public abstract class BaseDeathController : MonoBehaviour
 {

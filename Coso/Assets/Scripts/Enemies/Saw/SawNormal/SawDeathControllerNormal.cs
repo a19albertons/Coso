@@ -1,6 +1,8 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
+/// <summary>
+/// Clase que gestiona la muerte de la sierra normal.
+/// </summary>
 public class SawDeathControllerNormal : BaseDeathController
 {
     /// <summary>

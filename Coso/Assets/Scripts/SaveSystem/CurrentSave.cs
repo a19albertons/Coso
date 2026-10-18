@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 
+/// <summary>
+/// Clase que representa la partida actual del juego, incluyendo la información del jugador, los niveles y los checkpoints
+/// </summary>
 [System.Serializable]
 public class CurrentSave
 {

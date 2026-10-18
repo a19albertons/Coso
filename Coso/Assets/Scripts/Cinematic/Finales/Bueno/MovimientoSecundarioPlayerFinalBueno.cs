@@ -1,8 +1,8 @@
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D))]
 
-[RequireComponent(typeof(PlayerVisuals))]
-[RequireComponent(typeof(GroundDetector))]
+/// <summary>
+/// Clase que gestiona el movimiento secundario del jugador en la cinemática del final bueno
+/// </summary>
 public class MovimientoSecundarioPlayerFinalBueno : ControllerCinematicPlayerBase
 {
     [SerializeField]

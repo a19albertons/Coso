@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona el movimiento de la girlfriend en la cinemática del final bueno
+/// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
 public class MovimientoGirlfriendFinalBueno : MonoBehaviour
 {
@@ -8,6 +11,9 @@ public class MovimientoGirlfriendFinalBueno : MonoBehaviour
     [Tooltip("Punto donde movemos a la girlfriend fuera de camara en el final malo")]
     private Vector2 puntoFueraDeCamara;
 
+    /// <summary>
+    /// Activa el movimiento de la girlfriend hacia el punto fuera de cámara
+    /// </summary>
     public void IniciarMovimiento()
     {
         moverse = true;
@@ -17,6 +23,10 @@ public class MovimientoGirlfriendFinalBueno : MonoBehaviour
     {
         MoverPersonajes();
     }
+    
+    /// <summary>
+    /// Mueve a la girlfriend hacia el punto fuera de cámara si se ha activado el movimiento
+    /// </summary>
     private void MoverPersonajes()
     {
         if (!moverse)

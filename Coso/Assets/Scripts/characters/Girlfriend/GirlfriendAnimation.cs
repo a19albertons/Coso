@@ -1,7 +1,10 @@
 using System;
 using UnityEngine;
-[RequireComponent(typeof(Animator))]
 
+/// <summary>
+/// Clase que gestiona las animaciones de la novia.
+/// </summary>
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class GirlfriendAnimation : MonoBehaviour
 {
@@ -22,6 +25,9 @@ public class GirlfriendAnimation : MonoBehaviour
         ActualizarAnimaciones();
     }
 
+    /// <summary>
+    ///  Actualiza las animaciones de la novia en base al frame actual y previo para calcular la velocidad.
+    /// </summary>
     private void ActualizarAnimaciones()
     {
         Vector2 frameActual = new Vector2(transform.position.x, transform.position.y);

@@ -1,3 +1,6 @@
+/// <summary>
+/// Alberga la información importante asociado al jugador, incluyendo las vidas actuales, las monedas actuales y el power-up actual.
+/// </summary>
 [System.Serializable]
 public class PlayerInfo
 {

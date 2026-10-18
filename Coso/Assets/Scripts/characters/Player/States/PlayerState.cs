@@ -1,3 +1,6 @@
+/// <summary>
+/// Clase base para todos los estados del jugador.
+/// </summary>
 public abstract class PlayerState
 {
     protected readonly PlayerController Player;

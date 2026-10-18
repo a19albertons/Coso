@@ -1,5 +1,3 @@
-using UnityEngine;
-
 /// <summary>
 /// Clase abstracta que representa los estados de los powerups del jugador, se debe heredar de esta clase para crear un nuevo powerup
 /// </summary>

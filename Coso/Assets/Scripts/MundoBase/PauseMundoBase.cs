@@ -4,6 +4,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+/// <summary>
+/// Clase que gestiona el menú de pausa del mundo base, permitiendo al jugador pausar el juego, reanudar, guardar y salir del juego.
+/// </summary>
 public class PauseMundoBase : MonoBehaviour
 {
     [Header("Pause Menu UI")]

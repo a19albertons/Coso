@@ -34,6 +34,9 @@ public class GuiMundoBase : MonoBehaviour
         ActualizarGui();
     }
 
+    /// <summary>
+    /// Actualiza la interfaz gráfica del mundobase, incluyendo la imagen del powerUP habilitado, el texto de monedas, el texto de estrellas y el texto de vidas.
+    /// </summary>
     void ActualizarGui()
     {
         powerUP.GetComponent<Image>().sprite = GestionPowerUP.GetInstance().EstadoPowerUP() switch

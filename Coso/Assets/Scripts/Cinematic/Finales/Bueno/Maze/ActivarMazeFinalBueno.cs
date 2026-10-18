@@ -1,6 +1,8 @@
 using UnityEngine;
 
-
+/// <summary>
+/// Clase que gestiona la activación del Maze final bueno, haciendo que caiga sobre la ubicación indicada
+/// </summary>
 public class ActivarMazeFinalBueno : MonoBehaviour
 {
     [SerializeField]
@@ -8,6 +10,9 @@ public class ActivarMazeFinalBueno : MonoBehaviour
     private Vector2 posicionCaida;
     private bool moverse = false;
 
+    /// <summary>
+    /// Activa el movimiento de la maza hacia la ubicación indicada
+    /// </summary>
     public void Activar()
     {
         moverse = true;
@@ -15,10 +20,13 @@ public class ActivarMazeFinalBueno : MonoBehaviour
 
     void FixedUpdate()
     {
-        CaerSobrePlayer();
+        Caer();
     }
 
-    private void CaerSobrePlayer()
+    /// <summary>
+    /// La maza cae sobre la ubicación indicada, si se ha activado el movimiento.
+    /// </summary>
+    private void Caer()
     {
         if (moverse)
         {

@@ -2,9 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Clase que gestiona las operaciones en segundo plano durante la cinemática del final malo, incluyendo la preparación de la escena "MundoBase" y el control de la finalización de la cinemática inicial.
+/// </summary>
 public class SegundoPlanoFinalMalo : MonoBehaviour
 {
-    private bool isSaved = false; // Variable para controlar si los datos del jugador ya han sido guardados
     private bool isCinematicFinished = false; // Variable para controlar si la cinemática ha finalizado
 
     public void LanzarOperacionesSegundoPlano()

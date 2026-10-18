@@ -47,6 +47,9 @@ public class GuiLevel : MonoBehaviour
         ActualizarGui();
     }
 
+    /// <summary>
+    /// Actuala la interfaz gráfica del nivel a cada frame, mostrando la información actualizada de las estrellas obtenidas, el powerup activo, las monedas acumuladas, el tiempo restante y las vidas actuales del jugador.
+    /// </summary>
     void ActualizarGui()
     {
         if (levelManager == null)

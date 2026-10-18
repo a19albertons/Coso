@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona las animaciones del jugador a partir de la información que le llega del PlayerController y PlayerMotor.
+/// </summary>
 [RequireComponent(typeof(Animator))]
 public class PlayerVisuals : MonoBehaviour
 {
@@ -17,6 +20,10 @@ public class PlayerVisuals : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Hace que el jugador mire hacia la dirección del movimiento. Si no hay movimiento, no hace nada.
+    /// </summary>
+    /// <param name="direction"></param>
     public void FaceDirection(float direction)
     {
         if (direction == 0) return; // No hacemos nada si no hay movimiento
@@ -24,6 +31,12 @@ public class PlayerVisuals : MonoBehaviour
         escala.x = Mathf.Abs(escala.x) * Mathf.Sign(direction);
         transform.localScale = escala;
     }
+
+    /// <summary>
+    /// Actualiza las animaciones del jugador según la velocidad y si está en el suelo o no.
+    /// </summary>
+    /// <param name="velocity"></param>
+    /// <param name="isGrounded"></param>
     public void UpdateAnimations(Vector2 velocity, bool isGrounded)
     {
         animacion.SetFloat(VelocidadYHash, velocity.y);
@@ -31,6 +44,9 @@ public class PlayerVisuals : MonoBehaviour
         animacion.SetBool(EnSueloHash, isGrounded);
     }
 
+    /// <summary>
+    /// Detiene las animaciones
+    /// </summary>
     public void StopAnimacion()
     {
         animacion.SetFloat(VelocidadYHash, 0);

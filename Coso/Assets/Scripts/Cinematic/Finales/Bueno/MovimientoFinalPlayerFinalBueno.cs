@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona el movimiento final del jugador en la cinemática del final bueno
+/// </summary>
 public class MvomientoFinalPlayerFinalBueno : ControllerCinematicPlayerBase
 {
     [SerializeField]

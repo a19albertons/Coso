@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Gestiona la lógica de contacto con las monedas, sumando 1 a la cantidad de monedas acumuladas por el jugador
+/// </summary>
 public class CoinController : MonoBehaviour
 {
     bool isCollected = false;

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona el detector de suelo que expone propiedades para otras clases tengan información sobre la pendiente, estar en el suelo...
+/// </summary>
 public class GroundDetector : MonoBehaviour
 {
     [Header("Configuraciones")]

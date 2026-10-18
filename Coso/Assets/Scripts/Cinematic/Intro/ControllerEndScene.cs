@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona que ambos jugadores salgan de la camara, la camara y el fondo no se muevan y las animaciones de los personajes.
+/// </summary>
 public class ControllerEndScene : MonoBehaviour
 {
     [SerializeField]

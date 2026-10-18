@@ -1,6 +1,9 @@
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Clase base que gestiona el diálogo en las distintas cinemáticas de forma estandarizada como si fuese una plantilla.
+/// </summary>
 public abstract class ControllerDialogeBase : MonoBehaviour
 {
     protected float time;

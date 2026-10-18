@@ -1,7 +1,9 @@
 using UnityEngine;
+
+/// <summary>
+/// Clase que gestiona el movimiento del jugador, incluyendo el control de la velocidad y la gravedad.
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
-
-
 public class PlayerMotor : MonoBehaviour
 {
     [Header("Movimiento Eje X")]

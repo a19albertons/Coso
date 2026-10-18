@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona la cantidad de monedas acumuladas por el jugador a lo largo del juego en sus distintas escenas
+/// </summary>
 public class GestionMonedas : MonoBehaviour
 {
     /// <summary>

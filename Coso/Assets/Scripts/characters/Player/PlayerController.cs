@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona el controlador del jugador, incluyendo la máquina de estados, los componentes y la lógica de actualización.
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(GroundDetector))]
 [RequireComponent(typeof(PlayerInputHandler))]
@@ -26,8 +29,6 @@ public class PlayerController : MonoBehaviour
 
 
     // Valores originales de los materiales del collider
-
-
     private void Awake()
     {
         // Obtener referencia al componente PlayerMovement y Animator

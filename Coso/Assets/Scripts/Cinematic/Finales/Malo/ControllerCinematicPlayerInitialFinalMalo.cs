@@ -1,8 +1,8 @@
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D))]
 
-[RequireComponent(typeof(PlayerVisuals))]
-[RequireComponent(typeof(GroundDetector))]
+/// <summary>
+/// Clase que gestiona el controlador del jugador en la cinemática inicial del final malo
+/// </summary>
 public class ControllerCinematicPlayerInitialFinalMalo : ControllerCinematicPlayerBase
 {
     [SerializeField]

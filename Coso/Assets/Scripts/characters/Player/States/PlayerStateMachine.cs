@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona la máquina de estados del jugador, permitiendo cambiar entre los diferentes estados y actualizando el estado actual.
+/// </summary>
 public class PlayerStateMachine
 {
     public PlayerState CurrentState { get; private set; }

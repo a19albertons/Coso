@@ -1,6 +1,9 @@
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D))]
 
+/// <summary>
+/// Clase base que gestiona los movimiento del jugador en las distintas cinemáticas de forma estandarizada como si fuese una plantilla.
+/// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerVisuals))]
 [RequireComponent(typeof(GroundDetector))]
 public abstract class ControllerCinematicPlayerBase : MonoBehaviour

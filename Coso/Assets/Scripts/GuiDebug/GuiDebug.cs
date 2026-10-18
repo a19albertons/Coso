@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona la información de debug en las distintas escenas como contador de fps e información del player en su movimiento por el eje X e Y
+/// </summary>
 public class GuiDebug : MonoBehaviour
 {
     [SerializeField]

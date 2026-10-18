@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase base que gestiona el movimiento de la sierra en el juego, proporcionando una estructura para que las clases derivadas implementen su propio comportamiento de movimiento.
+/// </summary>
 public abstract class SawMovementBase : MonoBehaviour
 {
     [SerializeField]

@@ -1,6 +1,8 @@
 using UnityEngine;
 
-
+/// <summary>
+/// Clase que gestiona el efecto parallax de la imagen de fondo en relación al movimiento del jugador
+/// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
 public class ParallaxBackground : MonoBehaviour
 {
@@ -10,11 +12,11 @@ public class ParallaxBackground : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Multiplicado reductor en comparación al avance del jugador")]
-    [Range(0,1f)]
+    [Range(0, 1f)]
     private float parallaxFactor = 0.01f;
 
 
-private SpriteRenderer background;
+    private SpriteRenderer background;
 
     private Material backgroundMaterial;
 

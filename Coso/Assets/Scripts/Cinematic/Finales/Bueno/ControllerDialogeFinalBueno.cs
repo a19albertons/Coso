@@ -1,6 +1,8 @@
-using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona el diálogo del final bueno
+/// </summary>
 public class ControllerDialogeFinalBueno : ControllerDialogeBase
 {
     private bool[] dialogoMostrado = new bool[7];

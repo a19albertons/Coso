@@ -1,6 +1,9 @@
-using TMPro;
 using UnityEngine;
 
+
+/// <summary>
+/// Clase que gestiona el diálogo en la cinemática de introducción
+/// </summary>
 public class ControllerDialogeIntro : ControllerDialogeBase
 {
     private bool[] dialogoMostrado = new bool[5];

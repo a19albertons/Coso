@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona el estado de salto del jugador, controlando a que estados puede cambiar y las acciones propias de este estado.
+/// </summary>
 public class JumpState : PlayerState
 {
     public bool _cutApplied;

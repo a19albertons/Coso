@@ -1,6 +1,8 @@
-using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona el diálogo en la cinemática del final malo
+/// </summary>
 public class ControllerDialogeFinalMalo : ControllerDialogeBase
 {
     private bool[] dialogoMostrado = new bool[6];

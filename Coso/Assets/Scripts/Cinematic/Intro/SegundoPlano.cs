@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Clase que gestiona las operaciones en segundo plano durante la cinemática de introducción, carga el mundo base y hace el primer guardado de datos en el juego.
+/// </summary>
 public class SegundoPlano : MonoBehaviour
 {
     private bool isSaved = false; // Variable para controlar si los datos del jugador ya han sido guardados

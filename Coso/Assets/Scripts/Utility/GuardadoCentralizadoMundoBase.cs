@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona el guardado centralizado del progreso del mundo base, consolidando el progreso provisional a obtenido de forma permanente y guardando el progreso en el sistema de ficheros.
+/// </summary>
 public static class GuardadoCentralizadoMundoBase
 {
         /// <summary>

@@ -2,16 +2,17 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Gestiona las corrutinas en segundo plano que se ejecutan durante la cinemática del final bueno, como la carga de la escena "MundoBase"
+/// </summary>
 public class SegundoPlanoFinalBueno : MonoBehaviour
 {
-    private bool isSaved = false; // Variable para controlar si los datos del jugador ya han sido guardados
     private bool isCinematicFinished = false; // Variable para controlar si la cinemática ha finalizado
 
     public void LanzarOperacionesSegundoPlano()
     {
         StartCoroutine(PrepararMundoBase());
     }
-// 800
     /// <summary>
     /// Prepara la carga de la escena "MundoBase", mientrás se ejecuta la cinemática para ser llamada cuando se haya terminado el guardado y la cinemática inicial
     /// </summary>

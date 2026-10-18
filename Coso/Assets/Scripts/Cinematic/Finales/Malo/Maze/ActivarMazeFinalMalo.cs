@@ -1,6 +1,9 @@
 using UnityEngine;
 
 
+/// <summary>
+/// Clase que gestiona la activación del movimiento del maze en la cinemática del final malo
+/// </summary>
 public class ActivarMazeFinalMalo : MonoBehaviour
 {
     [SerializeField]
@@ -8,6 +11,9 @@ public class ActivarMazeFinalMalo : MonoBehaviour
     private Vector2 posicionCaida;
     private bool moverse = false;
 
+    /// <summary>
+    /// Activa el movimiento del maze hacia la ubicación indicada
+    /// </summary>
     public void Activar()
     {
         moverse = true;
@@ -18,6 +24,9 @@ public class ActivarMazeFinalMalo : MonoBehaviour
         CaerSobrePlayer();
     }
 
+    /// <summary>
+    /// La maza cae sobre la ubicación indicada, si se ha activado el movimiento.
+    /// </summary>
     private void CaerSobrePlayer()
     {
         if (moverse)

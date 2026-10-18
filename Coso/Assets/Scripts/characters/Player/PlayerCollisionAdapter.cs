@@ -1,7 +1,10 @@
 using UnityEngine;
+
+/// <summary>
+/// Determina el collider a usar en función de la información proporcionada por el GroundDetector.
+/// </summary>
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(CircleCollider2D))]
-
 [RequireComponent(typeof(GroundDetector))]
 public class PlayerCollisionAdapter : MonoBehaviour
 {
@@ -22,7 +25,7 @@ public class PlayerCollisionAdapter : MonoBehaviour
     void FixedUpdate()
     {
         bool isOnSlope = groundDetector.IsOnSlope;
-        
+
         if (usandoRampa != isOnSlope)
         {
             usandoRampa = isOnSlope;
@@ -37,11 +40,18 @@ public class PlayerCollisionAdapter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Cambia el collider del jugador a uno más adecuado para las rampas, desactivando el box collider y activando el circle collider.
+    /// </summary>
     private void ColisionadorRampa()
     {
         boxCollider.enabled = false;
         circleCollider.enabled = true;
     }
+
+    /// <summary>
+    /// Cambia el collider del jugador a uno más adecuado para el suelo normal, desactivando el circle collider y activando el box collider.
+    /// </summary>
     private void ColisionadorNormal()
     {
         boxCollider.enabled = true;

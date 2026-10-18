@@ -1,10 +1,12 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Clase que gestiona el menú de pausa del nivel, permitiendo al jugador pausar el juego, reanudarlo, reiniciar el nivel, salir al menú de niveles o salir del juego.
+/// </summary>
 public class PauseMenuLevel : MonoBehaviour
 {
     [Header("Pause Menu UI")]
@@ -67,6 +69,9 @@ public class PauseMenuLevel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gestiona el boton de continuar, reanudando el juego y cerrando el menú de pausa.
+    /// </summary>
     public void Continuar()
     {
         pauseMenuUI.SetActive(false);
@@ -76,6 +81,9 @@ public class PauseMenuLevel : MonoBehaviour
         Resume();
     }
 
+    /// <summary>
+    /// Gestiona el boton de reiniciar, reiniciando el nivel actual y reanudando el juego.
+    /// </summary>
     public void Restart()
     {
         Time.timeScale = 1f;
@@ -87,6 +95,9 @@ public class PauseMenuLevel : MonoBehaviour
         Resume();
     }
 
+    /// <summary>
+    /// Gestiona el boton de salir al menú de niveles, cargando la escena del menú de niveles y reanudando el juego.
+    /// </summary>
     public void ExitLevel()
     {
         Time.timeScale = 1f;
@@ -98,6 +109,9 @@ public class PauseMenuLevel : MonoBehaviour
         Resume();
     }
 
+    /// <summary>
+    /// Gestiona el boton de salir del juego, cerrando la aplicación.
+    /// </summary>
     public void ExitGame()
     {
         Application.Quit();

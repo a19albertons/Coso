@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Clase que gestiona las operaciones de input del jugador, incluyendo el movimiento y el salto, así como el buffer de salto.
+/// </summary>
 public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField]

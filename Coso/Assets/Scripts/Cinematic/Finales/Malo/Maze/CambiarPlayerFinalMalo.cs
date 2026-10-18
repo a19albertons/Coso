@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona el cambio del jugador por un jugador muerto en la cinemática del final malo
+/// </summary>
 public class CambiarPlayerFinalMalo : MonoBehaviour
 {
     [SerializeField]

@@ -1,6 +1,9 @@
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D))]
 
+/// <summary>
+/// Clase que gestiona el movimiento de la maze donde detecta el jugador y cae a plomo, luego vuelve a su posición original.
+/// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class MazeMovement : MonoBehaviour
 {
@@ -64,11 +67,6 @@ public class MazeMovement : MonoBehaviour
         posicionFinal = new(posicionOriginal.x, fondo.point.y + sizeYMitad);
     }
 
-    void Update()
-    {
-        Debug.DrawRay(posicionOriginal, Vector2.down * distanciaAlSueloInspeccion, Color.red);
-    }
-
     void FixedUpdate()
     {
         // Detección del jugador
@@ -113,5 +111,6 @@ public class MazeMovement : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(posicionOriginal + new Vector2(0f, -distanciaAlSueloInspeccion / 2f), new Vector3(DistanciaDeteccion, distanciaAlSueloInspeccion, 0f));
+        Debug.DrawRay(posicionOriginal, Vector2.down * distanciaAlSueloInspeccion, Color.red);
     }
 }

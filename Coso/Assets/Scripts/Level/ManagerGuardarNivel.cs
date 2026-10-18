@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Gestiona el guardado de la información del nivel actual, incluyendo las métricas del jugador y el estado del nivel.
+/// </summary>
 public class ManagerGuardarNivel : MonoBehaviour
 {
     private string idNivel;

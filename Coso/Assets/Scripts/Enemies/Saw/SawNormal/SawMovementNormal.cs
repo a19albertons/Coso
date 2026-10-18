@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona el movimiento de la sierra normal a través de puntos de movimiento en un eje 2D.
+/// </summary>
 [RequireComponent(typeof(LineRenderer))]
 public class SawMovementNormal : SawMovementBase
 {

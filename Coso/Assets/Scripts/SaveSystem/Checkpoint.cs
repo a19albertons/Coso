@@ -1,3 +1,6 @@
+/// <summary>
+/// Clase que representa los checkpoint del juego
+/// </summary>
 [System.Serializable]
 public class Checkpoint
 {

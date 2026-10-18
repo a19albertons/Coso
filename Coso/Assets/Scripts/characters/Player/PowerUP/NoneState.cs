@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Clase que gestiona el estado de ningún powerup del jugador, permitiendo realizar un solo salto y no tener habilidades especiales.
+/// </summary>
 public class NoneState : PowerUPStates
 {
     public NoneState(PlayerController player) : base(player) { }
