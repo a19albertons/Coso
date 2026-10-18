@@ -27,6 +27,7 @@ public static class MuertePersonaje
         SaveManager.GetIntance().currentSave.playerInfo.powerUpActual = GestionPowerUP.GetInstance().TipoPowerUP();
         SaveManager.GetIntance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt();
         SaveManager.GetIntance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
+        SaveManager.GetIntance().currentSave.checkpoint.haMuerto = true;
         SaveManager.GetIntance().SaveGame(1);
         isSaved = true; // Marca que los datos del jugador han sido guardados
         yield return null; ;
