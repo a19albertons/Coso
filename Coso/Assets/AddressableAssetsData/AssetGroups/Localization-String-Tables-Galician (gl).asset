@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Galician (gl)
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-String-Tables-Galician (gl)
+  m_GUID: c81c7e6a1cbf6db61bc2d7b26a0ee23a
+  m_SerializeEntries:
+  - m_GUID: 4410b104df5d1973db81704f7fae0aa9
+    m_Address: NewGame_gl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gl
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 1eece3a8458ad31c9b14a95247711769, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f522c8c50aa67ec5c86b92836991b147, type: 2}
+    - {fileID: 11400000, guid: 0dca29d9844fa3a1d843897ad1fe9068, type: 2}
+    - {fileID: 11400000, guid: c9b4026293b494a5bae94283feed2357, type: 2}
