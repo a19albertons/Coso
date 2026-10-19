@@ -13,8 +13,24 @@ MonoBehaviour:
   m_Name: MenuPausaNivel Shared Data
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: MenuPausaNivel
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: d0c905280614567f1b2136bc5001d9ad
+  m_Entries:
+  - m_Id: 11659153408
+    m_Key: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14670663680
+    m_Key: Reiniciar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18374234112
+    m_Key: SalirNivel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20827901952
+    m_Key: CerrarJuego
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

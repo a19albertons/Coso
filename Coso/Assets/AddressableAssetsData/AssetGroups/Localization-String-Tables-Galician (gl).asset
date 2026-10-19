@@ -15,8 +15,22 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Galician (gl)
   m_GUID: c81c7e6a1cbf6db61bc2d7b26a0ee23a
   m_SerializeEntries:
+  - m_GUID: 207ee826c84631646a3a593ef2c398fa
+    m_Address: MenuPausaMundoBase_gl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gl
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4410b104df5d1973db81704f7fae0aa9
     m_Address: NewGame_gl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gl
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c00e5f82db909f508335464351515b3
+    m_Address: MenuPausaNivel_gl
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-gl

@@ -20,6 +20,16 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9088c18d26a6be58f9bcf9e4c41d826f
+    m_Address: Assets/Translations/MenuPausaMundoBase/MenuPausaMundoBase Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0c905280614567f1b2136bc5001d9ad
+    m_Address: Assets/Translations/MenuPausaNivel/MenuPausaNivel Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 1eece3a8458ad31c9b14a95247711769, type: 2}
   m_SchemaSet:

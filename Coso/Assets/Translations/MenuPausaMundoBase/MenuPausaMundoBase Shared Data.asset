@@ -13,8 +13,20 @@ MonoBehaviour:
   m_Name: MenuPausaMundoBase Shared Data
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: MenuPausaMundoBase
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: 9088c18d26a6be58f9bcf9e4c41d826f
+  m_Entries:
+  - m_Id: 118475493376
+    m_Key: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 237807636480
+    m_Key: Guardar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 288273502208
+    m_Key: CerrarJuego
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
