@@ -25,31 +25,31 @@ public class ControllerDialogeIntro : ControllerDialogeBase
 
             if (time >= 0f && !dialogoMostrado[0])
             {
-                dialogo.text = "Hola, Cosa";
+                localize.StringReference.SetReference(tablaNombre, "DialogoIntro1");
                 dialogo.color = Color.blue;
                 dialogoMostrado[0] = true;
             }
             else if (time >= 2f && !dialogoMostrado[1])
             {
-                dialogo.text = "Llevamos mucho tiempo juntos como novios. No sé como decirlo...";
+                localize.StringReference.SetReference(tablaNombre, "DialogoIntro2");
                 dialogo.color = Color.blue;
                 dialogoMostrado[1] = true;
             }
             else if (time >= 5f && !dialogoMostrado[2])
             {
-                dialogo.text = "¿Quieres CASARTE CONMIGO?";
+                localize.StringReference.SetReference(tablaNombre, "DialogoIntro3");
                 dialogo.color = Color.blue;
                 dialogoMostrado[2] = true;
             }
             else if (time >= 8f && !dialogoMostrado[3])
             {
-                dialogo.text = "Sí, pero antes tienes que pasar una serie de pruebas.";
+                localize.StringReference.SetReference(tablaNombre, "DialogoIntro4");
                 dialogo.color = Color.red;
                 dialogoMostrado[3] = true;
             }
             else if (time >= 11f && !dialogoMostrado[4])
             {
-                dialogo.text = "Si de verdad quieres casarte conmigo, sigueme. Las pruebas te estan esperando";
+                localize.StringReference.SetReference(tablaNombre, "DialogoIntro5");
                 dialogo.color = Color.red;
                 dialogoMostrado[4] = true;
             }

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 
 /// <summary>
 /// Clase base que gestiona el diálogo en las distintas cinemáticas de forma estandarizada como si fuese una plantilla.
@@ -10,9 +11,24 @@ public abstract class ControllerDialogeBase : MonoBehaviour
     protected bool tiempoIniciado = false;
 
     protected TextMeshProUGUI dialogo;
+    protected LocalizeStringEvent localize;
+
+    [SerializeField]
+    [Tooltip("nombre de la tabla a cargar para el diálogo")]
+    protected string tablaNombre;
+
     void Awake()
     {
         dialogo = GetComponentInChildren<TextMeshProUGUI>();
+        localize = GetComponentInChildren<LocalizeStringEvent>();
+        if (dialogo == null)
+        {
+            Debug.LogError("No se encontró el componente TextMeshProUGUI en los hijos del objeto.");
+        }
+        if (localize == null)
+        {
+            Debug.LogError("No se encontró el componente LocalizeStringEvent en los hijos del objeto.");
+        }
         InicializarDialogoMostrado();
     }
 
@@ -22,7 +38,7 @@ public abstract class ControllerDialogeBase : MonoBehaviour
         tiempoIniciado = true;
     }
 
-        void Update()
+    void Update()
     {
         Dialogo();
     }

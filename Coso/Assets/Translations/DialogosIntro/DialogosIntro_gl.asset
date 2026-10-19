@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: DialogosIntro_gl
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: gl
+  m_SharedData: {fileID: 11400000, guid: 36325ad4ef5e55202b2057efc3a9ddc9, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 2373790502912
+    m_Localized: Ola, Cosa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2403272265728
+    m_Localized: Levamos muito tempo xuntos como novios. Non sei como decilo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2406485102592
+    m_Localized: Queres casarte conmigo?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2409446281216
+    m_Localized: Si, pero antes tes que pasar unha serie de probas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9471182016512
+    m_Localized: Si de verdade queres casrte conmigo, segueme. As probas estanche
+      esperado.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

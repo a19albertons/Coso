@@ -15,6 +15,13 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-English (en)
   m_GUID: 7e5c5ea64ab9657e5a0d669598b34c86
   m_SerializeEntries:
+  - m_GUID: 111ba96bfa644571b94922909081998c
+    m_Address: DialogosIntro_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2582fef6b6ee4ff6ab0f519229bd12cf
     m_Address: NewGame_en
     m_ReadOnly: 1

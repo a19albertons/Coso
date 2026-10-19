@@ -36,6 +36,13 @@ MonoBehaviour:
     - Locale-gl
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e79f5886ba7680c1796e6cedc12fc11a
+    m_Address: DialogosIntro_gl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gl
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 1eece3a8458ad31c9b14a95247711769, type: 2}
   m_SchemaSet:

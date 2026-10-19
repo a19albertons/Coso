@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: DialogosIntro_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 36325ad4ef5e55202b2057efc3a9ddc9, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 2373790502912
+    m_Localized: Hello, Cosa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2403272265728
+    m_Localized: We've been together for a long time as a couple. I don't know how
+      to say it...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2406485102592
+    m_Localized: WILL YOU MARRY ME?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2409446281216
+    m_Localized: Yes, but before that you have to pass a series of tests.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9471182016512
+    m_Localized: If you truly want to marry me, follow me. The tests are waiting
+      for you.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
