@@ -57,6 +57,13 @@ MonoBehaviour:
     - Locale-gl
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f025f79e3cdaeea5bb15d7e0a414553a
+    m_Address: HasPerdido_gl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gl
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 1eece3a8458ad31c9b14a95247711769, type: 2}
   m_SchemaSet:
