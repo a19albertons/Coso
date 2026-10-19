@@ -15,6 +15,13 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Galician (gl)
   m_GUID: c81c7e6a1cbf6db61bc2d7b26a0ee23a
   m_SerializeEntries:
+  - m_GUID: 0b5b682f750a91dcaa7949da4c0622dc
+    m_Address: DialogosFinalBueno_gl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gl
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 207ee826c84631646a3a593ef2c398fa
     m_Address: MenuPausaMundoBase_gl
     m_ReadOnly: 1

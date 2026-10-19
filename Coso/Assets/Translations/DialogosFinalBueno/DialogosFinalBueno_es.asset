@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: DialogosFinalBueno_es
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 76867b279a12ae411a8cf9528679b0b4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 11747233792
+    m_Localized: "Hola, Cosa. \xBFQu\xE9 tal est\xE1s?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14989430784
+    m_Localized: Yo, muy bien, veo que has terminado las pruebas.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17434710016
+    m_Localized: "\xBFPuedes avanzar un bloque?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19531862016
+    m_Localized: "S\xED, pero mejor avanzo dos bloques."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22132330496
+    m_Localized: He visto la roca.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24598581248
+    m_Localized: Veo que has aprendido y no has tenido que repetir ninguna prueba.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29690466304
+    m_Localized: "Vamos en esta dirreci\xF3n para hablar de todos los preparativos
+      de la boda."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

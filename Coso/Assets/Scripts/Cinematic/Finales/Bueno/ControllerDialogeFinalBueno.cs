@@ -24,43 +24,43 @@ public class ControllerDialogeFinalBueno : ControllerDialogeBase
 
             if (time >= 0f && !dialogoMostrado[0])
             {
-                dialogo.text = "Hola, Cosa. ¿Qué tal estás?";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalBueno1");
                 dialogo.color = Color.blue;
                 dialogoMostrado[0] = true;
             }
             else if (time >= 3f && !dialogoMostrado[1])
             {
-                dialogo.text = "Yo muy bien veo que has terminado las pruebas.";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalBueno2");
                 dialogo.color = Color.red;
                 dialogoMostrado[1] = true;
             }
             else if (time >= 7f && !dialogoMostrado[2])
             {
-                dialogo.text = "¿Puedes avanzar un bloque?";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalBueno3");
                 dialogo.color = Color.red;
                 dialogoMostrado[2] = true;
             }
             else if (time >= 9f && !dialogoMostrado[3])
             {
-                dialogo.text = "Sí, pero mejor avanzo dos bloques.";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalBueno4");
                 dialogo.color = Color.blue;
                 dialogoMostrado[3] = true;
             }
             else if (time >= 11f && !dialogoMostrado[4])
             {
-                dialogo.text = "He visto la roca";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalBueno5");
                 dialogo.color = Color.blue;
                 dialogoMostrado[4] = true;
             }
             else if (time >= 12f && !dialogoMostrado[5])
             {
-                dialogo.text = "Veo que has aprendido y no has tenido que repetir ninguna prueba.";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalBueno6");
                 dialogo.color = Color.red;
                 dialogoMostrado[5] = true;
             }
             else if (time >= 15f)
             {
-                dialogo.text = "Vamos en esta dirreción para haablar de todos los preparativos de la boda.";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalBueno7");
                 dialogo.color = Color.red;
                 dialogoMostrado[6] = true;
             }
