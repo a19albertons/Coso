@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: CanvasJuegoCompleto
+  m_EditorClassIdentifier: Unity.Localization.Editor::UnityEditor.Localization.StringTableCollection
+  m_SharedTableData: {fileID: 11400000, guid: b24ac0448814c0d4c9f2c6b0a05e37ba, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 8078209427d6b9933aa1342e9e913fe2, type: 2}
+  - {fileID: 11400000, guid: 0b3a60e2475ef8e6597b706bbded04d5, type: 2}
+  - {fileID: 11400000, guid: bd0e7cfe68f2260aea1c574371ba9244, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []

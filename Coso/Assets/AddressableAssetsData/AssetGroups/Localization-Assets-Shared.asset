@@ -45,6 +45,17 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b24ac0448814c0d4c9f2c6b0a05e37ba
+    m_Address: Assets/Translations/CanvasJuegoCompleto/CanvasJuegoCompleto Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c11a9b4c0361c6957b6f83ee32646658
+    m_Address: Assets/Translations/CanvasGuardado/CanvasGuardado Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d0c905280614567f1b2136bc5001d9ad
     m_Address: Assets/Translations/MenuPausaNivel/MenuPausaNivel Shared Data.asset
     m_ReadOnly: 1

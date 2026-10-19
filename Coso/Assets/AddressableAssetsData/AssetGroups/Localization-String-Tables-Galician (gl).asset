@@ -15,6 +15,13 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Galician (gl)
   m_GUID: c81c7e6a1cbf6db61bc2d7b26a0ee23a
   m_SerializeEntries:
+  - m_GUID: 0b3a60e2475ef8e6597b706bbded04d5
+    m_Address: CanvasJuegoCompleto_gl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gl
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b5b682f750a91dcaa7949da4c0622dc
     m_Address: DialogosFinalBueno_gl
     m_ReadOnly: 1
@@ -59,6 +66,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f025f79e3cdaeea5bb15d7e0a414553a
     m_Address: HasPerdido_gl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gl
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0fb9f62c3a58fefc96a4175f05854aa
+    m_Address: CanvasGuardado_gl
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-gl

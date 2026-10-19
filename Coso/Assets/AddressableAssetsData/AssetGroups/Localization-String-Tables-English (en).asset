@@ -43,8 +43,22 @@ MonoBehaviour:
     - Locale-en
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b8065ab4f92c6f1ca63454349ddac42
+    m_Address: CanvasGuardado_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 672b2cfe27513efc29c1f19bbee52e5f
     m_Address: MenuPausaMundoBase_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8078209427d6b9933aa1342e9e913fe2
+    m_Address: CanvasJuegoCompleto_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
