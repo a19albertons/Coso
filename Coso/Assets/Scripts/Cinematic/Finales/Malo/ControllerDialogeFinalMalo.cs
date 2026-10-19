@@ -24,37 +24,37 @@ public class ControllerDialogeFinalMalo : ControllerDialogeBase
 
             if (time >= 0f && !dialogoMostrado[0])
             {
-                dialogo.text = "Hola, Cosa. ¿Qué tal estás?";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalMalo1");
                 dialogo.color = Color.blue;
                 dialogoMostrado[0] = true;
             }
             else if (time >= 3f && !dialogoMostrado[1])
             {
-                dialogo.text = "Yo muy bien veo que has terminado las pruebas.";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalMalo2");
                 dialogo.color = Color.red;
                 dialogoMostrado[1] = true;
             }
             else if (time >= 7f && !dialogoMostrado[2])
             {
-                dialogo.text = "¿Puedes avanzar un bloque?";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalMalo3");
                 dialogo.color = Color.red;
                 dialogoMostrado[2] = true;
             }
             else if (time >= 9f && !dialogoMostrado[3])
             {
-                dialogo.text = "Sí";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalMalo4");
                 dialogo.color = Color.blue;
                 dialogoMostrado[3] = true;
             }
             else if (time >= 10f && !dialogoMostrado[4])
             {
-                dialogo.text = "Espera ahí un momento.";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalMalo5");
                 dialogo.color = Color.red;
                 dialogoMostrado[4] = true;
             }
             else if (time >= 11f && !dialogoMostrado[5])
             {
-                dialogo.text = "Perfecto, habías tenido que repetir algunas pruebas";
+                localize.StringReference.SetReference(tablaNombre, "DialogoFinalMalo6");
                 dialogo.color = Color.red;
                 dialogoMostrado[5] = true;
             }

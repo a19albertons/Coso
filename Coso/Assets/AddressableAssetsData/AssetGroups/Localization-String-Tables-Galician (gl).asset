@@ -29,6 +29,13 @@ MonoBehaviour:
     - Locale-gl
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b6663fa6c39f727fb2547d2bb672fd4
+    m_Address: DialogosFinalMalo_gl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gl
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4410b104df5d1973db81704f7fae0aa9
     m_Address: NewGame_gl
     m_ReadOnly: 1

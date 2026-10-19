@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: DialogosFinalMalo_es
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 34b593e112fd167cc8c2ec33b6d0768a, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 79988559872
+    m_Localized: "Hola, Cosa. \xBFQu\xE9 tal est\xE1s?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82937155584
+    m_Localized: Yo muy bien veo que has terminado las pruebas.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85441155072
+    m_Localized: "\xBFPuedes avanzar un bloque?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87588638720
+    m_Localized: "S\xED."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90172329984
+    m_Localized: "Espera ah\xED un momento."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94127558656
+    m_Localized: "Perfecto, hab\xEDas tenido que repetir algunas pruebas."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
