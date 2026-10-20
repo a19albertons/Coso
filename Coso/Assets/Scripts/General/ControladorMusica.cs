@@ -74,4 +74,18 @@ public class ControladorMusica : MonoBehaviour
         }
 
     }
+
+    /// <summary>
+    /// Se llama cuando el objeto es destruido. Se desuscribe del evento de carga de escena para evitar errores al destruir el objeto.
+    /// </summary>
+    void OnDestroy()
+    {
+        if (instance == this)
+        {
+            // Desuscribirse del evento de carga de escena al destruir el objeto
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            instance = null;
+        }
+
+    }
 }
