@@ -35,12 +35,26 @@ public class ParallaxBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float diferenciaJugadorX = referencia.position.x - posicionJugadorX;
+        if (transform.localScale.x == 1)
+        {
+            float diferenciaJugadorX = referencia.position.x - posicionJugadorX;
 
-        float nuevoOffsetX = diferenciaJugadorX * parallaxFactor;
+            float nuevoOffsetX = diferenciaJugadorX * parallaxFactor;
 
-        nuevoOffsetX = Mathf.Repeat(nuevoOffsetX, 1.0f);
+            nuevoOffsetX = Mathf.Repeat(nuevoOffsetX, 1.0f);
 
-        backgroundMaterial.SetVector("_playerOffset", new Vector2(nuevoOffsetX, posicionInicial.y));
+            backgroundMaterial.SetVector("_playerOffset", new Vector2(nuevoOffsetX, posicionInicial.y));
+        }
+        else
+        {
+            float diferenciaJugadorX = referencia.position.x - posicionJugadorX;
+
+            float nuevoOffsetX = diferenciaJugadorX * parallaxFactor / transform.localScale.x;
+
+            nuevoOffsetX = Mathf.Repeat(nuevoOffsetX, 1.0f);
+
+            backgroundMaterial.SetVector("_playerOffset", new Vector2(nuevoOffsetX, posicionInicial.y));
+        }
+
     }
 }

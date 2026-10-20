@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 850214902462503145}
   - component: {fileID: 878244592723204358}
   - component: {fileID: 2342085184344823033}
+  - component: {fileID: 5391502745020946025}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -120,4 +121,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SiguimientoBackground
   target: {fileID: 0}
-  factorY: 0.1
+--- !u!114 &5391502745020946025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098327890775918084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e133435d84685bebcc4dc176e36cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AlternarBackground
+  aspectRatioThreshold: 1.78
+  spriteAlternativo: {fileID: 21300000, guid: a52c61e4d863eb24eb1a6cec742bd3ff, type: 3}
