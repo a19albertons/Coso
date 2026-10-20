@@ -1,0 +1,91 @@
+name: Check Unity Dependencies
+
+# Configuración del flujo de trabajo para ejecutarse diariamente a medianoche y permitir la ejecución manual
+on:
+    schedule:
+        - cron: "0 0 * * *"
+    workflow_dispatch:
+    pull_request:
+        branches:
+            - main
+
+# Variables de entorno
+env:
+    # Email y contraseña
+    UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+    UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+
+    # Licencia de Unity (fichero)
+    UNITY_LICENSE: ${{ secrets.UNITY_LICENSE}}
+    PROJECT_PATH: Coso
+
+jobs:
+    # Tarea para comprobar y actualizar las dependencias de Unity
+    check-unity-updates:
+        runs-on: ubuntu-24.04
+        permissions:
+          contents: write
+          pull-requests: write
+        steps:
+            # Configura checkout del repositorio
+            - name: Checkout del repositorio
+              uses: actions/checkout@v7
+
+            # Conserva la caché de la biblioteca de Unity para acelerar el proceso
+            - name: Caché de Unity
+              uses: actions/cache@v6
+              with:
+                path: ${{ env.PROJECT_PATH }}/Library
+                key: Library-update-check-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+                restore-keys: |
+                  Library-update-check-
+
+            # Ejecuta el método estático de nuestro script de C# usando GameCI
+            - name: Ejecutar comprobación en Unity
+              uses: game-ci/unity-builder@v4
+              with:
+                  projectPath: ${{ env.PROJECT_PATH }}
+                  # Indicamos a GameCI que ejecute tu script en lugar del Builder por defecto
+                  buildMethod: DependencyChecker.UpdateDependencies
+
+            # Filtra los cambios en el manifest.json y packages-lock.json para evitar PRs de ficheros .meta y otros temporales generados por Unity
+            - name: Filtrar cambios de dependencias
+              run: |
+                # Comprobamos si el manifest.json tiene modificaciones sin guardar
+                if ! git diff --quiet Packages/manifest.json; then
+                    echo "Se detectaron cambios en las dependencias. Guardando cambios..."
+                    
+                # Agregamos al área de preparación (stage) solo los archivos de dependencias
+                git add Packages/manifest.json
+                    
+                    # Si tu proyecto hace uso de packages-lock.json, también lo agregamos si cambió
+                    if [ -f Packages/packages-lock.json ]; then
+                    git add Packages/packages-lock.json
+                    fi
+                    
+                    # Descartamos todos los demás cambios no preparados (como los archivos .meta)
+                    git checkout -- .
+                    # Eliminamos cualquier archivo nuevo que Unity haya creado temporalmente
+                    git clean -fd
+                else
+                    echo "No hay cambios en las dependencias. Limpiando cambios colaterales de Unity..."
+                    # Si no hay cambios en el manifest, descartamos todo para evitar un PR vacío
+                    git checkout -- .
+                    git clean -fd
+                fi
+
+            # Crea una Pull Request si se han realizado cambios en el manifest.json
+            - name: Crear Pull Request si hay cambios
+              uses: peter-evans/create-pull-request@v8
+              if: github.event_name != 'pull_request'
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  commit-message: "chore(deps): actualizar dependencias de Unity (versiones compatibles)"
+                  title: "chore(deps): actualizar dependencias de Unity de forma segura"
+                  body: |
+                      Este es un Pull Request automático que ha analizado las dependencias utilizando el Package Manager nativo de Unity.
+
+                      Las versiones propuestas están garantizadas como **compatibles con la versión actual del motor** gracias a la API interna de Unity.
+                  branch: "update-unity-dependencies"
+                  base: "main"
+                  delete-branch: true
