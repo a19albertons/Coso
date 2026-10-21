@@ -46,6 +46,11 @@ public class ControladorMusica : MonoBehaviour
         }
     }
 
+    public static ControladorMusica GetInstance()
+    {
+        return instance;
+    }
+
     /// <summary>
     /// Se llama cada vez que se carga una nueva escena. Cambia la música según la escena cargada.
     /// </summary>
