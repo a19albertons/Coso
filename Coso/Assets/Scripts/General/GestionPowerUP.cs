@@ -117,9 +117,9 @@ public class GestionPowerUP : MonoBehaviour
     }
 
     /// <summary>
-    /// Indica si el jugador tiene el power up o no.
+    /// Devuelve el power up actual del jugador. Puede ser NoneState o DoubleJumpState.
     /// </summary>
-    /// <returns>Devuelve si el jugador tiene power up o no</returns>
+    /// <returns>El estado actual del power up del jugador</returns>
     public PowerUPStates EstadoPowerUP()
     {
         return estadoPowerUP.CurrentState;
