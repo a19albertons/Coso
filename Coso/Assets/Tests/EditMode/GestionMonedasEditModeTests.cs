@@ -21,10 +21,8 @@ public class GestionMonedasEditModeTests
         go = new GameObject("TestGestionMonedas");
         gestor = go.AddComponent<GestionMonedas>(); // Awake NO se llama en EditMode
 
-        monedasField = typeof(GestionMonedas)
-            .GetField("monedasAcumuladas", BindingFlags.NonPublic | BindingFlags.Instance);
-        instanceField = typeof(GestionMonedas)
-            .GetField("instance", BindingFlags.Static | BindingFlags.NonPublic);
+        monedasField = ReflectionHelper.GetField(typeof(GestionMonedas), "monedasAcumuladas");
+        instanceField = ReflectionHelper.GetField(typeof(GestionMonedas), "instance");
     }
 
     /// <summary>

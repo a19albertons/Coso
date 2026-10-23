@@ -22,12 +22,9 @@ public class GestionVidasEditModeTests
         go = new GameObject("TestGestionVidas");
         gestor = go.AddComponent<GestionVidas>(); // Awake NO se llama en EditMode
 
-        vidasField = typeof(GestionVidas)
-            .GetField("vidas", BindingFlags.NonPublic | BindingFlags.Instance);
-        vidasActualesField = typeof(GestionVidas)
-            .GetField("vidasActuales", BindingFlags.NonPublic | BindingFlags.Instance);
-        instanceField = typeof(GestionVidas)
-            .GetField("instance", BindingFlags.Static | BindingFlags.NonPublic);
+        vidasField = ReflectionHelper.GetField(typeof(GestionVidas), "vidas");
+        vidasActualesField = ReflectionHelper.GetField(typeof(GestionVidas), "vidasActuales");
+        instanceField = ReflectionHelper.GetField(typeof(GestionVidas), "instance");
     }
 
     /// <summary>

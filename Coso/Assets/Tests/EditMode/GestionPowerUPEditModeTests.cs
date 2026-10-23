@@ -21,10 +21,8 @@ public class GestionPowerUPEditModeTests
         go = new GameObject("TestGestionPowerUP");
         gestor = go.AddComponent<GestionPowerUP>(); // Awake NO se llama en EditMode
 
-        estadoPowerUPField = typeof(GestionPowerUP)
-            .GetField("estadoPowerUP", BindingFlags.NonPublic | BindingFlags.Instance);
-        instanceField = typeof(GestionPowerUP)
-            .GetField("instance", BindingFlags.Static | BindingFlags.NonPublic);
+        estadoPowerUPField = ReflectionHelper.GetField(typeof(GestionPowerUP), "estadoPowerUP");
+        instanceField = ReflectionHelper.GetField(typeof(GestionPowerUP), "instance");
     }
 
     /// <summary>
