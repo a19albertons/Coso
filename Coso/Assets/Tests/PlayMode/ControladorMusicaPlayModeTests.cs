@@ -49,16 +49,7 @@ public class ControladorMusicaPlayModeTests
 
         yield return null;
 
-        ResetStaticField(typeof(ControladorMusica), "instance");
-    }
-
-    /// <summary>
-    /// Resetea un campo estático privado de una clase utilizando reflexión.
-    /// </summary>
-    private static void ResetStaticField(System.Type t, string name)
-    {
-        var f = t.GetField(name, BindingFlags.Static | BindingFlags.NonPublic);
-        if (f != null) f.SetValue(null, null);
+        ReflectionHelper.ResetStaticField(typeof(ControladorMusica), "instance");
     }
 
 

@@ -59,19 +59,8 @@ public class GestionMonedasPlayModeTests
         yield return null;
 
         // Resetear singletons estáticos (los campos son privados estáticos)
-        ResetStaticField(typeof(GestionMonedas), "instance");
-        ResetStaticField(typeof(SaveManager), "instance");
-    }
-
-    /// <summary>
-    /// Resetea un campo estático privado de una clase utilizando reflexión. Esto es útil para limpiar el estado de los singletons entre pruebas unitarias, asegurando que cada prueba comience con un estado limpio y consistente.
-    /// </summary>
-    /// <param name="t"></param>
-    /// <param name="name"></param>
-    private static void ResetStaticField(System.Type t, string name)
-    {
-        var f = t.GetField(name, BindingFlags.Static | BindingFlags.NonPublic);
-        if (f != null) f.SetValue(null, null);
+        ReflectionHelper.ResetStaticField(typeof(GestionMonedas), "instance");
+        ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
     }
 
     // ---- Test 1: Awake sin save → LogError y monedas 0 -------------------------
@@ -199,7 +188,7 @@ public class GestionMonedasPlayModeTests
     {
         // Eliminar el SaveManager creado en SetUp
         Object.DestroyImmediate(saveManagerGO);
-        ResetStaticField(typeof(SaveManager), "instance");
+        ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
 
         LogAssert.Expect(LogType.Exception, new Regex("NullReferenceException"));
 

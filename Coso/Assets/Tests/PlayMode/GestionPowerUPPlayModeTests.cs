@@ -52,17 +52,8 @@ public class GestionPowerUPPlayModeTests
 
         yield return null;
 
-        ResetStaticField(typeof(GestionPowerUP), "instance");
-        ResetStaticField(typeof(SaveManager), "instance");
-    }
-
-    /// <summary>
-    /// Resetea un campo estático privado de una clase utilizando reflexión.
-    /// </summary>
-    private static void ResetStaticField(System.Type t, string name)
-    {
-        var f = t.GetField(name, BindingFlags.Static | BindingFlags.NonPublic);
-        if (f != null) f.SetValue(null, null);
+        ReflectionHelper.ResetStaticField(typeof(GestionPowerUP), "instance");
+        ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
     }
 
     // ---- Test 1: Awake sin save → LogError y estado NoneState ----------------
@@ -199,7 +190,7 @@ public class GestionPowerUPPlayModeTests
     public IEnumerator Awake_SinSaveManager_LanzaNullReference()
     {
         Object.DestroyImmediate(saveManagerGO);
-        ResetStaticField(typeof(SaveManager), "instance");
+        ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
 
         LogAssert.Expect(LogType.Exception, new Regex("NullReferenceException"));
 

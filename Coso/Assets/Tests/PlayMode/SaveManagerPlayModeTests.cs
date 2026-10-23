@@ -36,7 +36,7 @@ public class SaveManagerPlayModeTests
     public IEnumerator SetUp()
     {
         // Resetear la instancia antes de crear el SaveManagerGO para evitar efectos colaterales
-        ResetStaticField(typeof(SaveManager), "instance");
+        ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
         saveManagerGO = new GameObject("SaveManager");
         saveManagerGO.AddComponent<SaveManager>();
         yield return null;
@@ -53,16 +53,7 @@ public class SaveManagerPlayModeTests
 
         yield return null;
 
-        ResetStaticField(typeof(SaveManager), "instance");
-    }
-
-    /// <summary>
-    /// Resetea un campo estático privado de una clase utilizando reflexión.
-    /// </summary>
-    private static void ResetStaticField(System.Type t, string name)
-    {
-        var f = t.GetField(name, BindingFlags.Static | BindingFlags.NonPublic);
-        if (f != null) f.SetValue(null, null);
+        ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
     }
 
     // ---- Test 1: GetInstance sin SaveManager activa devuelve null ----------
@@ -70,7 +61,7 @@ public class SaveManagerPlayModeTests
     public IEnumerator GetInstance_SinInstancia_Activa_DevuelveNull()
     {
         // Resetear antes de verificar para asegurar que no haya instancia previa
-        ResetStaticField(typeof(SaveManager), "instance");
+        ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
         yield return null;
         Assert.IsNull(SaveManager.GetIntance());
     }
@@ -162,7 +153,7 @@ public class SaveManagerPlayModeTests
     public IEnumerator GetInstance_AntesDeCrear_DevuelveNull()
     {
         // Resetear antes de verificar
-        ResetStaticField(typeof(SaveManager), "instance");
+        ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
         yield return null;
         Assert.IsNull(SaveManager.GetIntance());
     }
@@ -185,7 +176,7 @@ public class SaveManagerPlayModeTests
     public IEnumerator NewGame_SinSaveManagerInicializado()
     {
         // Resetear para simular que no hay instancia previa
-        ResetStaticField(typeof(SaveManager), "instance");
+        ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
         yield return null;
         var go = new GameObject("TestNewGame");
         go.AddComponent<SaveManager>();
