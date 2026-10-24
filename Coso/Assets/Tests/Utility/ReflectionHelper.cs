@@ -14,4 +14,9 @@ public static class ReflectionHelper
         var f = t.GetField(name, BindingFlags.Static | BindingFlags.NonPublic);
         if (f != null) f.SetValue(null, null);
     }
+
+    public static MethodInfo GetMethodInfo(Type type, string methodName)
+    {
+        return type.GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
+    }
 }
