@@ -32,7 +32,7 @@ public class GestionPowerUPEditModeTests
     public void TearDown()
     {
         Object.DestroyImmediate(go);
-        instanceField.SetValue(null, null); // limpiar singleton estático entre tests
+        ReflectionHelper.ResetStaticField(typeof(GestionPowerUP), "instance"); // limpiar singleton estático entre tests
     }
 
     /// <summary>

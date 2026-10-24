@@ -34,7 +34,7 @@ public class GestionVidasEditModeTests
     public void TearDown()
     {
         Object.DestroyImmediate(go);
-        instanceField.SetValue(null, null); // limpiar singleton estático entre tests
+        ReflectionHelper.ResetStaticField(typeof(GestionVidas), "instance"); // limpiar singleton estático entre tests
     }
 
     /// <summary>
