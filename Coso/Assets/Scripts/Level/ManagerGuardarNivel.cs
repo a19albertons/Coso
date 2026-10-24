@@ -23,9 +23,9 @@ public class ManagerGuardarNivel : MonoBehaviour
     public void GuardarNivel()
     {
         // Actualizar metricas del jugador
-        SaveManager.GetIntance().currentSave.playerInfo.powerUpActual = GestionPowerUP.GetInstance().TipoPowerUP();
-        SaveManager.GetIntance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt();
-        SaveManager.GetIntance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
+        SaveManager.GetInstance().currentSave.playerInfo.powerUpActual = GestionPowerUP.GetInstance().TipoPowerUP();
+        SaveManager.GetInstance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt();
+        SaveManager.GetInstance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
 
         // Crear el nivel
         Level nivelActual = new Level();
@@ -33,19 +33,19 @@ public class ManagerGuardarNivel : MonoBehaviour
         nivelActual.starsObtained = gestionEstrellas.InformaciónTodasLasEstrellas();
         nivelActual.isLevelCompleted = EnumStateLevelYStars.LevelYStars.Provisional;
         
-        List<Level> nivelesGuardados = SaveManager.GetIntance().currentSave.levels;
+        List<Level> nivelesGuardados = SaveManager.GetInstance().currentSave.levels;
         for (int i = 0; i < nivelesGuardados.Count; i++)
         {
             if (nivelesGuardados[i].identificadorNivel.Equals(idNivel))
             {
                 nivelesGuardados[i] = nivelActual;
-                SaveManager.GetIntance().currentSave.levels = nivelesGuardados;
-                SaveManager.GetIntance().SaveGame(1);
+                SaveManager.GetInstance().currentSave.levels = nivelesGuardados;
+                SaveManager.GetInstance().SaveGame(1);
                 return;
             }
         }
         nivelesGuardados.Add(nivelActual);
-        SaveManager.GetIntance().currentSave.levels = nivelesGuardados;
-        SaveManager.GetIntance().SaveGame(1);
+        SaveManager.GetInstance().currentSave.levels = nivelesGuardados;
+        SaveManager.GetInstance().SaveGame(1);
     }
 }

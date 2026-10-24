@@ -84,10 +84,10 @@ public class PauseMundoBase : MonoBehaviour
     /// </summary>
     private void EvaluarRequisitosGuardar()
     {
-        if (SaveManager.GetIntance().currentSave != null)
+        if (SaveManager.GetInstance().currentSave != null)
         {
 
-            if (SaveManager.GetIntance().currentSave.checkpoint.JuegoCompletado)
+            if (SaveManager.GetInstance().currentSave.checkpoint.JuegoCompletado)
             {
                 // Si se cumplen los requisitos, habilita el botón de guardar
                 buttonSave.interactable = true;

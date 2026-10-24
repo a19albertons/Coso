@@ -47,8 +47,8 @@ public class GestionVidasPlayModeTests
     {
         if (GestionVidas.GetInstance() != null)
             Object.Destroy(GestionVidas.GetInstance().gameObject);
-        if (SaveManager.GetIntance() != null)
-            Object.Destroy(SaveManager.GetIntance().gameObject);
+        if (SaveManager.GetInstance() != null)
+            Object.Destroy(SaveManager.GetInstance().gameObject);
 
         yield return null;
 
@@ -83,7 +83,7 @@ public class GestionVidasPlayModeTests
     [UnityTest]
     public IEnumerator Awake_ConSave_InicializaVidasDesdeSave()
     {
-        var sm = SaveManager.GetIntance();
+        var sm = SaveManager.GetInstance();
         sm.currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { vidasActuales = 3 }
@@ -101,7 +101,7 @@ public class GestionVidasPlayModeTests
     [UnityTest]
     public IEnumerator SegundaInstancia_SeDestruyeYPrevaleceLaPrimera()
     {
-        SaveManager.GetIntance().currentSave = new CurrentSave
+        SaveManager.GetInstance().currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { vidasActuales = 3 }
         };
@@ -131,7 +131,7 @@ public class GestionVidasPlayModeTests
     [UnityTest]
     public IEnumerator Vidas_Persisten_TrasCambiarDeEscena()
     {
-        SaveManager.GetIntance().currentSave = new CurrentSave
+        SaveManager.GetInstance().currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { vidasActuales = 3 }
         };
@@ -176,7 +176,7 @@ public class GestionVidasPlayModeTests
     public IEnumerator PlayerPierdeVida_ReduceVidasEnUno()
     {
         // Damos valor al save para que el Awake de GestionVidas inicialice las vidas actuales correctamente.
-        SaveManager.GetIntance().currentSave = new CurrentSave()
+        SaveManager.GetInstance().currentSave = new CurrentSave()
         {
             playerInfo = new PlayerInfo { vidasActuales = 5 }
         };
@@ -196,7 +196,7 @@ public class GestionVidasPlayModeTests
     public IEnumerator PlayerPierdeVida_CuandoVidasCero_NoReduce()
     {
         // Damos valor al save para que el Awake de GestionVidas inicialice las vidas actuales correctamente.
-        SaveManager.GetIntance().currentSave = new CurrentSave()
+        SaveManager.GetInstance().currentSave = new CurrentSave()
         {
             playerInfo = new PlayerInfo { vidasActuales = 0 }
         };
@@ -215,7 +215,7 @@ public class GestionVidasPlayModeTests
     public IEnumerator PlayerObtieneVida_AumentaVidasEnUno()
     {
         // Damos valor al save para que el Awake de GestionVidas inicialice las vidas actuales correctamente.
-        SaveManager.GetIntance().currentSave = new CurrentSave()
+        SaveManager.GetInstance().currentSave = new CurrentSave()
         {
             playerInfo = new PlayerInfo { vidasActuales = 5 }
         };
@@ -235,7 +235,7 @@ public class GestionVidasPlayModeTests
     public IEnumerator ResetVidas_RestauraVidasAlValorInicial()
     {
         // Damos valor al save para que el Awake de GestionVidas inicialice las vidas actuales correctamente.
-        SaveManager.GetIntance().currentSave = new CurrentSave()
+        SaveManager.GetInstance().currentSave = new CurrentSave()
         {
             playerInfo = new PlayerInfo { vidasActuales = 0 }
         };
@@ -254,7 +254,7 @@ public class GestionVidasPlayModeTests
     public IEnumerator GetVidasActuales_DevuelveStringCorrecto()
     {
         // Damos valor al save para que el Awake de GestionVidas inicialice las vidas actuales correctamente.
-        SaveManager.GetIntance().currentSave = new CurrentSave()
+        SaveManager.GetInstance().currentSave = new CurrentSave()
         {
             playerInfo = new PlayerInfo { vidasActuales = 6 }
         };
@@ -272,7 +272,7 @@ public class GestionVidasPlayModeTests
     public IEnumerator GetVidasActualesInt_DevuelveEnteroCorrecto()
     {
         // Damos valor al save para que el Awake de GestionVidas inicialice las vidas actuales correctamente.
-        SaveManager.GetIntance().currentSave = new CurrentSave()
+        SaveManager.GetInstance().currentSave = new CurrentSave()
         {
             playerInfo = new PlayerInfo { vidasActuales = 6 }
         };

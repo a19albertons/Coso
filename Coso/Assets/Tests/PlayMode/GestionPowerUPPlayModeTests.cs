@@ -47,8 +47,8 @@ public class GestionPowerUPPlayModeTests
     {
         if (GestionPowerUP.GetInstance() != null)
             Object.Destroy(GestionPowerUP.GetInstance().gameObject);
-        if (SaveManager.GetIntance() != null)
-            Object.Destroy(SaveManager.GetIntance().gameObject);
+        if (SaveManager.GetInstance() != null)
+            Object.Destroy(SaveManager.GetInstance().gameObject);
 
         yield return null;
 
@@ -80,7 +80,7 @@ public class GestionPowerUPPlayModeTests
     [UnityTest]
     public IEnumerator Awake_ConSave_InicializaPowerUpDesdeSave()
     {
-        var sm = SaveManager.GetIntance();
+        var sm = SaveManager.GetInstance();
         sm.currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { powerUpActual = PowerUPType.DoubleJump }
@@ -97,7 +97,7 @@ public class GestionPowerUPPlayModeTests
     [UnityTest]
     public IEnumerator SegundaInstancia_SeDestruyeYPrevaleceLaPrimera()
     {
-        SaveManager.GetIntance().currentSave = new CurrentSave
+        SaveManager.GetInstance().currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { powerUpActual = PowerUPType.DoubleJump }
         };
@@ -127,7 +127,7 @@ public class GestionPowerUPPlayModeTests
     [UnityTest]
     public IEnumerator PowerUp_Persiste_TrasCambiarDeEscena()
     {
-        SaveManager.GetIntance().currentSave = new CurrentSave
+        SaveManager.GetInstance().currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { powerUpActual = PowerUPType.DoubleJump }
         };
@@ -152,7 +152,7 @@ public class GestionPowerUPPlayModeTests
     [UnityTest]
     public IEnumerator PlayerPierdePowerUP_CambiaEstadoANoneState()
     {
-        SaveManager.GetIntance().currentSave = new CurrentSave
+        SaveManager.GetInstance().currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { powerUpActual = PowerUPType.DoubleJump }
         };
@@ -172,7 +172,7 @@ public class GestionPowerUPPlayModeTests
     [UnityTest]
     public IEnumerator PlayerObtienePowerUP_CambiaEstadoAlTipoEspecificado()
     {
-        SaveManager.GetIntance().currentSave = new CurrentSave
+        SaveManager.GetInstance().currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { powerUpActual = PowerUPType.None }
         };

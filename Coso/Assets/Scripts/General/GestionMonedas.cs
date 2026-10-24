@@ -32,13 +32,13 @@ public class GestionMonedas : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            if (SaveManager.GetIntance().currentSave == null)
+            if (SaveManager.GetInstance().currentSave == null)
             {
                 Debug.LogError("No se ha cargado un archivo de guardado. Se recomienda iniciar el juego desde la escena de inicio para cargar correctamente los datos del jugador.");
             }
             else
             {
-                monedasAcumuladas = SaveManager.GetIntance().currentSave.playerInfo.monedasActuales;
+                monedasAcumuladas = SaveManager.GetInstance().currentSave.playerInfo.monedasActuales;
             }
             DontDestroyOnLoad(gameObject);
         }

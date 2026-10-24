@@ -48,8 +48,8 @@ public class SaveManagerPlayModeTests
     [UnityTearDown]
     public IEnumerator TearDown()
     {
-        if (SaveManager.GetIntance() != null)
-            Object.Destroy(SaveManager.GetIntance().gameObject);
+        if (SaveManager.GetInstance() != null)
+            Object.Destroy(SaveManager.GetInstance().gameObject);
 
         yield return null;
 
@@ -66,7 +66,7 @@ public class SaveManagerPlayModeTests
         // Resetear antes de verificar para asegurar que no haya instancia previa
         ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
         yield return null;
-        Assert.IsNull(SaveManager.GetIntance());
+        Assert.IsNull(SaveManager.GetInstance());
     }
 
     // ---- Test 2: NewGame inicializa currentSave ---------------------------
@@ -74,7 +74,7 @@ public class SaveManagerPlayModeTests
     public IEnumerator NewGame_InicializaCurrentSave()
     {
         // Después de SetUp, la instancia existe. Resetear currentSave para asegurar que se inicializa correctamente.
-        var sm = SaveManager.GetIntance();
+        var sm = SaveManager.GetInstance();
         sm.currentSave = null;
         yield return null;
         sm.NewGame();
@@ -86,7 +86,7 @@ public class SaveManagerPlayModeTests
     [UnityTest]
     public IEnumerator SaveGame_EscribeArchivoJson()
     {
-        var sm = SaveManager.GetIntance();
+        var sm = SaveManager.GetInstance();
         sm.currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { vidasActuales = 3, monedasActuales = 10, powerUpActual = PowerUPType.DoubleJump }
@@ -107,7 +107,7 @@ public class SaveManagerPlayModeTests
     [UnityTest]
     public IEnumerator LoadGame_LeeYDeserializaDesdeArchivo()
     {
-        var sm = SaveManager.GetIntance();
+        var sm = SaveManager.GetInstance();
         sm.currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { vidasActuales = 5, monedasActuales = 0, powerUpActual = PowerUPType.None }
@@ -130,7 +130,7 @@ public class SaveManagerPlayModeTests
     [UnityTest]
     public IEnumerator LoadGame_Arquivo_No_Existente_DevuelveNull()
     {
-        var sm = SaveManager.GetIntance();
+        var sm = SaveManager.GetInstance();
         sm.currentSave = null;
         yield return null;
         sm.LoadGame(99);
@@ -142,12 +142,12 @@ public class SaveManagerPlayModeTests
     [UnityTest]
     public IEnumerator Singleton_SeSegundaInstanciaSeDestruye()
     {
-        var sm1 = SaveManager.GetIntance();
+        var sm1 = SaveManager.GetInstance();
         yield return null;
         var go2 = new GameObject("G2");
         go2.AddComponent<SaveManager>();
         yield return null;
-        var sm2 = SaveManager.GetIntance();
+        var sm2 = SaveManager.GetInstance();
         Assert.AreSame(sm1, sm2);
     }
 
@@ -158,14 +158,14 @@ public class SaveManagerPlayModeTests
         // Resetear antes de verificar
         ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
         yield return null;
-        Assert.IsNull(SaveManager.GetIntance());
+        Assert.IsNull(SaveManager.GetInstance());
     }
 
     // ---- Test 8: SaveGame con slot inválido -------------------------------
     [UnityTest]
     public IEnumerator SaveGame_ConSlotInvalido_EscribeArchivo()
     {
-        var sm = SaveManager.GetIntance();
+        var sm = SaveManager.GetInstance();
         sm.currentSave = new CurrentSave();
         yield return null;
         sm.SaveGame(0);
@@ -185,6 +185,6 @@ public class SaveManagerPlayModeTests
         go.AddComponent<SaveManager>();
         yield return null;
         // Awake se llama, así que GetInstance debería ser no null ahora
-        Assert.IsNotNull(SaveManager.GetIntance());
+        Assert.IsNotNull(SaveManager.GetInstance());
     }
 }

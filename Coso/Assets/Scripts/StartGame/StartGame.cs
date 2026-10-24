@@ -48,7 +48,7 @@ public class StartGame : MonoBehaviour
     /// </summary>
     private void NewGame()
     {
-        SaveManager.GetIntance().NewGame();
+        SaveManager.GetInstance().NewGame();
         SceneManager.LoadScene("Intro");
     }
 
@@ -57,7 +57,7 @@ public class StartGame : MonoBehaviour
     /// </summary>
     private void ContinueGame()
     {
-        SaveManager.GetIntance().LoadGame(1);
+        SaveManager.GetInstance().LoadGame(1);
         SceneManager.LoadScene("MundoBase");
     }
 }

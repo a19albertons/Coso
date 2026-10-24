@@ -24,11 +24,11 @@ public static class MuertePersonaje
     public static IEnumerator GuardarDatosJugador()
     {
         // Actualizar metricas del jugador
-        SaveManager.GetIntance().currentSave.playerInfo.powerUpActual = GestionPowerUP.GetInstance().TipoPowerUP();
-        SaveManager.GetIntance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt();
-        SaveManager.GetIntance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
-        SaveManager.GetIntance().currentSave.checkpoint.haMuerto = true;
-        SaveManager.GetIntance().SaveGame(1);
+        SaveManager.GetInstance().currentSave.playerInfo.powerUpActual = GestionPowerUP.GetInstance().TipoPowerUP();
+        SaveManager.GetInstance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt();
+        SaveManager.GetInstance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
+        SaveManager.GetInstance().currentSave.checkpoint.haMuerto = true;
+        SaveManager.GetInstance().SaveGame(1);
         isSaved = true; // Marca que los datos del jugador han sido guardados
         yield return null; ;
     }

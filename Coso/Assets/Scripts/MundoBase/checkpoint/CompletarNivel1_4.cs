@@ -8,15 +8,15 @@ public class EvaluarNivel1_4 : CompletarNivelBase
     /// </summary>
     protected override void Cambiarcheckpoint()
     {
-        if (SaveManager.GetIntance().currentSave != null)
+        if (SaveManager.GetInstance().currentSave != null)
         {
-            if (!SaveManager.GetIntance().currentSave.checkpoint.level1_4IsDone)
+            if (!SaveManager.GetInstance().currentSave.checkpoint.level1_4IsDone)
             {
-                if (SaveManager.GetIntance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)) != null)
+                if (SaveManager.GetInstance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)) != null)
                 {
-                    if (SaveManager.GetIntance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)).isLevelCompleted == EnumStateLevelYStars.LevelYStars.Provisional)
+                    if (SaveManager.GetInstance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)).isLevelCompleted == EnumStateLevelYStars.LevelYStars.Provisional)
                     {
-                        SaveManager.GetIntance().currentSave.checkpoint.level1_4IsDone = true;
+                        SaveManager.GetInstance().currentSave.checkpoint.level1_4IsDone = true;
                         MostrarCanvas();
                     }
                 }

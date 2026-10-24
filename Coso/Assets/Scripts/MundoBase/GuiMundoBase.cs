@@ -46,7 +46,7 @@ public class GuiMundoBase : MonoBehaviour
             _ => powerups[0],
         };
         int cantidadEstrellas = 0;
-        SaveManager.GetIntance().currentSave.levels.ForEach(level =>
+        SaveManager.GetInstance().currentSave.levels.ForEach(level =>
         {
             for (int i = 0; i < level.starsObtained.Length; i++)
             {

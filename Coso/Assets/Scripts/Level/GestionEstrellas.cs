@@ -16,12 +16,12 @@ public class GestionEstrellas : MonoBehaviour
 
     void Awake()
     {
-        if (SaveManager.GetIntance().currentSave == null)
+        if (SaveManager.GetInstance().currentSave == null)
         {
             Debug.LogError("No se ha cargado ningún archivo de guardado. Asegúrate de que el SaveManager esté inicializado correctamente.");
             return;
         }
-        SaveManager.GetIntance().currentSave.levels.ForEach(level =>
+        SaveManager.GetInstance().currentSave.levels.ForEach(level =>
         {
     
             if (level.identificadorNivel.Equals(gameObject.scene.name))

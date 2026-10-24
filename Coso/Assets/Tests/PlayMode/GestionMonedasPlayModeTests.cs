@@ -53,8 +53,8 @@ public class GestionMonedasPlayModeTests
         // Destruir objetos persistentes
         if (GestionMonedas.GetInstance() != null)
             Object.Destroy(GestionMonedas.GetInstance().gameObject);
-        if (SaveManager.GetIntance() != null)
-            Object.Destroy(SaveManager.GetIntance().gameObject);
+        if (SaveManager.GetInstance() != null)
+            Object.Destroy(SaveManager.GetInstance().gameObject);
 
         yield return null;
 
@@ -97,7 +97,7 @@ public class GestionMonedasPlayModeTests
     public IEnumerator Awake_ConSave_InicializaMonedasDesdeSave()
     {
         // Crea un archivo de guardado con 50 monedas
-        var sm = SaveManager.GetIntance();
+        var sm = SaveManager.GetInstance();
         sm.currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { monedasActuales = 50 }
@@ -120,7 +120,7 @@ public class GestionMonedasPlayModeTests
     public IEnumerator SegundaInstancia_SeDestruyeYPrevaleceLaPrimera()
     {
         // Evita el LogError del primer Awake (no afecta al test)
-        SaveManager.GetIntance().currentSave = new CurrentSave
+        SaveManager.GetInstance().currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { monedasActuales = 0 }
         };
@@ -158,7 +158,7 @@ public class GestionMonedasPlayModeTests
     [UnityTest]
     public IEnumerator Monedas_Persisten_TrasCambiarDeEscena()
     {
-        SaveManager.GetIntance().currentSave = new CurrentSave
+        SaveManager.GetInstance().currentSave = new CurrentSave
         {
             playerInfo = new PlayerInfo { monedasActuales = 0 }
         };
