@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Reflection;
-using System.Text.RegularExpressions;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
@@ -114,10 +111,6 @@ public class ControladorMusicaPlayModeTests
         var go = new GameObject("ControladorMusica");
         var cm = go.AddComponent<ControladorMusica>();
         yield return null;
-
-        AudioClip clip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/AI/Musica/Apex_of_the_Climb.mp3");
-        cm.GetComponent<AudioSource>().clip = clip;
-        cm.GetComponent<AudioSource>().Play();
 
         SceneManager.LoadScene(testSceneName, LoadSceneMode.Single);
         yield return null;
