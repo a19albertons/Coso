@@ -47,6 +47,9 @@ public class ControladorMusicaPlayModeTests
         yield return null;
 
         ReflectionHelper.ResetStaticField(typeof(ControladorMusica), "instance");
+
+        SceneManager.LoadScene(testSceneName, LoadSceneMode.Single);
+        yield return null;
     }
 
 

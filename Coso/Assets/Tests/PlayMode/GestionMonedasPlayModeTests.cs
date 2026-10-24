@@ -61,6 +61,9 @@ public class GestionMonedasPlayModeTests
         // Resetear singletons estáticos (los campos son privados estáticos)
         ReflectionHelper.ResetStaticField(typeof(GestionMonedas), "instance");
         ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
+
+        SceneManager.LoadScene(testSceneName, LoadSceneMode.Single);
+        yield return null;
     }
 
     // ---- Test 1: Awake sin save → LogError y monedas 0 -------------------------

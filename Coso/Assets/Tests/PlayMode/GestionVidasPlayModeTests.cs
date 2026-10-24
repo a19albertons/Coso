@@ -54,6 +54,9 @@ public class GestionVidasPlayModeTests
 
         ReflectionHelper.ResetStaticField(typeof(GestionVidas), "instance");
         ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
+
+        SceneManager.LoadScene(testSceneName, LoadSceneMode.Single);
+        yield return null;
     }
 
 

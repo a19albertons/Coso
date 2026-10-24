@@ -54,6 +54,9 @@ public class SaveManagerPlayModeTests
         yield return null;
 
         ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
+
+        SceneManager.LoadScene(testSceneName, LoadSceneMode.Single);
+        yield return null;
     }
 
     // ---- Test 1: GetInstance sin SaveManager activa devuelve null ----------

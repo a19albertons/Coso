@@ -54,6 +54,9 @@ public class GestionPowerUPPlayModeTests
 
         ReflectionHelper.ResetStaticField(typeof(GestionPowerUP), "instance");
         ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
+
+        SceneManager.LoadScene(testSceneName, LoadSceneMode.Single);
+        yield return null;
     }
 
     // ---- Test 1: Awake sin save → LogError y estado NoneState ----------------

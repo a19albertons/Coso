@@ -41,6 +41,7 @@ public class AlternarBackgroundPlayModeTests
     [UnityTearDown]
     public IEnumerator TearDown()
     {
+        SceneManager.LoadScene(testSceneName, LoadSceneMode.Single);
         yield return null;
     }
 
