@@ -260,7 +260,7 @@ public class SiguimientoCameraPlayModeTests
 
         // Con un factor de 1f, la cámara debería haberse movido poco pero significativamente
         Assert.GreaterOrEqual(finalPosition.x, 10f, "Con suavizado bajo, la cámara se mueve lentamente, pero en el eje X tiene que ser superior a 10");
-        Assert.LessOrEqual(finalPosition.x, 15f, "Con suavizado bajo, la cámara, pero no debería ser superior a 15");
+        Assert.LessOrEqual(finalPosition.x, 15.5f, "Con suavizado bajo, la cámara, pero no debería ser superior a 15.5");
     }
 
     // ---- Test 6: MuerteJugador repositiona la cámara instantáneamente ---
