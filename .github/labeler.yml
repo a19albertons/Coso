@@ -1,0 +1,43 @@
+# GitHub Actions Labeler Configuration
+
+# Estan ubicados dentro de la carpeta Coso y sus subcarpetas
+scripts:
+  - changed-files:
+    - any-glob-to-any-file: 'Coso/Assets/Scripts/**'
+
+escenas:
+  - changed-files:
+    - any-glob-to-any-file: 'Coso/Assets/Scenes/**'
+
+tests:
+  - changed-files:
+    - any-glob-to-any-file: 'Coso/Assets/Tests/**'
+
+dependencias:
+  - changed-files:
+    - any-glob-to-any-file: 'Coso/Packages/**/*.json'
+
+cache:
+  - changed-files:
+    - any-glob-to-any-file: 'Coso/Assets/**'
+    - any-glob-to-any-file: 'Coso/Packages/**'
+    - any-glob-to-any-file: 'Coso/ProjectSettings/**'
+
+assets:
+  - all:
+    - changed-files:
+      - any-glob-to-any-file: 'Coso/Assets/**'
+      - all-globs-to-all-files: ['!Coso/Assets/Tests/**', '!Coso/Assets/Scripts/**', '!Coso/Assets/Scenes/**']
+
+projectsettings:
+  - changed-files:
+    - any-glob-to-any-file: 'Coso/ProjectSettings/**'
+
+# Estan ubicados en la raiz del proyecto
+ci:
+  - changed-files:
+    - any-glob-to-any-file: '.github/**'
+
+documentacion:
+  - changed-files:
+    - any-glob-to-any-file: 'Documentation/**'
