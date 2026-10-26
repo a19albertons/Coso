@@ -24,7 +24,7 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    public static SaveManager GetIntance()
+    public static SaveManager GetInstance()
     {
         return instance;
     }

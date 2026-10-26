@@ -32,7 +32,7 @@ public class ControladorInfo : MonoBehaviour
     void Awake()
     {
         controladorDoor = GetComponent<ControladorDoor>();
-        if (SaveManager.GetIntance().currentSave == null)
+        if (SaveManager.GetInstance().currentSave == null)
         {
             Debug.LogError("No se ha cargado ningún archivo de guardado. Asegúrate de que el SaveManager esté inicializado correctamente.");
         }
@@ -45,7 +45,7 @@ public class ControladorInfo : MonoBehaviour
 
     private void ActualizarInfo()
     {
-        SaveManager.GetIntance().currentSave.levels.ForEach(level =>
+        SaveManager.GetInstance().currentSave.levels.ForEach(level =>
         {
 
             if (level.identificadorNivel.Equals(controladorDoor.sceneName))

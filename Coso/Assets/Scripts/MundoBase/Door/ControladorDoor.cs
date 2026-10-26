@@ -49,7 +49,7 @@ public class ControladorDoor : MonoBehaviour
         playerActionMap = inputActions.FindActionMap("Gameplay");
         EntrarAlNivel = playerActionMap.FindAction("Puerta");
 
-        if (SaveManager.GetIntance().currentSave == null)
+        if (SaveManager.GetInstance().currentSave == null)
         {
             Debug.LogError("No se ha cargado ningún archivo de guardado. Asegúrate de que el SaveManager esté inicializado correctamente.");
             return;
@@ -58,7 +58,7 @@ public class ControladorDoor : MonoBehaviour
         {
             nivelPrevio = true;
         }
-        SaveManager.GetIntance().currentSave.levels.ForEach(level =>
+        SaveManager.GetInstance().currentSave.levels.ForEach(level =>
         {
             for (int i = 0; i < level.starsObtained.Length; i++)
             {

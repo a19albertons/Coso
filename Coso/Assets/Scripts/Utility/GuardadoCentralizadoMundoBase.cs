@@ -10,13 +10,13 @@ public static class GuardadoCentralizadoMundoBase
     /// </summary>
     public static void ConsolidarProgreso()
     {
-        if (SaveManager.GetIntance().currentSave == null)
+        if (SaveManager.GetInstance().currentSave == null)
         {
             Debug.LogError("No hay un guardado activo para aplicar el progreso del nivel");
             return;
         }
         // Se recorre la lista de niveles del guardado actual y se actualiza el estado de los niveles y estrellas obtenidas
-        SaveManager.GetIntance().currentSave.levels.ForEach(level =>
+        SaveManager.GetInstance().currentSave.levels.ForEach(level =>
         {
             // Guardar de forma permanente el progreso obtenido
             if (level.isLevelCompleted == EnumStateLevelYStars.LevelYStars.Provisional)
@@ -39,14 +39,14 @@ public static class GuardadoCentralizadoMundoBase
     /// </summary>
     public static void GuardarProgreso()
     {
-        if (SaveManager.GetIntance().currentSave == null)
+        if (SaveManager.GetInstance().currentSave == null)
         {
             Debug.LogError("No hay un guardado activo para aplicar el progreso del nivel");
             return;
         }
-        SaveManager.GetIntance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
-        SaveManager.GetIntance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt();
-        SaveManager.GetIntance().currentSave.playerInfo.powerUpActual = GestionPowerUP.GetInstance().TipoPowerUP();
-        SaveManager.GetIntance().SaveGame(1);
+        SaveManager.GetInstance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
+        SaveManager.GetInstance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt();
+        SaveManager.GetInstance().currentSave.playerInfo.powerUpActual = GestionPowerUP.GetInstance().TipoPowerUP();
+        SaveManager.GetInstance().SaveGame(1);
     }
 }

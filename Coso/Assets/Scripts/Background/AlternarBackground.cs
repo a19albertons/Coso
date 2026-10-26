@@ -23,7 +23,10 @@ public class AlternarBackground : MonoBehaviour
         if (aspectRatioActual > aspectRatioThreshold)
         {
             spriteRenderer.sprite = spriteAlternativo;
-            transform.localScale = transform.localScale * (tamanoEjeYOriginal / spriteRenderer.bounds.size.y);
+            if (spriteRenderer.sprite != null && spriteRenderer.bounds.size.y != 0)
+            {
+                transform.localScale = transform.localScale * (tamanoEjeYOriginal / spriteRenderer.bounds.size.y);
+            }
         }
     }
 }

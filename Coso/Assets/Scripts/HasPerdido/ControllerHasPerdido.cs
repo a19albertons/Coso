@@ -55,18 +55,18 @@ public class ControllerHasPerdido : MonoBehaviour
     /// </summary>
     private void RestaurarDatosJugador()
     {
-        if (SaveManager.GetIntance().currentSave == null)
+        if (SaveManager.GetInstance().currentSave == null)
         {
             Debug.LogError("No se encontró un archivo de guardado actual.");
             return;
         }
         GestionPowerUP.GetInstance().PlayerPierdePowerUP(); // Llama al método PlayerPierdePowerUP() para restablecer el power-up del jugador
         GestionVidas.GetInstance().ResetVidas();
-        SaveManager.GetIntance().currentSave.playerInfo.powerUpActual = PowerUPType.None; // Restablece el power-up actual a None
-        SaveManager.GetIntance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt(); // Restablece las vidas actuales a su valor inicial
+        SaveManager.GetInstance().currentSave.playerInfo.powerUpActual = PowerUPType.None; // Restablece el power-up actual a None
+        SaveManager.GetInstance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt(); // Restablece las vidas actuales a su valor inicial
 
         //Operaciones de guardado
-        SaveManager.GetIntance().SaveGame(1); // Guarda el juego en el archivo de guardado 1
+        SaveManager.GetInstance().SaveGame(1); // Guarda el juego en el archivo de guardado 1
         isSaved = true; // Marca que los datos del jugador han sido guardados
     }
 
@@ -113,12 +113,12 @@ public class ControllerHasPerdido : MonoBehaviour
     /// </summary>
     private void RestaurarProgreso()
     {
-        if (SaveManager.GetIntance().currentSave == null)
+        if (SaveManager.GetInstance().currentSave == null)
         {
             Debug.LogError("No se encontró un archivo de guardado actual.");
             return;
         }
-        SaveManager.GetIntance().currentSave.levels.ForEach(level =>
+        SaveManager.GetInstance().currentSave.levels.ForEach(level =>
         {
             if (level.isLevelCompleted == EnumStateLevelYStars.LevelYStars.Provisional)
             {

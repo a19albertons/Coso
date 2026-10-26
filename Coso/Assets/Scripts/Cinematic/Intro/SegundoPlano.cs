@@ -38,8 +38,8 @@ public class SegundoPlano : MonoBehaviour
     /// <returns></returns>
     private IEnumerator PrimerGuardado()
     {
-        SaveManager.GetIntance().currentSave.checkpoint.IsTutorialDone = true;
-        SaveManager.GetIntance().SaveGame(1);
+        SaveManager.GetInstance().currentSave.checkpoint.IsTutorialDone = true;
+        SaveManager.GetInstance().SaveGame(1);
         isSaved = true;
         yield return null;
     }

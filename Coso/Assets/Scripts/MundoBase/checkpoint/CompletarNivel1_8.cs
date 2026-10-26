@@ -19,16 +19,16 @@ public class EvaluarNivel1_8 : CompletarNivelBase
     /// </summary>
     protected override void Cambiarcheckpoint()
     {
-        if (SaveManager.GetIntance().currentSave != null)
+        if (SaveManager.GetInstance().currentSave != null)
         {
-            if (!SaveManager.GetIntance().currentSave.checkpoint.level1_8IsDone)
+            if (!SaveManager.GetInstance().currentSave.checkpoint.level1_8IsDone)
             {
-                if (SaveManager.GetIntance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)) != null)
+                if (SaveManager.GetInstance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)) != null)
                 {
-                    if (SaveManager.GetIntance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)).isLevelCompleted == EnumStateLevelYStars.LevelYStars.Provisional)
+                    if (SaveManager.GetInstance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)).isLevelCompleted == EnumStateLevelYStars.LevelYStars.Provisional)
                     {
                         // Evaluamos si el jugador ha muerto alguna vez para mostrar un final u otro
-                        if (SaveManager.GetIntance().currentSave.checkpoint.haMuerto)
+                        if (SaveManager.GetInstance().currentSave.checkpoint.haMuerto)
                         {
                             FinalMalo();
                         }
@@ -36,7 +36,7 @@ public class EvaluarNivel1_8 : CompletarNivelBase
                         {
                             FinalBueno();
                         }
-                        SaveManager.GetIntance().currentSave.checkpoint.level1_8IsDone = true;
+                        SaveManager.GetInstance().currentSave.checkpoint.level1_8IsDone = true;
                         StartCoroutine(LanzarGuardado());
                     }
                 }
@@ -52,7 +52,7 @@ public class EvaluarNivel1_8 : CompletarNivelBase
     {
         GuardadoCentralizadoMundoBase.ConsolidarProgreso();
         GuardadoCentralizadoMundoBase.GuardarProgreso();
-        SaveManager.GetIntance().SaveGame(1);
+        SaveManager.GetInstance().SaveGame(1);
         isSaved = true; // Se marca que los datos del jugador han sido guardados
         yield return null;
     }
