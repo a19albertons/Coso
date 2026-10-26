@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
@@ -35,6 +34,8 @@ public class SiguimientoCameraPlayModeTests
     [UnitySetUp]
     public IEnumerator SetUp()
     {
+        Time.captureDeltaTime = 1f / 60; // Configura la captura de tiempo para simular un frame rate de 60 FPS
+        Time.timeScale = 1f; // Asegura que el tiempo esté en escala normal antes de cada prueba
         yield return null;
     }
 
@@ -44,6 +45,8 @@ public class SiguimientoCameraPlayModeTests
     [UnityTearDown]
     public IEnumerator TearDown()
     {
+        Time.captureDeltaTime = 0f; // Restablece la captura de tiempo a su valor predeterminado
+        Time.timeScale = 1f; // Restablece la escala de tiempo a su valor predeterminado
         SceneManager.LoadScene(testSceneName, LoadSceneMode.Single);
         yield return null;
     }
@@ -74,7 +77,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
         // Mover el objetivo a la derecha
@@ -82,7 +84,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
         // Verificar que la cámara se haya movido hacia el objetivo (no necesariamente igual debido a la interpolación)
@@ -115,7 +116,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
         // Mover el objetivo a la derecha
@@ -123,7 +123,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
         // Verificar que la cámara esté en la posición deseada + offset
@@ -155,7 +154,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
 
@@ -164,7 +162,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
 
@@ -197,7 +194,6 @@ public class SiguimientoCameraPlayModeTests
         // Actualizar tiempo para permitir que la cámara se reposicione
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null;
         }
 
@@ -206,7 +202,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
 
@@ -242,7 +237,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
 
@@ -252,7 +246,6 @@ public class SiguimientoCameraPlayModeTests
         // Permitir varias actualizaciones con tiempo normal
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null;
         }
 
@@ -288,7 +281,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
 
@@ -323,7 +315,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
 
@@ -358,7 +349,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
 
@@ -367,7 +357,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
 
@@ -376,7 +365,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
 
@@ -410,7 +398,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
 
@@ -419,7 +406,6 @@ public class SiguimientoCameraPlayModeTests
 
         for (int i = 0; i < 60; i++)
         {
-            Time.timeScale = 1f;
             yield return null; // Permitir actualización
         }
 
