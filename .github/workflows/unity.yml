@@ -89,6 +89,7 @@ jobs:
               with:
                 projectPath: ${{ env.PROJECT_PATH }}
                 targetPlatform: ${{ matrix.targetPlatform}}
+                buildsPath: ${{ env.PROJECT_PATH }}/build
 
             # Guarda el artefacto de compilación
             - name: Guardar artefacto de compilacion
