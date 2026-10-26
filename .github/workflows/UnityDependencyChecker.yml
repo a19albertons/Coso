@@ -50,6 +50,7 @@ jobs:
 
             # Filtra los cambios en el manifest.json y packages-lock.json para evitar PRs de ficheros .meta y otros temporales generados por Unity
             - name: Filtrar cambios de dependencias
+              working-directory: ${{ env.PROJECT_PATH }}
               run: |
                 # Comprobamos si el manifest.json tiene modificaciones sin guardar
                 if ! git diff --quiet Packages/manifest.json; then
