@@ -1,0 +1,19 @@
+name: "Workflow etiquetado automático"
+
+on:
+    - pull_request_target
+
+jobs:
+    labeler:
+        permissions:
+            contents: read
+            pull-requests: write
+        runs-on: ubuntu-slim
+        steps:
+            # Configurar checkout del repositorio
+            - name: "Checkout del repositorio"
+              uses: actions/checkout@v7
+
+            # Action de labeler para etiquetar automáticamente los pull requests
+            - name: "Etiquetado automático"
+              uses: actions/labeler@v7
