@@ -50,7 +50,7 @@ jobs:
             
             # Subir los resultados de los tests como artefacto
             - name: Subir resultados de tests
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                 name: TestResults
                 path: ${{ steps.testRunner.outputs.artifactsPath }}
@@ -93,7 +93,7 @@ jobs:
 
             # Guarda el artefacto de compilación
             - name: Guardar artefacto de compilacion
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                 name: Build-${{ matrix.targetPlatform }}
                 path: ${{ env.PROJECT_PATH }}/build/${{ matrix.targetPlatform }}
