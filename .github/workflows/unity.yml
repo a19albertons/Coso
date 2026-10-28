@@ -59,6 +59,7 @@ jobs:
     build:
         uses: ./.github/workflows/reusar_compilacion.yml
         needs: test
+        secrets: inherit
 
 
     # tarea de despliegue
