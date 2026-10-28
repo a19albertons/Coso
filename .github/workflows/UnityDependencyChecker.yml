@@ -17,7 +17,7 @@ env:
 
     # Licencia de Unity (fichero)
     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE}}
-    PROJECT_PATH: Coso
+    PROJECT_PATH: ${{ vars.PROJECT_PATH }}
 
 jobs:
     # Tarea para comprobar y actualizar las dependencias de Unity
