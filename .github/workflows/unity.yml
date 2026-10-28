@@ -58,6 +58,7 @@ jobs:
     # tarea de compilación
     build:
         uses: ./.github/workflows/reusar_compilacion.yml
+        needs: test
 
 
     # tarea de despliegue
