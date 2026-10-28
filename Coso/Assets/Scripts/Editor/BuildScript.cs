@@ -11,8 +11,8 @@ public class BuildScript
 {
     /// <summary>
     /// Metodo a invocar para gestionar la compilación personalizda de webGL
-    /// Debe invocarse por linea de comando un argumento de compresion, por ejemplo: -compressionFormat=Gzip o -compressionFormat=Brotli. Cualquier otro valor usará el de por defecto de unity.
-    /// Debe invocarse por linea de comando un argumento de ruta de salida, por ejemplo: -outputPath=Builds/WebGL. Cualquier otro valor usará el de por defecto de unity.
+    /// Debe invocarse por linea de comando un argumento de compresion, por ejemplo: -compressionFormat Gzip o -compressionFormat Brotli. Cualquier otro valor usará el de por defecto de unity.
+    /// Debe invocarse por linea de comando un argumento de ruta de salida, por ejemplo: -customBuildPath Builds/WebGL. Cualquier otro valor usará el de por defecto de unity.
     /// </summary>
     public static void BuildWebGL()
     {
@@ -24,7 +24,7 @@ public class BuildScript
         .Where(scene => scene.enabled)
         .Select(scene => scene.path)
         .ToArray();
-        string outputPath = "";
+        string outputPath = "Builds/WebGL";
 
         for (int i = 0; i < args.Length; i++)
         {
@@ -61,11 +61,16 @@ public class BuildScript
         buildPlayerOptions.target = BuildTarget.WebGL;
         buildPlayerOptions.options = BuildOptions.None;
 
-
-        BuildPipeline.BuildPlayer(buildPlayerOptions);
+        // Añadimos que en caso de error en esta operación lance una excepción y saber la causa.
+        var report = BuildPipeline.BuildPlayer(buildPlayerOptions);
 
         // Restaura valores originales de configuracion de unity
         PlayerSettings.WebGL.compressionFormat = formatoOriginal;
         AssetDatabase.SaveAssets();
+
+        if (report.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
+        {
+            throw new Exception($"Unity Build failed with result: {report.summary.result}");
+        }
     }
 }
