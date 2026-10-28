@@ -17,7 +17,7 @@ env:
 
     # Licencia de Unity (fichero)
     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE}}
-    PROJECT_PATH: Coso
+    PROJECT_PATH: ${{ vars.PROJECT_PATH }}
 
 jobs:
     # tarea de tests
@@ -57,47 +57,7 @@ jobs:
 
     # tarea de compilación
     build:
-        name: Compilación de Coso
-        needs: test
-        runs-on: ubuntu-24.04          
-        strategy:
-            fail-fast: false
-            matrix:
-                targetPlatform:
-                    - StandaloneWindows64
-                    - StandaloneLinux64
-                    - WebGL
-                    - StandaloneOSX
-                    - Android
-                    - iOS
-        steps:
-            # Configura checkout
-            - uses: actions/checkout@v7
-
-            # Gestiona la cache de Unity
-            - name: Cache de Unity
-              uses: actions/cache@v6
-              with:
-                path: ${{ env.PROJECT_PATH }}/Library
-                key: Library-build-${{ matrix.targetPlatform }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-                restore-keys: |
-                  Library-build-${{ matrix.targetPlatform }}-
-
-            # Ejecuta la compilación de Unity
-            - name: Compilacion de Unity
-              uses: game-ci/unity-builder@v6
-              with:
-                projectPath: ${{ env.PROJECT_PATH }}
-                targetPlatform: ${{ matrix.targetPlatform}}
-                buildsPath: ${{ env.PROJECT_PATH }}/build
-
-            # Guarda el artefacto de compilación
-            - name: Guardar artefacto de compilacion
-              uses: actions/upload-artifact@v7
-              with:
-                name: Build-${{ matrix.targetPlatform }}
-                path: ${{ env.PROJECT_PATH }}/build/${{ matrix.targetPlatform }}
-                if-no-files-found: error
+        uses: ./.github/workflows/reusar_compilacion.yml
 
 
     # tarea de despliegue
