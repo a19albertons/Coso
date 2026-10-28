@@ -101,3 +101,39 @@ jobs:
                 name: Build-WebGL-${{ matrix.tipoCompresion }}
                 path: ${{ env.PROJECT_PATH }}/build/WebGL-${{ matrix.tipoCompresion }}
                 if-no-files-found: error
+
+    build-android:
+        name: Compilación de Coso Android
+        runs-on: ubuntu-24.04
+        env:
+            ANDROIDKEYALIASNAME: ${{ secrets.ANDROIDKEYALIASNAME }}
+            ANDROIDKEYALIASPASS: ${{ secrets.ANDROIDKEYALIASPASS }}
+            ANDROIDKEYSTORENAME: ${{ secrets.ANDROIDKEYSTORENAME }}
+            ANDROIDKEYSTOREPASS: ${{ secrets.ANDROIDKEYSTOREPASS }}
+            ANDROIDKEYSTOREBASE64: ${{ secrets.ANDROIDKEYSTOREBASE64 }}
+        steps:
+            # Configura checkout
+            - uses: actions/checkout@v7
+
+            # Gestiona la cache de Unity
+            - name: Cache de Unity
+              uses: actions/cache@v6
+              with:
+                path: ${{ env.PROJECT_PATH }}/Library
+                key: Library-build-android-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+                restore-keys: |
+                  Library-build-android-
+            
+            # Ejecuta la compilación de Unity
+            - name: Compilacion de Unity
+              uses: game-ci/unity-builder@v6
+              with:
+                projectPath: ${{ env.PROJECT_PATH }}
+                targetPlatform: Android
+                buildsPath: ${{ env.PROJECT_PATH }}/build
+                androidKeystoreName: ${{ env.ANDROIDKEYSTORENAME }}
+                androidKeystorePass: ${{ env.ANDROIDKEYSTOREPASS }}
+                androidKeyaliasName: ${{ env.ANDROIDKEYALIASNAME }}
+                androidKeyaliasPass: ${{ env.ANDROIDKEYALIASPASS }}
+                androidKeystoreBase64: ${{ env.ANDROIDKEYSTOREBASE64 }}
+
