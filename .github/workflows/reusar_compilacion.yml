@@ -91,7 +91,7 @@ jobs:
                 targetPlatform: WebGL
                 buildMethod: BuildScript.BuildWebGL
                 customParameters: |
-                    -compressionFormat=${{ matrix.tipoCompresion }} \
+                    -compressionFormat=${{ matrix.tipoCompresion }}
                     -outputPath=${{ env.PROJECT_PATH }}/build/WebGL-${{ matrix.tipoCompresion }}
 
             # Guarda el artefacto de compilación
