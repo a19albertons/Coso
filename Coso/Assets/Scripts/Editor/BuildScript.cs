@@ -26,16 +26,19 @@ public class BuildScript
         .ToArray();
         string outputPath = "";
 
-        foreach (string arg in args)
+        for (int i = 0; i < args.Length; i++)
         {
-            if (arg.StartsWith("-compressionFormat="))
+            string arg = args[i];
+            if (String.Equals(arg, "-compressionFormat", StringComparison.Ordinal))
             {
-                argumentoCompresion = arg.Split('=')[1];
+                i++;
+                argumentoCompresion = args[i];
             }
 
-            if (arg.StartsWith("-outputPath="))
+            if (String.Equals(arg, "-customBuildPath", StringComparison.Ordinal))
             {
-                outputPath = arg.Split('=')[1];
+                i++;
+                outputPath = args[i].Trim();
             }
         }
 
