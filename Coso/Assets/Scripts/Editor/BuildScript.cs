@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
 
 
 /// <summary>
@@ -16,6 +17,7 @@ public class BuildScript
     /// </summary>
     public static void BuildWebGL()
     {
+        Debug.Log("Iniciando compilación de WebGL...");
         // Variables iniciales
         String[] args = Environment.GetCommandLineArgs();
         string argumentoCompresion = "";
@@ -54,6 +56,8 @@ public class BuildScript
                 break;
         }
 
+        Debug.Log("Procesado los argumentos de compilación. Lanzando la compilación de WebGL...");
+
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
         buildPlayerOptions.scenes = escenasHabilitadas;
 
@@ -72,5 +76,7 @@ public class BuildScript
         {
             throw new Exception($"Unity Build failed with result: {report.summary.result}");
         }
+
+        Debug.Log("Compilación de WebGL finalizada correctamente.");
     }
 }
