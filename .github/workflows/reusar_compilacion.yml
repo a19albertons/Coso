@@ -11,7 +11,11 @@ env:
 
     # Licencia de Unity (fichero)
     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE}}
+
+    # Ruta del proyecto
     PROJECT_PATH: ${{ vars.PROJECT_PATH }}
+
+
 
 
 jobs:
@@ -54,4 +58,46 @@ jobs:
               with:
                 name: Build-${{ matrix.targetPlatform }}
                 path: ${{ env.PROJECT_PATH }}/build/${{ matrix.targetPlatform }}
+                if-no-files-found: error
+
+
+    build-webgl:
+        name: Compilación de Coso WebGL
+        runs-on: ubuntu-24.04
+        strategy:
+            fail-fast: false
+            matrix:
+                tipoCompresion:
+                    - Brotli
+                    - Gzip
+        steps:
+            # Configura checkout
+            - uses: actions/checkout@v7
+
+            # Gestiona la cache de Unity
+            - name: Cache de Unity
+              uses: actions/cache@v6
+              with:
+                path: ${{ env.PROJECT_PATH }}/Library
+                key: Library-build-webgl-${{ matrix.tipoCompresion }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+                restore-keys: |
+                  Library-build-webgl-${{ matrix.tipoCompresion }}-
+
+            # Ejecuta la compilación de Unity
+            - name: Compilacion de Unity
+              uses: game-ci/unity-builder@v6
+              with:
+                projectPath: ${{ env.PROJECT_PATH }}
+                targetPlatform: WebGL
+                buildMethod: BuildScript.BuildWebGL
+                customParameters: |
+                    -compressionFormat ${{ matrix.tipoCompresion }} \
+                    -outputPath ${{ env.PROJECT_PATH }}/build/WebGL-${{ matrix.tipoCompresion }}
+
+            # Guarda el artefacto de compilación
+            - name: Guardar artefacto de compilacion
+              uses: actions/upload-artifact@v7
+              with:
+                name: Build-WebGL-${{ matrix.tipoCompresion }}
+                path: ${{ env.PROJECT_PATH }}/build/WebGL-${{ matrix.tipoCompresion }}
                 if-no-files-found: error
