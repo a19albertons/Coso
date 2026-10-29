@@ -81,7 +81,7 @@ jobs:
 
       # Ejecuta la compilación de Unity
       - name: Compilacion de Unity
-        uses: game-ci/unity-builder@v4
+        uses: game-ci/unity-builder@v6
         with:
           projectPath: ${{ env.PROJECT_PATH }}
           targetPlatform: WebGL
