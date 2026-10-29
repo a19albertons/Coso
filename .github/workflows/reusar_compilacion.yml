@@ -1,0 +1,134 @@
+name: Compilación Coso
+
+on:
+  workflow_call:
+
+# Variables de entorno
+env:
+  # Email y contraseña
+  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+
+  # Licencia de Unity (fichero)
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE}}
+
+  # Ruta del proyecto
+  PROJECT_PATH: ${{ vars.PROJECT_PATH }}
+
+jobs:
+  # tarea de compilación
+  build-StandloneConIOS:
+    name: Compilación de Coso Standlone + ios
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - StandaloneWindows64
+          - StandaloneLinux64
+          - StandaloneOSX
+          - iOS
+    steps:
+      # Configura checkout
+      - uses: actions/checkout@v7
+
+      # Gestiona la cache de Unity
+      - name: Cache de Unity
+        uses: actions/cache@v6
+        with:
+          path: ${{ env.PROJECT_PATH }}/Library
+          key: Library-build-${{ matrix.targetPlatform }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-build-${{ matrix.targetPlatform }}-
+
+      # Ejecuta la compilación de Unity
+      - name: Compilacion de Unity
+        uses: game-ci/unity-builder@v6
+        with:
+          projectPath: ${{ env.PROJECT_PATH }}
+          targetPlatform: ${{ matrix.targetPlatform}}
+          buildsPath: ${{ env.PROJECT_PATH }}/build
+
+      # Guarda el artefacto de compilación
+      - name: Guardar artefacto de compilacion
+        uses: actions/upload-artifact@v7
+        with:
+          name: Build-${{ matrix.targetPlatform }}
+          path: ${{ env.PROJECT_PATH }}/build/${{ matrix.targetPlatform }}
+          if-no-files-found: error
+
+  build-webgl:
+    name: Compilación de Coso WebGL
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        tipoCompresion:
+          - Brotli
+          - Gzip
+    steps:
+      # Configura checkout
+      - uses: actions/checkout@v7
+
+      # Gestiona la cache de Unity
+      - name: Cache de Unity
+        uses: actions/cache@v6
+        with:
+          path: ${{ env.PROJECT_PATH }}/Library
+          key: Library-build-webgl-${{ matrix.tipoCompresion }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-build-webgl-${{ matrix.tipoCompresion }}-
+
+      # Ejecuta la compilación de Unity
+      - name: Compilacion de Unity
+        uses: game-ci/unity-builder@v4
+        with:
+          projectPath: ${{ env.PROJECT_PATH }}
+          targetPlatform: WebGL
+          buildMethod: BuildScript.BuildWebGL
+          customParameters: |
+            -compressionFormat ${{ matrix.tipoCompresion }}
+          buildsPath: ${{ env.PROJECT_PATH }}/build/WebGL-${{ matrix.tipoCompresion }}
+
+      # Guarda el artefacto de compilación
+      - name: Guardar artefacto de compilacion
+        uses: actions/upload-artifact@v7
+        with:
+          name: Build-WebGL-${{ matrix.tipoCompresion }}
+          path: ${{ env.PROJECT_PATH }}/build/WebGL-${{ matrix.tipoCompresion }}
+          if-no-files-found: error
+
+  build-android:
+    name: Compilación de Coso Android
+    runs-on: ubuntu-24.04
+    env:
+      ANDROIDKEYALIASNAME: ${{ secrets.ANDROIDKEYALIASNAME }}
+      ANDROIDKEYALIASPASS: ${{ secrets.ANDROIDKEYALIASPASS }}
+      ANDROIDKEYSTORENAME: ${{ secrets.ANDROIDKEYSTORENAME }}
+      ANDROIDKEYSTOREPASS: ${{ secrets.ANDROIDKEYSTOREPASS }}
+      ANDROIDKEYSTOREBASE64: ${{ secrets.ANDROIDKEYSTOREBASE64 }}
+    steps:
+      # Configura checkout
+      - uses: actions/checkout@v7
+
+      # Gestiona la cache de Unity
+      - name: Cache de Unity
+        uses: actions/cache@v6
+        with:
+          path: ${{ env.PROJECT_PATH }}/Library
+          key: Library-build-android-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-build-android-
+
+      # Ejecuta la compilación de Unity
+      - name: Compilacion de Unity
+        uses: game-ci/unity-builder@v6
+        with:
+          projectPath: ${{ env.PROJECT_PATH }}
+          targetPlatform: Android
+          buildsPath: ${{ env.PROJECT_PATH }}/build
+          androidKeystoreName: ${{ env.ANDROIDKEYSTORENAME }}
+          androidKeystorePass: ${{ env.ANDROIDKEYSTOREPASS }}
+          androidKeyaliasName: ${{ env.ANDROIDKEYALIASNAME }}
+          androidKeyaliasPass: ${{ env.ANDROIDKEYALIASPASS }}
+          androidKeystoreBase64: ${{ env.ANDROIDKEYSTOREBASE64 }}
