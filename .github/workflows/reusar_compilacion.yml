@@ -132,3 +132,11 @@ jobs:
           androidKeyaliasName: ${{ env.ANDROIDKEYALIASNAME }}
           androidKeyaliasPass: ${{ env.ANDROIDKEYALIASPASS }}
           androidKeystoreBase64: ${{ env.ANDROIDKEYSTOREBASE64 }}
+
+      # Guarda el artefacto de compilación
+      - name: Guardar artefacto de compilacion
+        uses: actions/upload-artifact@v7
+        with:
+          name: Build-Android
+          path: ${{ env.PROJECT_PATH }}/build
+          if-no-files-found: error
