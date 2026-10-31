@@ -26,7 +26,6 @@ public class ControladorDoor : MonoBehaviour
 
     private AsyncOperation op;
     private bool isCalled = false;
-    private bool enterLevel = false;
     private int cantidadEstrellas = 0;
     private bool requisitoEstrellas;
     private bool isEnter = false;
@@ -136,7 +135,7 @@ public class ControladorDoor : MonoBehaviour
     {
         if (EntrarAlNivel.IsPressed() && isEnter && requisitoEstrellas && nivelPrevio)
         {
-            enterLevel = true;
+            GestionEntrarNivel();
         }
     }
 
@@ -154,24 +153,16 @@ public class ControladorDoor : MonoBehaviour
     }
 
     /// <summary>
-    /// Se llama cuando el jugador permanece dentro del trigger de la puerta y el boton de abrir la puesta ha sido presionado
+    /// Gestiona la entrada al nivel. Se asegura de que la escena se cargue de manera asíncrona y que el jugador no pueda moverse mientras se carga la escena.
     /// </summary>
-    /// <param name="other"></param>
-    void OnTriggerStay2D(Collider2D other)
+    private void GestionEntrarNivel()
     {
-        if (other.CompareTag("Player"))
+        if (!isCalled)
         {
-            if (enterLevel)
-            {
-                if (!isCalled)
-                {
-                    isCalled = true;
-                    StartCoroutine(CargarEscenaAsync());
-                    other.gameObject.GetComponent<PlayerController>().enabled = false;
-                    op.allowSceneActivation = true; // Permite que la escena se active automáticamente al terminar de cargar
-                }
-            }
-
+            isCalled = true;
+            StartCoroutine(CargarEscenaAsync());
+            FindFirstObjectByType<PlayerController>().enabled = false; // Desactiva el script PlayerController para evitar que el jugador se mueva mientras se carga la escena
+            op.allowSceneActivation = true; // Permite que la escena se active automáticamente al terminar de cargar
         }
     }
 
