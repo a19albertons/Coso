@@ -1,0 +1,15 @@
+name: Push Normal CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    uses: ./.github/workflows/reusar_test.yml
+    secrets: inherit
+
+  build:
+    uses: ./.github/workflows/reusar_compilacion.yml
+    needs: test
+    secrets: inherit
