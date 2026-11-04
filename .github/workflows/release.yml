@@ -9,6 +9,9 @@ jobs:
   test:
     uses: ./.github/workflows/reusar_test.yml
     secrets: inherit
+    permissions:
+      contents: read
+      checks: write
 
   # tarea de compilación
   build:
