@@ -57,9 +57,12 @@ jobs:
 
             // 2. Obtener los links de los artefactos
             const artifactLinks = artifacts.length
-              ? artifacts.map(
+              ? artifacts
+              .filter((a) => a.name.startsWith('Build-'))
+              .map(
                 // Nombre del artefacto, link al artefacto (url api) y tamaño en bytes
-                (a) => `- [${a.name}](https://github.com/${owner}/${repo}/actions/runs/${run_id}/artifacts/${a.id}) (${a.size_in_bytes} bytes)`
+                (a) => 
+                  `- [${a.name}](https://github.com/${owner}/${repo}/actions/runs/${run_id}/artifacts/${a.id}) (${a.size_in_bytes} bytes)`
               )
               : ['No se encontraron artefactos'];
 
