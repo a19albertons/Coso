@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version 1.0.1
+
+## Changed
+- Actualizar motor y dependencias
+
 ## Version 1.0
 - Lanzamiento inicial
 
