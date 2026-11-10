@@ -30,7 +30,7 @@ jobs:
 
       # Crear comentario en el PR con enlaces a los artefactos
       - name: Comentar PR con artefactos
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const MARKER = '<!-- artifact-links -->';
