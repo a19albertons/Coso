@@ -13,7 +13,7 @@ tests:
   - changed-files:
     - any-glob-to-any-file: 'Coso/Assets/Tests/**'
 
-dependencias:
+dependencies:
   - changed-files:
     - any-glob-to-any-file: 'Coso/Packages/**/*.json'
 

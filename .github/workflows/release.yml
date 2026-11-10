@@ -1,0 +1,66 @@
+name: Release CI
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  test:
+    uses: ./.github/workflows/reusar_test.yml
+    secrets: inherit
+    permissions:
+      contents: read
+      checks: write
+
+  # tarea de compilación
+  build:
+    uses: ./.github/workflows/reusar_compilacion.yml
+    needs: test
+    secrets: inherit
+
+  deploy:
+    name: Despliegue en Release
+    runs-on: ubuntu-24.04
+    needs: build
+    permissions:
+      contents: write
+    steps:
+      # Configura checkout
+      - uses: actions/checkout@v7
+
+      # Descarga los artefactos de compilación
+      - name: Descargar artefactos de compilacion
+        uses: actions/download-artifact@v8
+        with:
+          path: all-builds
+
+      # Filtrar builds EXCEPTO Coso_BurstDebugInformation_DoNotShip
+      - name: Filtrar builds para exclusión de debug info
+        run: |
+          mkdir zip-builds
+          cd all-builds
+          # Lista todos los directorios Build-*
+          for dir in Build-*; do
+            if [ -d "$dir" ]; then
+              # Eliminar el directorio Coso_BurstDebugInformation_DoNotShip si existe
+              cd "$dir"
+              if [ -d "Coso_BurstDebugInformation_DoNotShip" ]; then
+                echo "Eliminando Coso_BurstDebugInformation_DoNotShip de $dir"
+                rm -rf "Coso_BurstDebugInformation_DoNotShip"
+              fi
+              cd ..
+              echo "Comprimiendo $dir"
+              zip -r "../zip-builds/${dir}.zip" "$dir"
+            fi
+          done
+
+      # Subir los zips a la release de github
+      - name: crear release y subir zips
+        uses: softprops/action-gh-release@v3
+        with:
+          files: zip-builds/*.zip
+          body_path: cambios.md
+          name: ${{ github.event.repository.name }} ${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
