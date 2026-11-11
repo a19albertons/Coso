@@ -57,11 +57,14 @@ public class StartGamePlayModeTests
         // Asignar botones para que no sean null
         var botonNuevoJuegoGO = new GameObject("NewGameButton");
         var botonContinueGO = new GameObject("ContinueButton");
+        var botonSalirGO = new GameObject("SalirDelJuego");
         var botonNuevoJuego = botonNuevoJuegoGO.AddComponent<Button>(); // Añadir un botón para evitar errores de referencia nula
         var botonContinue = botonContinueGO.AddComponent<Button>(); // Añadir un botón para evitar errores de referencia nula
+        var botonSalir = botonSalirGO.AddComponent<Button>();
         botonContinueGO.AddComponent<TextMeshProUGUI>(); // Añadir un TextMeshProUGUI para el botón Continue
         ReflectionHelper.GetField(typeof(StartGame), "newGameButton").SetValue(startGameGO.GetComponent<StartGame>(), botonNuevoJuego);
         ReflectionHelper.GetField(typeof(StartGame), "continueButton").SetValue(startGameGO.GetComponent<StartGame>(), botonContinue);
+        ReflectionHelper.GetField(typeof(StartGame), "exitGameButton").SetValue(startGameGO.GetComponent<StartGame>(), botonSalir);
 
         // Añadir un EventSystem a la escena para que los botones funcionen correctamente
         if (EventSystem.current == null)
