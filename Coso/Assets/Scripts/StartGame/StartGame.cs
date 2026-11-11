@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,9 @@ public class StartGame : MonoBehaviour
     [SerializeField]
     private Button continueButton;
 
+    [SerializeField]
+    private Button exitGameButton;
+
     void Start()
     {
         newGameButton.onClick.AddListener(NewGame);
@@ -29,6 +33,7 @@ public class StartGame : MonoBehaviour
             TextMeshProUGUI text = continueButton.GetComponentInChildren<TextMeshProUGUI>();
             text.color = Color.gray;
         }
+        exitGameButton.onClick.AddListener(ExitGame);
 
         // Soporte para mando / teclado al empezar el juego, seleccionando el botón de nuevo juego por defecto
         EventSystem.current.SetSelectedGameObject(newGameButton.gameObject);
@@ -59,5 +64,13 @@ public class StartGame : MonoBehaviour
     {
         SaveManager.GetInstance().LoadGame(1);
         SceneManager.LoadScene("MundoBase");
+    }
+
+    /// <summary>
+    /// Metodo que actua sobre el boton de cerrar el juego
+    /// </summary>
+    private void ExitGame()
+    {
+        Application.Quit();
     }
 }
