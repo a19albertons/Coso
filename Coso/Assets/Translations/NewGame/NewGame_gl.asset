@@ -26,6 +26,10 @@ MonoBehaviour:
     m_Localized: Continuar
     m_Metadata:
       m_Items: []
+  - m_Id: 8372201215528960
+    m_Localized: "Sa\xEDr do Xogo"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
