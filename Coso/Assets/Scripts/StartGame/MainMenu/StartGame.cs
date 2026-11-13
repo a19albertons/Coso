@@ -1,6 +1,5 @@
 using System;
-using System.IO;
-using TMPro;
+using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -20,19 +19,25 @@ public class StartGame : MonoBehaviour
     [SerializeField]
     private Button exitGameButton;
 
+    [SerializeField]
+    private GameObject mainMenu;
+
+    [SerializeField]
+    private GameObject slots;
+
+    /// <summary>
+    /// Variable estatica que indica si estamos accediendo por la opción de juego nuevo o cargar juego
+    /// </summary>
+    [SerializeField]
+    public static bool newGame = false;
+
+
     void Start()
     {
         newGameButton.onClick.AddListener(NewGame);
-        if (ValidarBotonContinue())
-        {
-            continueButton.onClick.AddListener(ContinueGame);
-        }
-        else
-        {
-            continueButton.interactable = false;
-            TextMeshProUGUI text = continueButton.GetComponentInChildren<TextMeshProUGUI>();
-            text.color = Color.gray;
-        }
+
+        continueButton.onClick.AddListener(ContinueGame);
+
         exitGameButton.onClick.AddListener(ExitGame);
 
         // Soporte para mando / teclado al empezar el juego, seleccionando el botón de nuevo juego por defecto
@@ -40,21 +45,15 @@ public class StartGame : MonoBehaviour
     }
 
     /// <summary>
-    /// Valida si tenemos el save del slot 1 para permitir clickar el boton continuar
-    /// </summary>
-    /// <returns>Retorna si el save existe o no</returns>
-    private bool ValidarBotonContinue()
-    {
-        return File.Exists(Path.Combine(Application.persistentDataPath, "slotGuardado1"));
-    }
-
-    /// <summary>
     /// Metodo que actua sobre el boton nuevo juego
     /// </summary>
     private void NewGame()
     {
-        SaveManager.GetInstance().NewGame();
-        SceneManager.LoadScene("Intro");
+        // Permite que todos los slots sean clickables
+        newGame = true;
+        
+        mainMenu.SetActive(false);
+        slots.SetActive(true);
     }
 
     /// <summary>
@@ -62,8 +61,10 @@ public class StartGame : MonoBehaviour
     /// </summary>
     private void ContinueGame()
     {
-        SaveManager.GetInstance().LoadGame(1);
-        SceneManager.LoadScene("MundoBase");
+        newGame = false;
+
+        mainMenu.SetActive(false);
+        slots.SetActive(true);
     }
 
     /// <summary>
