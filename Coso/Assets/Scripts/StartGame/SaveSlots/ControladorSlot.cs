@@ -13,7 +13,7 @@ public class ControladorSlot : MonoBehaviour
     /// <summary>
     /// Gestiona el slot por posición que se le pasa al forzar el texto en su generación
     /// </summary>
-    private int numeroSlot;
+    public int numeroSlot {get; private set;}
 
     [SerializeField]
     private TextMeshProUGUI textoModificar;

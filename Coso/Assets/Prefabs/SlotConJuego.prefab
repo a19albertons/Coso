@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7791190131648327114}
   - component: {fileID: 7612756884215126140}
   - component: {fileID: 7641926656848720927}
+  - component: {fileID: 1605341921884489332}
   m_Layer: 5
   m_Name: SlotConJuego
   m_TagString: Untagged
@@ -142,6 +143,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameScripts::ControladorSlot
   textoModificar: {fileID: 7858504905181412693}
+--- !u!114 &1605341921884489332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842492469397033412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21b094b2c5af66d9adabfe7377cdd38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::CargarEstadoSlot
+  contadorVidas: {fileID: 9002450219164286794}
+  contadorMonedas: {fileID: 7023369161957889815}
+  contadorEstrellas: {fileID: 938916702327193845}
+  maximoEstrellas: 24
+  nivelActual: {fileID: 7858504905181412693}
 --- !u!1 &1035914721756941690
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +172,7 @@ GameObject:
   - component: {fileID: 867604620589499752}
   - component: {fileID: 1721693510001671141}
   m_Layer: 5
-  m_Name: Titulo slot (1)
+  m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -441,7 +459,7 @@ GameObject:
   - component: {fileID: 3952253681553321040}
   - component: {fileID: 7858504905181412693}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: NivelActual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
