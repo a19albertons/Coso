@@ -14,7 +14,7 @@ public class StartGame : MonoBehaviour
     private Button newGameButton;
 
     [SerializeField]
-    private Button continueButton;
+    private Button loadGameButton;
 
     [SerializeField]
     private Button exitGameButton;
@@ -36,7 +36,7 @@ public class StartGame : MonoBehaviour
     {
         newGameButton.onClick.AddListener(NewGame);
 
-        continueButton.onClick.AddListener(ContinueGame);
+        loadGameButton.onClick.AddListener(LoadGame);
 
         exitGameButton.onClick.AddListener(ExitGame);
 
@@ -59,7 +59,7 @@ public class StartGame : MonoBehaviour
     /// <summary>
     /// Metodo que actua sobre el boton de continuar
     /// </summary>
-    private void ContinueGame()
+    private void LoadGame()
     {
         newGame = false;
 
