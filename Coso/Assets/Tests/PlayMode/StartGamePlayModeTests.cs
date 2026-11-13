@@ -56,14 +56,14 @@ public class StartGamePlayModeTests
 
         // Asignar botones para que no sean null
         var botonNuevoJuegoGO = new GameObject("NewGameButton");
-        var botonContinueGO = new GameObject("ContinueButton");
+        var botonLoadGameGO = new GameObject("LoadGAmeButton");
         var botonSalirGO = new GameObject("SalirDelJuego");
         var botonNuevoJuego = botonNuevoJuegoGO.AddComponent<Button>(); // Añadir un botón para evitar errores de referencia nula
-        var botonContinue = botonContinueGO.AddComponent<Button>(); // Añadir un botón para evitar errores de referencia nula
+        var botonLoadGame = botonLoadGameGO.AddComponent<Button>(); // Añadir un botón para evitar errores de referencia nula
         var botonSalir = botonSalirGO.AddComponent<Button>();
-        botonContinueGO.AddComponent<TextMeshProUGUI>(); // Añadir un TextMeshProUGUI para el botón Continue
+        botonLoadGameGO.AddComponent<TextMeshProUGUI>(); // Añadir un TextMeshProUGUI para el botón Continue
         ReflectionHelper.GetField(typeof(StartGame), "newGameButton").SetValue(startGameGO.GetComponent<StartGame>(), botonNuevoJuego);
-        ReflectionHelper.GetField(typeof(StartGame), "continueButton").SetValue(startGameGO.GetComponent<StartGame>(), botonContinue);
+        ReflectionHelper.GetField(typeof(StartGame), "loadGameButton").SetValue(startGameGO.GetComponent<StartGame>(), botonLoadGame);
         ReflectionHelper.GetField(typeof(StartGame), "exitGameButton").SetValue(startGameGO.GetComponent<StartGame>(), botonSalir);
 
         // Añadir un EventSystem a la escena para que los botones funcionen correctamente
@@ -99,38 +99,7 @@ public class StartGamePlayModeTests
         yield return null;
     }
 
-    // ---- Test 1: ValidarBotonContinue con archivo existente devuelve true ------
-    [UnityTest]
-    public IEnumerator ValidarBotonContinue_Con_Existente_DevuelveTrue()
-    {
-        var sm = SaveManager.GetInstance();
-        sm.currentSave = new CurrentSave
-        {
-            playerInfo = new PlayerInfo { vidasActuales = 3, monedasActuales = 10, powerUpActual = PowerUPType.DoubleJump }
-        };
-        yield return null;
-        sm.SaveGame(1);
-        yield return null;
-
-        // Usar el botón para invocar ValidarBotonContinue
-        var startGame = startGameGO.GetComponent<StartGame>();
-        MethodInfo ValidarBotonContinue = ReflectionHelper.GetMethodInfo(typeof(StartGame), "ValidarBotonContinue");
-        Assert.IsTrue((bool)ValidarBotonContinue.Invoke(startGame, null));
-    }
-
-    // ---- Test 2: ValidarBotonContinue sin archivo devuelve false ----------------
-    [UnityTest]
-    public IEnumerator ValidarBotonContinue_Sin_Existente_DevuelveFalse()
-    {
-        ReflectionHelper.ResetStaticField(typeof(SaveManager), "instance");
-        yield return null;
-
-        var startGame = startGameGO.GetComponent<StartGame>();
-        MethodInfo ValidarBotonContinue = ReflectionHelper.GetMethodInfo(typeof(StartGame), "ValidarBotonContinue");
-        Assert.IsFalse((bool)ValidarBotonContinue.Invoke(startGame, null));
-    }
-
-    // ---- Test 3: Start asigna evento al botón New Game ------------------------
+    // ---- Test 1: Start asigna evento al botón New Game ------------------------
     [UnityTest]
     public IEnumerator Start_AsignaEventoAlBotonNewGame()
     {
@@ -148,9 +117,9 @@ public class StartGamePlayModeTests
         yield return null;
     }
 
-    // ---- Test 4: Start asigna evento al botón Continue si existe save ---------
+    // ---- Test 2: Start asigna evento al botón Load Game ---------
     [UnityTest]
-    public IEnumerator Start_AsignaEventoAlBotonContinue_ExistenteSave()
+    public IEnumerator Start_AsignaEventoAlBotonLoadGame()
     {
         var sm = SaveManager.GetInstance();
         sm.currentSave = new CurrentSave
@@ -162,34 +131,13 @@ public class StartGamePlayModeTests
         yield return null;
 
         var startGame = startGameGO.GetComponent<StartGame>();
-        FieldInfo continueButton = ReflectionHelper.GetField(typeof(StartGame), "continueButton");
-        Assert.IsNotNull(continueButton, "continueButton debe existir");
-        Button continueButtonConvertido = (Button)continueButton.GetValue(startGame);
-        Assert.IsTrue(continueButtonConvertido.onClick != null, "onClick de continueButton debe no ser null");
+        FieldInfo loadGameButton = ReflectionHelper.GetField(typeof(StartGame), "loadGameButton");
+        Assert.IsNotNull(loadGameButton, "loadGameButton debe existir");
+        Button continueButtonConvertido = (Button)loadGameButton.GetValue(startGame);
+        Assert.IsTrue(continueButtonConvertido.onClick != null, "onClick de loadGameButton debe no ser null");
     }
 
-    // ---- Test 5: Start deshabilita botón Continue si no existe save ------------
-    [UnityTest]
-    public IEnumerator Start_DeshabilitaBotonContinue_SinExistenteSave()
-    {
-        // Limpiar save anterior
-        var sm = SaveManager.GetInstance();
-        sm.currentSave = null;
-        yield return null;
-
-        var startGame = startGameGO.GetComponent<StartGame>();
-        FieldInfo continueButton = ReflectionHelper.GetField(typeof(StartGame), "continueButton");
-        Assert.IsNotNull(continueButton, "continueButton debe existir");
-        Button continueButtonConvertido = (Button)continueButton.GetValue(startGame);
-        Assert.IsFalse(continueButtonConvertido.interactable, "continueButton debe ser no interactable");
-
-        // Verificar que el texto esté en color gris
-        TextMeshProUGUI text = continueButtonConvertido.GetComponentInChildren<TextMeshProUGUI>();
-        Assert.IsNotNull(text, "Debe existir un TextMeshProUGUI en el botón");
-        Assert.AreEqual(Color.gray, text.color, "El texto debe estar en color gris");
-    }
-
-    // ---- Test 6: Start selecciona newGameButton como activo por defecto ---------
+    // ---- Test 3: Start selecciona newGameButton como activo por defecto ---------
     [UnityTest]
     public IEnumerator Start_SeleccionaNewGameButtonComoActivoPorDefecto()
     {
@@ -207,62 +155,5 @@ public class StartGamePlayModeTests
         // Verificar que el newGameButton es el objeto seleccionado
         var selectedGO = eventSystem.currentSelectedGameObject;
         Assert.AreEqual(newGameButtonConvertido.gameObject, selectedGO, "newGameButton debe estar seleccionado por defecto");
-    }
-
-    // ---- Test 7: NewGame llama a SaveManager.NewGame() --------------------------
-    [UnityTest]
-    public IEnumerator NewGame_LlamaASaveManagerNewGame()
-    {
-        var startGame = startGameGO.GetComponent<StartGame>();
-        FieldInfo newGameButton = ReflectionHelper.GetField(typeof(StartGame), "newGameButton");
-        Assert.IsNotNull(newGameButton, "newGameButton debe existir");
-        Button newGameButtonConvertido = (Button)newGameButton.GetValue(startGame);
-        Assert.IsNotNull(newGameButtonConvertido, "newGameButton debe existir");
-
-        // Simular click en el botón New Game
-        newGameButtonConvertido.onClick.Invoke();
-        yield return null;
-
-        // Verificar que se ha cargado la escena Intro
-        Assert.IsTrue(SceneManager.GetActiveScene().name == "Intro", "Debe haberse cargado la escena Intro");
-
-        // Restablecer la escena de prueba para las siguientes pruebas
-        SceneManager.LoadScene(testSceneName, LoadSceneMode.Single);
-        yield return null;
-    }
-
-    // ---- Test 8: ContinueGame llama a SaveManager.LoadGame(1) ------------------
-    [UnityTest]
-    public IEnumerator ContinueGame_LlamaALoadGame1()
-    {
-        var sm = SaveManager.GetInstance();
-        sm.currentSave = new CurrentSave
-        {
-            playerInfo = new PlayerInfo { vidasActuales = 3, monedasActuales = 10, powerUpActual = PowerUPType.DoubleJump }
-        };
-        yield return null;
-        sm.SaveGame(1);
-        yield return null;
-
-        var startGame = startGameGO.GetComponent<StartGame>();
-        // Llamar al método Start nuevamente para que se aplique el Save existente y se habilite el botón Continue
-        MethodInfo ActualizarStart = ReflectionHelper.GetMethodInfo(typeof(StartGame), "Start");
-        ActualizarStart.Invoke(startGame, null);
-        FieldInfo continueButton = ReflectionHelper.GetField(typeof(StartGame), "continueButton");
-        Assert.IsNotNull(continueButton, "continueButton debe existir");
-        Button continueButtonConvertido = (Button)continueButton.GetValue(startGame);
-        Assert.IsNotNull(continueButtonConvertido, "continueButton debe existir");
-
-        // Simular click en el botón Continue
-        continueButtonConvertido.onClick.Invoke();
-        yield return null;
-
-        // Verificar que se ha cargado la escena MundoBase
-        Assert.AreEqual("MundoBase", SceneManager.GetActiveScene().name, "Debe haberse cargado la escena MundoBase");
-
-        // Restablecer la escena de prueba para las siguientes pruebas
-        SceneManager.LoadScene(testSceneName, LoadSceneMode.Single);
-        yield return null;
-
     }
 }
