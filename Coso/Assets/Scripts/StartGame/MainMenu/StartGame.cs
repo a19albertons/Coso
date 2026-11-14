@@ -1,8 +1,5 @@
-using System;
-using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
