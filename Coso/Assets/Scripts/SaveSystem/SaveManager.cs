@@ -9,6 +9,7 @@ public class SaveManager : MonoBehaviour
     private static SaveManager instance;
     public CurrentSave currentSave;
     private string rutaBase;
+    private int numeroSlot;
 
     void Awake()
     {
@@ -30,9 +31,8 @@ public class SaveManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Metodo que guarda el juego con soporte para slots
+    /// Guarda el estado actual del current save en el slot que internamente este indicado
     /// </summary>
-    /// <param name="slot">El numero de slot</param>
     public void SaveGame(int slot)
     {
         string guardado = JsonUtility.ToJson(currentSave);
@@ -45,6 +45,10 @@ public class SaveManager : MonoBehaviour
     /// <param name="slot"></param>
     public void LoadGame(int slot)
     {
+        // Guardamos el slot para futuros usos
+        numeroSlot = slot;
+
+        // Busca el fichero si no lo encuentra considera que nunca existio
         if (File.Exists(rutaBase + slot))
         {
             string guardado = File.ReadAllText(rutaBase + slot);
@@ -57,8 +61,12 @@ public class SaveManager : MonoBehaviour
     /// <summary>
     /// Metodo que crea un nuevo juego, inicializando el CurrentSave
     /// </summary>
-    public void NewGame()
+    public void NewGame(int slot)
     {
+        // Guardamos el slot para futuros usos
+        numeroSlot = slot;
+
+        // Crea un nuevo save
         currentSave = new CurrentSave();
     }
 }
