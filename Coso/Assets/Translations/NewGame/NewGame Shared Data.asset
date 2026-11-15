@@ -20,11 +20,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 97805963264
-    m_Key: Continuar
+    m_Key: CargarJuego
     m_Metadata:
       m_Items: []
   - m_Id: 8372201215528960
     m_Key: SalirJuego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9798025160462336
+    m_Key: Slot
     m_Metadata:
       m_Items: []
   m_Metadata:

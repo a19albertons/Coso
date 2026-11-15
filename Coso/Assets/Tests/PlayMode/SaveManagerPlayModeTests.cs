@@ -77,7 +77,7 @@ public class SaveManagerPlayModeTests
         var sm = SaveManager.GetInstance();
         sm.currentSave = null;
         yield return null;
-        sm.NewGame();
+        sm.NewGame(1);
         yield return null;
         Assert.IsNotNull(sm.currentSave);
     }

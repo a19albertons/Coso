@@ -23,11 +23,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 97805963264
-    m_Localized: Continuar
+    m_Localized: Cargar Juego
     m_Metadata:
       m_Items: []
   - m_Id: 8372201215528960
     m_Localized: Salir del Juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9798025160462336
+    m_Localized: 'Partida '
     m_Metadata:
       m_Items: []
   references:
