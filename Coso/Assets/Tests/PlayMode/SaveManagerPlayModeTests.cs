@@ -91,8 +91,10 @@ public class SaveManagerPlayModeTests
         {
             playerInfo = new PlayerInfo { vidasActuales = 3, monedasActuales = 10, powerUpActual = PowerUPType.DoubleJump }
         };
+        FieldInfo numeroSlot = ReflectionHelper.GetField(typeof(SaveManager), "numeroSlot");
         yield return null;
-        sm.SaveGame(1);
+        numeroSlot.SetValue(SaveManager.GetInstance(), 1);
+        sm.SaveGame();
         yield return null;
         string filePath = Path.Combine(Application.persistentDataPath, "slotGuardado1");
         Assert.IsTrue(File.Exists(filePath), "El archivo de guardado debe existir");
@@ -112,8 +114,10 @@ public class SaveManagerPlayModeTests
         {
             playerInfo = new PlayerInfo { vidasActuales = 5, monedasActuales = 0, powerUpActual = PowerUPType.None }
         };
+        FieldInfo numeroSlot = ReflectionHelper.GetField(typeof(SaveManager), "numeroSlot");
         yield return null;
-        sm.SaveGame(2);
+        numeroSlot.SetValue(SaveManager.GetInstance(),2);
+        sm.SaveGame();
         yield return null;
         // Resetear currentSave antes de cargar
         sm.currentSave = null;
@@ -167,8 +171,10 @@ public class SaveManagerPlayModeTests
     {
         var sm = SaveManager.GetInstance();
         sm.currentSave = new CurrentSave();
+        FieldInfo numeroSlot = ReflectionHelper.GetField(typeof(SaveManager), "numeroSlot");
         yield return null;
-        sm.SaveGame(0);
+        numeroSlot.SetValue(SaveManager.GetInstance(), 0);
+        sm.SaveGame();
         yield return null;
         string filePath = Path.Combine(Application.persistentDataPath, "slotGuardado0");
         Assert.IsTrue(File.Exists(filePath), "El archivo de guardado debe existir para el slot 0");
