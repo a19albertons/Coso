@@ -142,7 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3fbc2c8a8e83bb595268f08a902265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameScripts::ControladorSlot
-  textoModificar: {fileID: 7858504905181412693}
+  textoModificar: {fileID: 1721693510001671141}
+  traduccion: {fileID: 1710366249838162432}
+  nombreTabla: NewGame
 --- !u!114 &1605341921884489332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +173,7 @@ GameObject:
   - component: {fileID: 2303274992433993961}
   - component: {fileID: 867604620589499752}
   - component: {fileID: 1721693510001671141}
+  - component: {fileID: 1710366249838162432}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -297,6 +300,46 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1710366249838162432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035914721756941690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1721693510001671141}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &4763915849336237324
 GameObject:
   m_ObjectHideFlags: 0

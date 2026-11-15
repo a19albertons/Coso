@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,6 +19,12 @@ public class ControladorSlot : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI textoModificar;
 
+    [SerializeField]
+    private LocalizeStringEvent traduccion;
+
+    [SerializeField]
+    private string nombreTabla;
+
     Button boton;
 
     void Awake()
@@ -32,7 +39,8 @@ public class ControladorSlot : MonoBehaviour
     public void ActualizarTexto(int slot)
     {
         numeroSlot = slot;
-        textoModificar.text = "Slot "+slot;
+        traduccion.StringReference.SetReference(nombreTabla, "Slot");
+        textoModificar.text += slot;
     }
 
     void OnEnable()
