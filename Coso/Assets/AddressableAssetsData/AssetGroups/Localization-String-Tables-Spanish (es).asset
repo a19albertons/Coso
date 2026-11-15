@@ -71,6 +71,13 @@ MonoBehaviour:
     - Locale-es
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0c15c52ff1a1bec199a5268535879d6
+    m_Address: Creditos_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5e07b73921a86b899c50b291a53153b
     m_Address: MenuPausaNivel_es
     m_ReadOnly: 1

@@ -11,15 +11,15 @@ public class SegundoPlanoFinalBueno : MonoBehaviour
 
     public void LanzarOperacionesSegundoPlano()
     {
-        StartCoroutine(PrepararMundoBase());
+        StartCoroutine(PrepararCreditos());
     }
     /// <summary>
     /// Prepara la carga de la escena "MundoBase", mientrás se ejecuta la cinemática para ser llamada cuando se haya terminado el guardado y la cinemática inicial
     /// </summary>
     /// <returns></returns>
-    private IEnumerator PrepararMundoBase()
+    private IEnumerator PrepararCreditos()
     {
-        AsyncOperation op = SceneManager.LoadSceneAsync("MundoBase");
+        AsyncOperation op = SceneManager.LoadSceneAsync("Creditos");
         op.allowSceneActivation = false; // Evita que la escena se active automáticamente al terminar de cargar
         while (!isCinematicFinished)
         {
