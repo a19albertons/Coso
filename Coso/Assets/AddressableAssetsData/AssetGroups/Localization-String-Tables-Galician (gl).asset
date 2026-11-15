@@ -57,6 +57,13 @@ MonoBehaviour:
     - Locale-gl
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a96a5c2797169b9659ccfaac1975c38f
+    m_Address: Creditos_gl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-gl
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e79f5886ba7680c1796e6cedc12fc11a
     m_Address: DialogosIntro_gl
     m_ReadOnly: 1
