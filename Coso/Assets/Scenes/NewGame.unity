@@ -1836,7 +1836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGame
   newGameButton: {fileID: 496107055}
-  continueButton: {fileID: 536777574}
+  loadGameButton: {fileID: 536777574}
   exitGameButton: {fileID: 1355290238}
   mainMenu: {fileID: 1510587267}
   slots: {fileID: 427691075}
