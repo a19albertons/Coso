@@ -1,18 +1,14 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Controla la pantalla de "Has perdido" que solo puede saltar cuanto tu recuento de vidas es 0 o inferior
 /// </summary>
 public class ControllerHasPerdido : MonoBehaviour
 {
-    private static WaitForSeconds _waitForSeconds0_1 = new(0.1f);
     [SerializeField]
     private GameObject TextoContinuar;
     private bool isSaved = false; // Variable para controlar si los datos del jugador ya han sido guardados
-    private bool continuar = false; // Variable para controlar si el jugador ha presionado la tecla de continuar
     private InputAction continuarBoton; // Acción de entrada para continuar
 
     [SerializeField]
@@ -21,7 +17,6 @@ public class ControllerHasPerdido : MonoBehaviour
 
     void Awake()
     {
-        StartCoroutine(VolverAMundoBase());
         InputActionMap map = accionesJugador.FindActionMap("Gameplay");
         continuarBoton = map.FindAction("Jump");
     }
@@ -46,7 +41,7 @@ public class ControllerHasPerdido : MonoBehaviour
     void Update()
     {
         MostrarBotonContinuar();
-        JugadorPresionaContinuar();
+        VolverMundoBase();
     }
 
 
@@ -85,27 +80,12 @@ public class ControllerHasPerdido : MonoBehaviour
     /// <summary>
     /// Detecta si el jugador ha presionado la tecla de continuar y actualiza la variable "continuar" en consecuencia. Para iniciar la escena configurada
     /// </summary>
-    private void JugadorPresionaContinuar()
+    private void VolverMundoBase()
     {
         if (continuarBoton.IsPressed() && isSaved)
         {
-            continuar = true;
+            GestionEscenas.GetInstance().CambiarEscena("MundoBase");
         }
-    }
-
-    /// <summary>
-    /// Gestiona la carga de la escena "MundoBase" de forma asincrona para evitar congelar el juego mientras se carga.
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator VolverAMundoBase()
-    {
-        AsyncOperation op = SceneManager.LoadSceneAsync("MundoBase");
-        op.allowSceneActivation = false; // Evita que la escena se active automáticamente al terminar de cargar
-        while (!continuar)
-        {
-            yield return _waitForSeconds0_1;
-        }
-        op.allowSceneActivation = true; // Permite que la escena se active una vez que se haya cargado completamente
     }
 
     /// <summary>

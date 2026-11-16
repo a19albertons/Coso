@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 // Script realizado por deepseek v4.1 flash
 /// <summary>
@@ -48,6 +47,6 @@ public class ScrollAutomatico : MonoBehaviour
         scrollRect.verticalNormalizedPosition = 0f;
 
         // 5. Cargamos la escena de mundo base
-        SceneManager.LoadScene("MundoBase");
+        GestionEscenas.GetInstance().CambiarEscena("MundoBase");
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Clase que gestiona el final del nivel donde mundo base queda cargando, la novia sale de camara, se guarda el progreso y se carga la escena.
@@ -70,21 +69,17 @@ public class EndLevel : MonoBehaviour
     }
 
     /// <summary>
-    /// Gestiona la carga de la escena de forma asincrona para evitar congelar el juego mientras se carga
+    /// Espera a que se haya movido a la ubicación final y guardado antes de iniciar el cambio de escena
     /// </summary>
     /// <returns></returns>
     private IEnumerator CargarEscenaAsync()
     {
-        AsyncOperation op = SceneManager.LoadSceneAsync("MundoBase");
-        op.allowSceneActivation = false; // Evita que la escena se active automáticamente al terminar de cargar
         while (!isSaved || !isMoved)
         {
             yield return _waitForSeconds0_1; // Espera 100 milisegundos antes de volver a comprobar si el guardado y el movimiento del personaje han finalizado
         }
-        op.allowSceneActivation = true; // Permite que la escena se active una vez que se haya cargado completamente
 
-        yield return op;
-
+        GestionEscenas.GetInstance().CambiarEscena("MundoBase");
     }
 
     /// <summary>

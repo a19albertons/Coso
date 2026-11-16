@@ -16,7 +16,6 @@ public class MazeDeathController : BaseDeathController
         GameObject deathEffectInstance = Instantiate(deathEffect, calculoPosicionInstancia, Quaternion.identity);
         player.gameObject.SetActive(false);
         collider.isTrigger = false;
-        StartCoroutine(MuertePersonaje.GuardarDatosJugador());
-        StartCoroutine(MuertePersonaje.CargarEscenaAsync());
+        StartCoroutine(MuertePersonaje.GuardarYCambiarEscena());
     }
 }

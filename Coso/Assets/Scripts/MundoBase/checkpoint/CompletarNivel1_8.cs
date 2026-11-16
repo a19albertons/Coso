@@ -1,19 +1,8 @@
-using System.Collections;
-using UnityEngine;
-
-
 /// <summary>
 /// Clase que se encarga de evaluar el progreso del nivel 1-8 para preguntar si se desea hacer un guardado permanente del progreso
 /// </summary>
 public class EvaluarNivel1_8 : CompletarNivelBase
 {
-    private static WaitForSeconds _waitForSeconds0_1 = new WaitForSeconds(0.1f);
-
-    /// <summary>
-    /// Variable que evalua si ya hemos guardado los datos del jugador al terminar el juego.
-    /// </summary>
-    private bool isSaved = false;
-
     /// <summary>
     /// Implementa el metodo abstracto que evalua si el nivel 1-8 ya fue completado y se debe mostrar el canvas de guardado
     /// </summary>
@@ -27,6 +16,8 @@ public class EvaluarNivel1_8 : CompletarNivelBase
                 {
                     if (SaveManager.GetInstance().currentSave.levels.Find(Level => Level.identificadorNivel.Equals(nombreEscena)).isLevelCompleted == EnumStateLevelYStars.LevelYStars.Provisional)
                     {
+                        SaveManager.GetInstance().currentSave.checkpoint.level1_8IsDone = true;
+                        LanzarGuardado();
                         // Evaluamos si el jugador ha muerto alguna vez para mostrar un final u otro
                         if (SaveManager.GetInstance().currentSave.checkpoint.haMuerto)
                         {
@@ -36,8 +27,6 @@ public class EvaluarNivel1_8 : CompletarNivelBase
                         {
                             FinalBueno();
                         }
-                        SaveManager.GetInstance().currentSave.checkpoint.level1_8IsDone = true;
-                        StartCoroutine(LanzarGuardado());
                     }
                 }
             }
@@ -48,32 +37,11 @@ public class EvaluarNivel1_8 : CompletarNivelBase
     /// Gestiona un guardado automático de los datos
     /// </summary>
     /// <returns></returns>
-    private IEnumerator LanzarGuardado()
+    private void LanzarGuardado()
     {
         GuardadoCentralizadoMundoBase.ConsolidarProgreso();
         GuardadoCentralizadoMundoBase.GuardarProgreso();
         SaveManager.GetInstance().SaveGame(1);
-        isSaved = true; // Se marca que los datos del jugador han sido guardados
-        yield return null;
-    }
-
-    /// <summary>
-    /// Se encarga de cargar la escena de final bueno o final malo dependiendo de si el jugador ha muerto alguna vez o no
-    /// </summary>
-    /// <param name="nombreEscena">nombre en formato string de la escena a cargar</param>
-    /// <returns></returns>
-    private IEnumerator LanzarEscenaCinematicaFinal(string nombreEscena)
-    {
-        AsyncOperation op = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(nombreEscena);
-        op.allowSceneActivation = false; // Evita que la escena se active automáticamente al terminar de cargar
-        while (!isSaved)
-        {
-            yield return _waitForSeconds0_1; // Espera 100 milisegundos antes de volver a comprobar si el guardado ha finalizado
-        }
-
-        op.allowSceneActivation = true; // Permite que la escena se active una vez que se haya cargado completamente
-
-        yield return op;
     }
 
     /// <summary>
@@ -89,7 +57,7 @@ public class EvaluarNivel1_8 : CompletarNivelBase
     /// </summary>
     private void FinalMalo()
     {
-        StartCoroutine(LanzarEscenaCinematicaFinal("FinalMalo"));
+        GestionEscenas.GetInstance().CambiarEscena("FinalMalo");
     }
 
     /// <summary>
@@ -97,6 +65,6 @@ public class EvaluarNivel1_8 : CompletarNivelBase
     /// </summary>
     private void FinalBueno()
     {
-        StartCoroutine(LanzarEscenaCinematicaFinal("FinalBueno"));
+        GestionEscenas.GetInstance().CambiarEscena("FinalBueno");
     }
 }
