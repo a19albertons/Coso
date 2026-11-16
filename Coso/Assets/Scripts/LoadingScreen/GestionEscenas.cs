@@ -32,11 +32,23 @@ public class GestionEscenas : MonoBehaviour
         StartCoroutine(GestionarEscenaObjetivoAsincronamente(nuevaEscena));
     }
 
+    public void CambiarEscena(int nuevaEscena)
+    {
+        SceneManager.LoadScene("PantallaCarga");
+        StartCoroutine(GestionarEscenaObjetivoAsincronamente(nuevaEscena));
+    }
+
     private IEnumerator GestionarEscenaObjetivoAsincronamente(string nuevaEscena)
     {
         yield return null;
         // Declara la nueva escena para opStatus
         opStatus = SceneManager.LoadSceneAsync(nuevaEscena);
-        
+    }
+
+        private IEnumerator GestionarEscenaObjetivoAsincronamente(int nuevaEscena)
+    {
+        yield return null;
+        // Declara la nueva escena para opStatus
+        opStatus = SceneManager.LoadSceneAsync(nuevaEscena);
     }
 }
