@@ -1,6 +1,4 @@
 using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Clase MuertePersonaje que gestiona la muerte del personaje y la carga de la escena de forma asincrona para evitar congelar el juego mientras se carga
@@ -8,20 +6,10 @@ using UnityEngine.SceneManagement;
 public static class MuertePersonaje
 {
     /// <summary>
-    /// Variable de espera de 0.1 segundos para simular el tiempo de espera antes de comprobar si el guardado ha finalizado
-    /// </summary>
-    private static WaitForSeconds _waitForSeconds0_1 = new(0.1f);
-
-    /// <summary>
-    /// Variable para controlar si los datos del jugador ya han sido guardados
-    /// </summary>
-    private static bool isSaved = false; // Variable para controlar si los datos del jugador ya han sido guardados
-
-    /// <summary>
-    /// Guarda los datos del jugador en los casos de muerte del personaje
+    /// Guarda los datos del jugador cuando muere y cambia la escena en función del numero de vidas
     /// </summary>
     /// <returns></returns>
-    public static IEnumerator GuardarDatosJugador()
+    public static IEnumerator GuardarYCambiarEscena()
     {
         // Actualizar metricas del jugador
         SaveManager.GetInstance().currentSave.playerInfo.powerUpActual = GestionPowerUP.GetInstance().TipoPowerUP();
@@ -29,36 +17,15 @@ public static class MuertePersonaje
         SaveManager.GetInstance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
         SaveManager.GetInstance().currentSave.checkpoint.haMuerto = true;
         SaveManager.GetInstance().SaveGame();
-        isSaved = true; // Marca que los datos del jugador han sido guardados
-        yield return null; ;
-    }
-
-    /// <summary>
-    /// Gestiona la carga de la escena de forma asincrona para evitar congelar el juego mientras se carga
-    /// </summary>
-    /// <returns></returns>
-    public static IEnumerator CargarEscenaAsync()
-    {
-        AsyncOperation op;
+        yield return null;
         if (GestionVidas.GetInstance().GetVidasActualesInt() > 0)
         {
-            op = SceneManager.LoadSceneAsync("MundoBase");
+            GestionEscenas.GetInstance().CambiarEscena("MundoBase");
         }
         else
         {
-            op = SceneManager.LoadSceneAsync("HasPerdido");
+            GestionEscenas.GetInstance().CambiarEscena("HasPerdido");
         }
-        op.allowSceneActivation = false; // Evita que la escena se active automáticamente al terminar de cargar
-        while (!isSaved)
-        {
-            yield return _waitForSeconds0_1; // Espera 100 milisegundos antes de volver a comprobar si el guardado hafinalizado
-        }
-
-        isSaved = false; // Reinicia la variable para futuros usos
-        op.allowSceneActivation = true; // Permite que la escena se active una vez que se haya cargado completamente
-
-        yield return op;
-
     }
 
 }

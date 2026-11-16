@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Components;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -66,7 +65,7 @@ public class ControladorSlot : MonoBehaviour
     void NuevoJuego()
     {
         SaveManager.GetInstance().NewGame(numeroSlot);
-        SceneManager.LoadScene("Intro");
+        GestionEscenas.GetInstance().CambiarEscena("Intro");
     }
 
     /// <summary>
@@ -75,6 +74,6 @@ public class ControladorSlot : MonoBehaviour
     void CargarJuego()
     {
         SaveManager.GetInstance().LoadGame(numeroSlot);
-        SceneManager.LoadScene("MundoBase");
+        GestionEscenas.GetInstance().CambiarEscena("MundoBase");
     }
 }
