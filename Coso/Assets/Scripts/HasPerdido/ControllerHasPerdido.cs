@@ -61,7 +61,7 @@ public class ControllerHasPerdido : MonoBehaviour
         SaveManager.GetInstance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt(); // Restablece las vidas actuales a su valor inicial
 
         //Operaciones de guardado
-        SaveManager.GetInstance().SaveGame(1); // Guarda el juego en el archivo de guardado 1
+        SaveManager.GetInstance().SaveGame(); // Guarda el juego
         isSaved = true; // Marca que los datos del jugador han sido guardados
     }
 

@@ -6,7 +6,6 @@ using UnityEngine.TestTools;
 using System.Collections;
 using System.Reflection;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.EventSystems;
 
 /// <summary>
@@ -124,13 +123,6 @@ public class StartGamePlayModeTests
     [UnityTest]
     public IEnumerator Start_AsignaEventoAlBotonLoadGame()
     {
-        var sm = SaveManager.GetInstance();
-        sm.currentSave = new CurrentSave
-        {
-            playerInfo = new PlayerInfo { vidasActuales = 3, monedasActuales = 10, powerUpActual = PowerUPType.DoubleJump }
-        };
-        yield return null;
-        sm.SaveGame(1);
         yield return null;
 
         var startGame = startGameGO.GetComponent<StartGame>();

@@ -16,7 +16,7 @@ public static class MuertePersonaje
         SaveManager.GetInstance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt();
         SaveManager.GetInstance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
         SaveManager.GetInstance().currentSave.checkpoint.haMuerto = true;
-        SaveManager.GetInstance().SaveGame(1);
+        SaveManager.GetInstance().SaveGame();
         yield return null;
         if (GestionVidas.GetInstance().GetVidasActualesInt() > 0)
         {

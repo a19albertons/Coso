@@ -33,10 +33,10 @@ public class SaveManager : MonoBehaviour
     /// <summary>
     /// Guarda el estado actual del current save en el slot que internamente este indicado
     /// </summary>
-    public void SaveGame(int slot)
+    public void SaveGame()
     {
         string guardado = JsonUtility.ToJson(currentSave);
-        File.WriteAllText(rutaBase + slot, guardado);
+        File.WriteAllText(rutaBase + numeroSlot, guardado);
     }
 
     /// <summary>

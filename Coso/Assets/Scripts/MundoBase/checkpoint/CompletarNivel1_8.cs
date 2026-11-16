@@ -41,7 +41,7 @@ public class EvaluarNivel1_8 : CompletarNivelBase
     {
         GuardadoCentralizadoMundoBase.ConsolidarProgreso();
         GuardadoCentralizadoMundoBase.GuardarProgreso();
-        SaveManager.GetInstance().SaveGame(1);
+        SaveManager.GetInstance().SaveGame();
     }
 
     /// <summary>
