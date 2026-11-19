@@ -36,7 +36,7 @@ public class ScrollAutomatico : MonoBehaviour
         yield return new WaitForSeconds(tiempoEspera);
 
         // 3. Bucle de movimiento mientras no llegue al final (0)
-        while (scrollRect.verticalNormalizedPosition > 0f)
+        while (scrollRect.verticalNormalizedPosition > 0.01f)
         {
             // Mueve la posición hacia 0 de forma lineal
             scrollRect.verticalNormalizedPosition -= velocidadScroll * Time.deltaTime;
