@@ -1,6 +1,6 @@
-name: Check Unity Dependencies
+name: Update Game Engine Version
 
-# Configuración del flujo de trabajo para ejecutarse diariamente a medianoche y permitir la ejecución manual
+# Configuración del flujo de trabajo para ser ejecutado manualmente con el input dado por el usuario
 on:
     workflow_dispatch:
         inputs:
