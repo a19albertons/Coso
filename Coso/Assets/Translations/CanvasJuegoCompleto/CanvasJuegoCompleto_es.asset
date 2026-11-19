@@ -27,7 +27,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 27043860480
-    m_Localized: "- Has debloqueado la opci\xF3n de guardar"
+    m_Localized: "- Has debloqueado la opci\xF3n de guardar\n- Has desbloqueado todas
+      las cinematicas"
     m_Metadata:
       m_Items: []
   references:

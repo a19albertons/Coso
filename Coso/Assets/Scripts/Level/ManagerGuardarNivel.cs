@@ -40,12 +40,12 @@ public class ManagerGuardarNivel : MonoBehaviour
             {
                 nivelesGuardados[i] = nivelActual;
                 SaveManager.GetInstance().currentSave.levels = nivelesGuardados;
-                SaveManager.GetInstance().SaveGame(1);
+                SaveManager.GetInstance().SaveGame();
                 return;
             }
         }
         nivelesGuardados.Add(nivelActual);
         SaveManager.GetInstance().currentSave.levels = nivelesGuardados;
-        SaveManager.GetInstance().SaveGame(1);
+        SaveManager.GetInstance().SaveGame();
     }
 }

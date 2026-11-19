@@ -1,10 +1,12 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(ControladorDoor))]
-public class ControladorInfo : MonoBehaviour
+/// <summary>
+/// Clase controlador que gestiona el nombre de la escena como titulo
+/// </summary>
+[RequireComponent(typeof(ControladorDoorNivel))]
+public class ControladorInfoNivel : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("Las estrellas del panel info en orden correcta izquierda a derecha")]
@@ -27,11 +29,11 @@ public class ControladorInfo : MonoBehaviour
     [Tooltip("Sprite de estrella no obtenida")]
     private Sprite estrellaNoObtenida;
 
-    private ControladorDoor controladorDoor;
+    private ControladorDoorNivel controladorDoorNivel;
 
     void Awake()
     {
-        controladorDoor = GetComponent<ControladorDoor>();
+        controladorDoorNivel = GetComponent<ControladorDoorNivel>();
         if (SaveManager.GetInstance().currentSave == null)
         {
             Debug.LogError("No se ha cargado ningún archivo de guardado. Asegúrate de que el SaveManager esté inicializado correctamente.");
@@ -48,7 +50,7 @@ public class ControladorInfo : MonoBehaviour
         SaveManager.GetInstance().currentSave.levels.ForEach(level =>
         {
 
-            if (level.identificadorNivel.Equals(controladorDoor.sceneName))
+            if (level.identificadorNivel.Equals(controladorDoorNivel.sceneName))
             {
                 for (int j = 0; j < level.starsObtained.Length; j++)
                 {
@@ -66,7 +68,7 @@ public class ControladorInfo : MonoBehaviour
 
         });
 
-        tituloNivel.text = controladorDoor.sceneName;
-        estrellasRequeridas.text = controladorDoor.requiredStars.ToString();
+        tituloNivel.text = controladorDoorNivel.sceneName;
+        estrellasRequeridas.text = controladorDoorNivel.requiredStars.ToString();
     }
 }

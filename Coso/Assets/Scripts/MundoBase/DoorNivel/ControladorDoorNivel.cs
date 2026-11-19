@@ -1,13 +1,11 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Clase ControladorDoor que gestiona la interacción del jugador con la puerta para entrar a un nivel.
 /// </summary>
-public class ControladorDoor : MonoBehaviour
+public class ControladorDoorNivel : MonoBehaviour
 {
     [Header("Configuración de la puerta")]
     [Tooltip("Nombre de la escena a cargar al entrar en la puerta")]
@@ -24,8 +22,6 @@ public class ControladorDoor : MonoBehaviour
     private InputAction EntrarAlNivel;
 
 
-    private AsyncOperation op;
-    private bool isCalled = false;
     private int cantidadEstrellas = 0;
     private bool requisitoEstrellas;
     private bool isEnter = false;
@@ -113,29 +109,13 @@ public class ControladorDoor : MonoBehaviour
     }
 
     /// <summary>
-    /// Se llama cuando el objeto se activa. Habilita la acción de entrar al nivel para que pueda ser detectada mientras el objeto está activo.
-    /// </summary>
-    void OnEnable()
-    {
-        EntrarAlNivel.Enable();
-    }
-
-    /// <summary>
-    /// Se llama cuando el objeto se desactiva. Deshabilita la acción de entrar al nivel para evitar que se siga ejecutando mientras el objeto está desactivado.
-    /// </summary>
-    void OnDisable()
-    {
-        EntrarAlNivel.Disable();
-    }
-
-    /// <summary>
     /// Comprueba en cada fram si el jugador ha presionado el boton de entrar al nivel y si cumple los requisitos para entrar al nivel
     /// </summary>
     void Update()
     {
         if (EntrarAlNivel.IsPressed() && isEnter && requisitoEstrellas && nivelPrevio)
         {
-            GestionEntrarNivel();
+            GestionEscenas.GetInstance().CambiarEscena(sceneName);
         }
     }
 
@@ -152,20 +132,6 @@ public class ControladorDoor : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Gestiona la entrada al nivel. Se asegura de que la escena se cargue de manera asíncrona y que el jugador no pueda moverse mientras se carga la escena.
-    /// </summary>
-    private void GestionEntrarNivel()
-    {
-        if (!isCalled)
-        {
-            isCalled = true;
-            StartCoroutine(CargarEscenaAsync());
-            FindFirstObjectByType<PlayerController>().enabled = false; // Desactiva el script PlayerController para evitar que el jugador se mueva mientras se carga la escena
-            op.allowSceneActivation = true; // Permite que la escena se active automáticamente al terminar de cargar
-        }
-    }
-
 
     /// <summary>
     /// Se llama cuando el jugador sale del trigger de la puerta.
@@ -177,20 +143,6 @@ public class ControladorDoor : MonoBehaviour
         {
             isEnter = false;
             panelInfo.SetActive(false);
-        }
-    }
-
-    /// <summary>
-    /// Carga la escena en un hilo secundario evitando secuestrar el hilo principal
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator CargarEscenaAsync()
-    {
-        op = SceneManager.LoadSceneAsync(sceneName);
-        op.allowSceneActivation = false; // Evita que la escena se active automáticamente al terminar de cargar
-        while (!op.isDone)
-        {
-            yield return null;
         }
     }
 }

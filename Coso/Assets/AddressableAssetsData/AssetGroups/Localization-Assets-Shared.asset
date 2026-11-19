@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6dbf8a710e42c6021bcd19af131d1602
+    m_Address: Assets/Translations/Creditos/Creditos Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76867b279a12ae411a8cf9528679b0b4
     m_Address: Assets/Translations/DialogosFinalBueno/DialogosFinalBueno Shared Data.asset
     m_ReadOnly: 1

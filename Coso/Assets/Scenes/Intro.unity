@@ -851,8 +851,8 @@ MonoBehaviour:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1353106930}
-          m_TargetAssemblyTypeName: SegundoPlano, Assembly-CSharp
-          m_MethodName: CinematicaInicialFinalizada
+          m_TargetAssemblyTypeName: SegundoPlano, GameScripts
+          m_MethodName: CargarMundoBase
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2012,8 +2012,6 @@ PlayableDirector:
   - key: {fileID: 8397984102876654772, guid: 54aff6064dd7d42e5a32164ac00d1a75, type: 2}
     value: {fileID: 1353106929}
   - key: {fileID: -6434534666900330132, guid: 54aff6064dd7d42e5a32164ac00d1a75, type: 2}
-    value: {fileID: 1353106932}
-  - key: {fileID: 9017943704902507843, guid: 54aff6064dd7d42e5a32164ac00d1a75, type: 2}
     value: {fileID: 1353106932}
   m_ExposedReferences:
     m_References: []
