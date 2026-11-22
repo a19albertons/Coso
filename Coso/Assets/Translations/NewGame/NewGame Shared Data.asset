@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: SalirJuego
     m_Metadata:
       m_Items: []
+  - m_Id: 12438697617166336
+    m_Key: Ajustes
+    m_Metadata:
+      m_Items: []
   - m_Id: 9798025160462336
     m_Key: Slot
     m_Metadata:
