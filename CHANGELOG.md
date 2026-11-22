@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version 1.0.3
+
+## Changed
+- Actualizar dependencias
+
 ## Version 1.0.2
 
 ## Changed

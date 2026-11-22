@@ -1,3 +1,3 @@
-# Coso v1.0.2
+# Coso v1.0.3
 
 Se realizan correciones menores de errores
