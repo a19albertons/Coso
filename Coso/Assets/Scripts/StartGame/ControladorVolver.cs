@@ -14,7 +14,7 @@ public class ControladorVolver : MonoBehaviour
     private GameObject mainMenu;
 
     [SerializeField]
-    private GameObject slots;
+    private GameObject otro;
 
 
     void Awake()
@@ -28,6 +28,6 @@ public class ControladorVolver : MonoBehaviour
     private void VolverAtras()
     {
         mainMenu.SetActive(true);
-        slots.SetActive(false);
+        otro.SetActive(false);
     }
 }
