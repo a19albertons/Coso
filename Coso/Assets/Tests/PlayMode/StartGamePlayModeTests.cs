@@ -54,19 +54,26 @@ public class StartGamePlayModeTests
 
         // Asignar botones para que no sean null
         var botonNuevoJuegoGO = new GameObject("NewGameButton");
-        var botonLoadGameGO = new GameObject("LoadGAmeButton");
+        var botonLoadGameGO = new GameObject("LoadGameButton");
+        var botonSettingsGO = new GameObject("SettingsButton");
         var botonSalirGO = new GameObject("SalirDelJuego");
         var mainMenuGO = new GameObject("MainMenu");
         var slotsGO = new GameObject("Slots");
+        var settingsGO = new GameObject("Settings");
         var botonNuevoJuego = botonNuevoJuegoGO.AddComponent<Button>(); // Añadir un botón para evitar errores de referencia nula
         var botonLoadGame = botonLoadGameGO.AddComponent<Button>(); // Añadir un botón para evitar errores de referencia nula
+        var botonSettings = botonSettingsGO.AddComponent<Button>();
         var botonSalir = botonSalirGO.AddComponent<Button>();
         slotsGO.SetActive(false); // Inicialmente inactivo
+        settingsGO.SetActive(false); // Inicialmente inactivo
         ReflectionHelper.GetField(typeof(StartGame), "newGameButton").SetValue(startGameGO.GetComponent<StartGame>(), botonNuevoJuego);
         ReflectionHelper.GetField(typeof(StartGame), "loadGameButton").SetValue(startGameGO.GetComponent<StartGame>(), botonLoadGame);
+        ReflectionHelper.GetField(typeof(StartGame), "settingsButton").SetValue(startGameGO.GetComponent<StartGame>(), botonSettings);
         ReflectionHelper.GetField(typeof(StartGame), "exitGameButton").SetValue(startGameGO.GetComponent<StartGame>(), botonSalir);
         ReflectionHelper.GetField(typeof(StartGame), "mainMenu").SetValue(startGameGO.GetComponent<StartGame>(), mainMenuGO);
         ReflectionHelper.GetField(typeof(StartGame), "slots").SetValue(startGameGO.GetComponent<StartGame>(), slotsGO);
+        ReflectionHelper.GetField(typeof(StartGame), "settings").SetValue(startGameGO.GetComponent<StartGame>(), settingsGO);
+
 
         // Añadir un EventSystem a la escena para que los botones funcionen correctamente
         if (EventSystem.current == null)
@@ -230,5 +237,38 @@ public class StartGamePlayModeTests
         Assert.IsFalse(StartGame.newGame, "newGame debe ser false después de LoadGame()");
         Assert.IsFalse(mainMenu.activeSelf, "mainMenu debe ser inactivo después de LoadGame()");
         Assert.IsTrue(slots.activeSelf, "slots debe ser activo después de LoadGame()");
+    }
+
+    // ---- Test 6: Settings() cambia la visibilidad de mainMenu y settings ---------
+    [UnityTest]
+    public IEnumerator Start_SettingsCambiamVisibilidadDeMainMenuYSettings()
+    {
+        var startGame = startGameGO.GetComponent<StartGame>();
+        yield return null;
+
+        // Obtener referencias a los GameObjects
+        FieldInfo mainMenuField = ReflectionHelper.GetField(typeof(StartGame), "mainMenu");
+        FieldInfo settingsField = ReflectionHelper.GetField(typeof(StartGame), "settings");
+        Assert.IsNotNull(mainMenuField, "mainMenu debe existir");
+        Assert.IsNotNull(settingsField, "settings debe existir");
+
+        GameObject mainMenu = (GameObject)mainMenuField.GetValue(startGame);
+        GameObject settings = (GameObject)settingsField.GetValue(startGame);
+
+        // Verificar estado inicial de visibilidad
+        Assert.IsTrue(mainMenu.activeSelf, "mainMenu debe ser activo al inicio");
+        Assert.IsFalse(settings.activeSelf, "settings debe ser inactivo al inicio");
+
+        yield return null;
+
+        // Ejecutar el método Settings() mediante reflexión
+        MethodInfo settingsMethod = ReflectionHelper.GetMethodInfo(typeof(StartGame), "Settings");
+        settingsMethod.Invoke(startGame, null);
+
+        yield return null;
+
+        // Verificar estado después de llamar a Settings()
+        Assert.IsFalse(mainMenu.activeSelf, "mainMenu debe ser inactivo después de Settings()");
+        Assert.IsTrue(settings.activeSelf, "settings debe ser activo después de Settings()");
     }
 }
