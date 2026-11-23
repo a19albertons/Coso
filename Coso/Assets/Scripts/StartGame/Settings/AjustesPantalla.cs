@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Clase que controla la configuración de pantalla como su resolución
+/// </summary>
 public class AjustesPantalla : MonoBehaviour
 {
     [SerializeField]
@@ -91,7 +94,6 @@ public class AjustesPantalla : MonoBehaviour
     /// <summary>
     /// Cambia el modo de pantalla en función de si ha cambiado el tipo o no
     /// </summary>
-    /// <exception cref="NotImplementedException"></exception>
     private void CambiaElModoPantalla()
     {
         // checkeamos el actual vs el viejo
