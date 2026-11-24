@@ -78,6 +78,7 @@ public class AjustesFPS : MonoBehaviour
                 break;
             default:
                 QualitySettings.vSyncCount = 1;
+                Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
                 break;
         }
     }
