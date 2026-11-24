@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,6 +15,9 @@ public class StartGame : MonoBehaviour
     private Button loadGameButton;
 
     [SerializeField]
+    private Button settingsButton;
+
+    [SerializeField]
     private Button exitGameButton;
 
     [SerializeField]
@@ -22,10 +26,12 @@ public class StartGame : MonoBehaviour
     [SerializeField]
     private GameObject slots;
 
+    [SerializeField]
+    private GameObject settings;
+
     /// <summary>
     /// Variable estatica que indica si estamos accediendo por la opción de juego nuevo o cargar juego
     /// </summary>
-    [SerializeField]
     public static bool newGame = false;
 
 
@@ -34,6 +40,8 @@ public class StartGame : MonoBehaviour
         newGameButton.onClick.AddListener(NewGame);
 
         loadGameButton.onClick.AddListener(LoadGame);
+
+        settingsButton.onClick.AddListener(Settings);
 
         exitGameButton.onClick.AddListener(ExitGame);
 
@@ -48,7 +56,7 @@ public class StartGame : MonoBehaviour
     {
         // Permite que todos los slots sean clickables
         newGame = true;
-        
+
         mainMenu.SetActive(false);
         slots.SetActive(true);
     }
@@ -62,6 +70,15 @@ public class StartGame : MonoBehaviour
 
         mainMenu.SetActive(false);
         slots.SetActive(true);
+    }
+
+    /// <summary>
+    /// Metodo que muestra las opciones de configuración y oculta el menu principal
+    /// </summary>
+    private void Settings()
+    {
+        mainMenu.SetActive(false);
+        settings.SetActive(true);
     }
 
     /// <summary>

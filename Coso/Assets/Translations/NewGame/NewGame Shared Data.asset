@@ -27,8 +27,24 @@ MonoBehaviour:
     m_Key: SalirJuego
     m_Metadata:
       m_Items: []
+  - m_Id: 12438697617166336
+    m_Key: Ajustes
+    m_Metadata:
+      m_Items: []
   - m_Id: 9798025160462336
     m_Key: Slot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12820849479421952
+    m_Key: Musica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12821056699011072
+    m_Key: Efectos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13059611987841024
+    m_Key: Fps
     m_Metadata:
       m_Items: []
   m_Metadata:
