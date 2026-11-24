@@ -43,6 +43,10 @@ MonoBehaviour:
     m_Key: Efectos
     m_Metadata:
       m_Items: []
+  - m_Id: 13059611987841024
+    m_Key: Fps
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
