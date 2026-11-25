@@ -538,7 +538,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.00024414062, y: 0}
+  m_SizeDelta: {x: 0, y: 0.37060547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &333122555935843377
 CanvasRenderer:
@@ -782,6 +782,7 @@ GameObject:
   - component: {fileID: 5789133822125471335}
   - component: {fileID: 3345301004062119632}
   - component: {fileID: 1498423880017243044}
+  - component: {fileID: 79761851626343291}
   m_Layer: 5
   m_Name: MenuPausaMundoBase
   m_TagString: Untagged
@@ -875,6 +876,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &79761851626343291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7504233007861015890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5283df577ebc0d434ba3462b52d5e398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ControladorPlataforma
+  exclusivoStandlone:
+  - {fileID: 7645846466575035524}
 --- !u!1 &7645846466575035524
 GameObject:
   m_ObjectHideFlags: 0
