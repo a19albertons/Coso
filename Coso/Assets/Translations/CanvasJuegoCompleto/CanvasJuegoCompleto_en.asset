@@ -27,7 +27,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 27043860480
-    m_Localized: '- You unlock the save option'
+    m_Localized: '- You unlock the save option
+
+      - You unlock all cinematics'
     m_Metadata:
       m_Items: []
   references:

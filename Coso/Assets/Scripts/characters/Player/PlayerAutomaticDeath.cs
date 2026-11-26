@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Clase PlayerAutomaticDeath que gestiona la muerte automática del jugador cuando cae por debajo de una altura específica en el eje Y.
@@ -34,14 +33,8 @@ public class PlayerAutomaticDeath : MonoBehaviour
             GestionVidas.GetInstance().PlayerPierdeVida();
             AudioSource.PlayClipAtPoint(sonidoMuerte, transform.position);
 
-
-            // Empieza la carga de la escena de forma asincrona para evitar congelar el juego mientras se carga
-            StartCoroutine(MuertePersonaje.CargarEscenaAsync());
-
-
-
             // Se actualizan los datos del jugador como numero de vidas, perdida de powerup, monedas...
-            StartCoroutine(MuertePersonaje.GuardarDatosJugador());
+            StartCoroutine(MuertePersonaje.GuardarYCambiarEscena());
         }
     }
 

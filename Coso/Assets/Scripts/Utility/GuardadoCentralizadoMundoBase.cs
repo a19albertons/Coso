@@ -47,6 +47,6 @@ public static class GuardadoCentralizadoMundoBase
         SaveManager.GetInstance().currentSave.playerInfo.monedasActuales = GestionMonedas.GetInstance().GetMonedasAcumuladasInt();
         SaveManager.GetInstance().currentSave.playerInfo.vidasActuales = GestionVidas.GetInstance().GetVidasActualesInt();
         SaveManager.GetInstance().currentSave.playerInfo.powerUpActual = GestionPowerUP.GetInstance().TipoPowerUP();
-        SaveManager.GetInstance().SaveGame(1);
+        SaveManager.GetInstance().SaveGame();
     }
 }

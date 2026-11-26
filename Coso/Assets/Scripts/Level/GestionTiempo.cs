@@ -42,8 +42,7 @@ public class GestionTiempo : MonoBehaviour
                     isExecuted = true;
                     GestionPowerUP.GetInstance().PlayerPierdePowerUP();
                     GestionVidas.GetInstance().PlayerPierdeVida();
-                    StartCoroutine(MuertePersonaje.GuardarDatosJugador());
-                    StartCoroutine(MuertePersonaje.CargarEscenaAsync());
+                    StartCoroutine(MuertePersonaje.GuardarYCambiarEscena());
                 }
             }
         }

@@ -78,6 +78,13 @@ MonoBehaviour:
     - Locale-en
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e07d1d17344af00e9bc24ad9de69c0a8
+    m_Address: Creditos_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 1eece3a8458ad31c9b14a95247711769, type: 2}
   m_SchemaSet:

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## Version 1.1.0
+
+## Added
+- Añadido creditos
+- Contendio posterior del juego
+- Pantalla de carga
+- Soporte varios slots
+
+## Changed
+- Modifica el menu principal para soportar varias características nuevas
+
+## Fixed
+- Bug al cerrar el juego en la versión y móbil
+
 ## Version 1.0.3
 
 ## Changed

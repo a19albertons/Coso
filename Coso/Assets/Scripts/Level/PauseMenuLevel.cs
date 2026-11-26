@@ -91,7 +91,7 @@ public class PauseMenuLevel : MonoBehaviour
         playerControllerScript.enabled = true;
         GestionPowerUP.GetInstance().PlayerPierdePowerUP();
         GestionVidas.GetInstance().PlayerPierdeVida();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GestionEscenas.GetInstance().CambiarEscena(SceneManager.GetActiveScene().buildIndex);
         Resume();
     }
 
@@ -105,7 +105,7 @@ public class PauseMenuLevel : MonoBehaviour
         playerControllerScript.enabled = true;
         GestionPowerUP.GetInstance().PlayerPierdePowerUP();
         GestionVidas.GetInstance().PlayerPierdeVida();
-        SceneManager.LoadScene("MundoBase");
+        GestionEscenas.GetInstance().CambiarEscena("MundoBase");
         Resume();
     }
 

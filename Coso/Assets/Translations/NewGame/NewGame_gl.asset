@@ -23,7 +23,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 97805963264
-    m_Localized: Continuar
+    m_Localized: Cargar Xogo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8372201215528960
+    m_Localized: "Sa\xEDr do Xogo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9798025160462336
+    m_Localized: 'Partida '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12438697617166336
+    m_Localized: Axustes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12820849479421952
+    m_Localized: "M\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12821056699011072
+    m_Localized: Efectos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13059611987841024
+    m_Localized: Fps
     m_Metadata:
       m_Items: []
   references:
