@@ -50,6 +50,7 @@ public class StartGamePlayModeTests
 
         // Crear el StartGameGO
         startGameGO = new GameObject("StartGame");
+        startGameGO.SetActive(false);
         startGameGO.AddComponent<StartGame>();
 
         // Asignar botones para que no sean null
@@ -81,6 +82,10 @@ public class StartGamePlayModeTests
             var eventSystemGO = new GameObject("EventSystem");
             eventSystemGO.AddComponent<EventSystem>();
         }
+        yield return null;
+
+        startGameGO.SetActive(true);
+        
         yield return null;
     }
 
