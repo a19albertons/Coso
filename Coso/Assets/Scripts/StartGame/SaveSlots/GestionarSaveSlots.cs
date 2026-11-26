@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
@@ -28,6 +29,8 @@ public class GestionarSaveSlots : MonoBehaviour
     [SerializeField]
     private Color colorGris;
 
+    private bool definido = false;
+
     private void Awake()
     {
         CargarSlots();
@@ -44,6 +47,11 @@ public class GestionarSaveSlots : MonoBehaviour
         {
             DeshabilitarSlotsSinJuego();
         }
+    }
+
+    void OnDisable()
+    {
+        definido = false;
     }
 
     /// <summary>
@@ -79,6 +87,11 @@ public class GestionarSaveSlots : MonoBehaviour
             {
                 objectosInstanciados[i].GetComponent<Button>().enabled = true;
                 objectosInstanciados[i].GetComponent<Image>().color = Color.white;
+                if (!definido)
+                {
+                    EventSystem.current.SetSelectedGameObject(objectosInstanciados[i]);
+                    definido = true;
+                }
             }
         }
     }
@@ -94,6 +107,11 @@ public class GestionarSaveSlots : MonoBehaviour
             {
                 objectosInstanciados[i].GetComponent<Button>().enabled = false;
                 objectosInstanciados[i].GetComponent<Image>().color = colorGris;
+            }
+            else if (!definido)
+            {
+                EventSystem.current.SetSelectedGameObject(objectosInstanciados[i]);
+                definido = true;
             }
         }
     }
