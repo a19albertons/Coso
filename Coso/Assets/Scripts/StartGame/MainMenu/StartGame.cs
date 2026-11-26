@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -29,6 +28,8 @@ public class StartGame : MonoBehaviour
     [SerializeField]
     private GameObject settings;
 
+    private GameObject ultimoSelecionado;
+
     /// <summary>
     /// Variable estatica que indica si estamos accediendo por la opción de juego nuevo o cargar juego
     /// </summary>
@@ -45,8 +46,15 @@ public class StartGame : MonoBehaviour
 
         exitGameButton.onClick.AddListener(ExitGame);
 
+        // Definimos el boton inicial y lo forzamos la primera vez
+        ultimoSelecionado = newGameButton.gameObject;
+        EventSystem.current.SetSelectedGameObject(ultimoSelecionado);
+    }
+
+    void OnEnable()
+    {
         // Soporte para mando / teclado al empezar el juego, seleccionando el botón de nuevo juego por defecto
-        EventSystem.current.SetSelectedGameObject(newGameButton.gameObject);
+        EventSystem.current.SetSelectedGameObject(ultimoSelecionado);
     }
 
     /// <summary>
@@ -59,6 +67,9 @@ public class StartGame : MonoBehaviour
 
         mainMenu.SetActive(false);
         slots.SetActive(true);
+
+        // actualizamos el boton
+        ultimoSelecionado = newGameButton.gameObject;
     }
 
     /// <summary>
@@ -70,6 +81,9 @@ public class StartGame : MonoBehaviour
 
         mainMenu.SetActive(false);
         slots.SetActive(true);
+
+        // actualizamos el boton
+        ultimoSelecionado = loadGameButton.gameObject;
     }
 
     /// <summary>
@@ -79,6 +93,9 @@ public class StartGame : MonoBehaviour
     {
         mainMenu.SetActive(false);
         settings.SetActive(true);
+
+        // actualizamos el boton
+        ultimoSelecionado = settingsButton.gameObject;
     }
 
     /// <summary>
